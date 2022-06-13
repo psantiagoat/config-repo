@@ -13,8 +13,6 @@ management:
         allowed-methods: "GET,POST"
   endpoint:
     health:
-      elasticsearch:
-        response-timeout: 1s
       show-details: always
       probes:
         enabled: true
@@ -35,6 +33,9 @@ server:
 
 # Datos de spring
 spring:
+  elasticsearch:
+    rest:
+      uris: [http://10.80.54.4:9200] 
   banner:
     location: classpath:/banner.txt
   main:
