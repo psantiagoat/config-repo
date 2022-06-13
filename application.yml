@@ -36,6 +36,8 @@ spring:
   elasticsearch:
     rest:
       uris: [http://10.80.54.4:9200] 
+      username: ""
+      password: ""
   banner:
     location: classpath:/banner.txt
   main:
