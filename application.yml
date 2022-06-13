@@ -13,6 +13,8 @@ management:
         allowed-methods: "GET,POST"
   endpoint:
     health:
+      elasticsearch:
+        response-timeout: 1s
       show-details: always
       probes:
         enabled: true
