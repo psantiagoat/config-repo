@@ -35,7 +35,7 @@ server:
 spring:
   elasticsearch:
     rest:
-      uris: [http://10.80.54.4:9200] 
+      uris: [http://10.28.95.28:9200] 
       username: ""
       password: ""
   banner:
