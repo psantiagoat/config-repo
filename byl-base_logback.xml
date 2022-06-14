@@ -7,6 +7,7 @@
   <springProperty scope="context" name="name" source="spring.application.name" defaultValue="name_default"/>
   <springProperty scope="context" name="appversion" source="app.version" defaultValue="0.0.0"/>
   <springProperty scope="context" name="profile" source="spring.profiles.active" defaultValue="local"/>
+  
   <springProperty scope="context" name="elasticHost" source="elasticsearch.host" defaultValue=""/>
   <springProperty scope="context" name="elasticAuthorizationType" source = "elasticsearch.authorization.type" defaultValue=""/>
   <springProperty scope="context" name="elasticAuthorizationPassword" source = "elasticsearch.authorization.password" defaultValue=""/>
