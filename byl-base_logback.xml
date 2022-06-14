@@ -8,7 +8,8 @@
   <springProperty scope="context" name="appversion" source="app.version" defaultValue="0.0.0"/>
   <springProperty scope="context" name="profile" source="spring.profiles.active" defaultValue="local"/>
   <springProperty scope="context" name="elasticHost" source="elasticsearch.host" defaultValue=""/>
-  <springProperty scope="context" name="elasticAuthorization" source = "elasticsearch.authorization" defaultValue=""/>
+  <springProperty scope="context" name="elasticAuthorizationType" source = "elasticsearch.authorization.type" defaultValue=""/>
+  <springProperty scope="context" name="elasticAuthorizationPassword" source = "elasticsearch.authorization.password" defaultValue=""/>
   <springProperty scope="context" name="elasticTimeout" source = "elasticsearch.timeout" defaultValue="30000"/>
 
   <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
@@ -69,7 +70,7 @@
           </header>
           <header>
               <name>Authorization</name>
-              <value>${elasticAuthorization}</value>
+              <value>${elasticAuthorizationType} ${elasticAuthorizationPassword}</value>
           </header>
       </headers>
     </appender>
