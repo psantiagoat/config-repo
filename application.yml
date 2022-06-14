@@ -52,8 +52,9 @@ spring:
 #elasticsearch
 elasticsearch:
   host: 10.80.54.4
-  authorization: '{cipher}d36dfff42166a1218c0058c28e9b10e2e3fa75fdd48cc87e00cfa49cd42a8847a4cf7024bb38ae6c17b69db1c17dd403d6dafce82964f579c4659199cadd977a2d6950066d7c4fdddeb1cef4179b7e91'
-
+  authorization: Basic '{cipher}853c8cfe2cee03370d779f0b2ff1967baacc13ff44924c1f88039ca7918f836a7e3dc38f0b74595cca621a1f20d12fcee1e1c6a3c2e6b6b5206ed6516a7a79e023b3ba11d042361663396258911c5803'
+  timeout: 30000
+  
 # jasypt:
 #   encryptor:
 #     algorithm: PBEWithMD5AndDES
