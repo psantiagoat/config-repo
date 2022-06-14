@@ -51,7 +51,8 @@ spring:
 
 #elasticsearch
 elasticsearch:
-  url: http://10.80.54.4:9200
+  host: 10.80.54.4
+  authorization: Basic bG9nc3Rhc2hfd3JpdGVyOnJhNjNOc1RHez12NlA9dmpDUyVUeA==
 
 # jasypt:
 #   encryptor:

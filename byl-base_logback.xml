@@ -7,7 +7,8 @@
   <springProperty scope="context" name="name" source="spring.application.name" defaultValue="name_default"/>
   <springProperty scope="context" name="appversion" source="app.version" defaultValue="0.0.0"/>
   <springProperty scope="context" name="profile" source="spring.profiles.active" defaultValue="local"/>
-  <springProperty scope="context" name="elasticUrl" source="elasticsearch.url" defaultValue=""/>
+  <springProperty scope="context" name="elasticHost" source="elasticsearch.host" defaultValue=""/>
+  <springProperty scope="context" name="elasticAuthorization" source = "elasticsearch.authorization" defaultValue=""/>
 
   <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
       <!--authentication class="com.internetitem.logback.elasticsearch.config.BasicAuthentication" /-->
@@ -26,7 +27,7 @@
       <readTimeout>30000</readTimeout> <!-- optional (in ms, default 30000) -->
       <sleepTime>250</sleepTime> <!-- optional (in ms, default 250) -->
       <type></type>
-      <url>${elasticUrl}/_bulk</url>
+      <url>http://${elasticHost}:9200/_bulk</url>
       <properties>
           <property>
               <name>app</name>
@@ -67,7 +68,7 @@
           </header>
           <header>
               <name>Authorization</name>
-              <value>Basic bG9nc3Rhc2hfd3JpdGVyOnJhNjNOc1RHez12NlA9dmpDUyVUeA==</value>
+              <value>${elasticAuthorization}</value>
           </header>
       </headers>
     </appender>
