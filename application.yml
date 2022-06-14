@@ -49,6 +49,9 @@ spring:
     basic:
       enabled: false
 
+#elasticsearch
+elasticsearch:
+  url: http://10.80.54.4:9200/_bulk
 
 # jasypt:
 #   encryptor:
