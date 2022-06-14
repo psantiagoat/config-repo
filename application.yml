@@ -33,11 +33,6 @@ server:
 
 # Datos de spring
 spring:
-  elasticsearch:
-    rest:
-      uris: [http://10.28.95.28:9200] 
-      username: ""
-      password: ""
   banner:
     location: classpath:/banner.txt
   main:
