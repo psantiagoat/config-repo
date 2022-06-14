@@ -51,7 +51,7 @@ spring:
 
 #elasticsearch
 elasticsearch:
-  url: http://10.80.54.4:9200/_bulk
+  url: http://10.80.54.4:9200
 
 # jasypt:
 #   encryptor:
