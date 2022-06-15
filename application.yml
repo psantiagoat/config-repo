@@ -1,6 +1,12 @@
 app:
   version: '@project.version@'
 
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger/index.html
+    
 # Para exponer los endpoints de actuator
 management:
   endpoints:
