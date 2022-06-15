@@ -30,7 +30,7 @@
       <readTimeout>${elasticTimeout}</readTimeout> <!-- optional (in ms, default 30000) -->
       <sleepTime>250</sleepTime> <!-- optional (in ms, default 250) -->
       <type></type>
-      <url>http://${elasticHost}:9200/_bulk</url>
+      <url>http://10.80.54.4:9200/_bulk</url>
       <properties>
           <property>
               <name>app</name>
@@ -71,7 +71,7 @@
           </header>
           <header>
               <name>Authorization</name>
-              <value>${elasticAuthorizationType} ${elasticAuthorizationPassword}</value>
+              <value>Basic bG9nc3Rhc2hfd3JpdGVyOnJhNjNOc1RHez12NlA9dmpDUyVUeA==</value>
           </header>
       </headers>
     </appender>
