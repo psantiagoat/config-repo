@@ -12,8 +12,8 @@ project:
     password: xxxxxx # Crear contraseÃ±a de conexiÃ³n de usuario MQ
     receive-timeout: 20000
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-#    queue: BYL_DOM_IN_CATALOG_Q
-    queue: TEST_QUEUE_1
+    queue: BYL_DOM_IN_CATALOG_Q
+#    queue: TEST_QUEUE_1
 # API distribucion
   distribucion:
     api:
