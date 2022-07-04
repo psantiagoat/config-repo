@@ -9,7 +9,7 @@ project:
     queue-manager: OM_QMGR
     channel: SYSTEM.TLS.SVRCONN
     username: mqm #MQ creado por el usuario
-    password: xxxxxx # Crear contraseÃ±a de conexiÃ³n de usuario MQ
+    password: xxxxxx # Crear contraseña de conexión de usuario MQ
     receive-timeout: 20000
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     queue: BYL_DOM_IN_CATALOG_Q
