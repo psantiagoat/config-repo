@@ -1,0 +1,31 @@
+app:
+  version: '@project.version@'
+  
+process:
+  config:
+    distribucion-page-size: 500
+    supplies-page-size: 100
+    persistence-file-path: /mnt/persistent/gateway-distribucion-api-v1
+    persistence-max-records: 5
+    inventory-params:
+      region-code: ES
+
+webclient:
+  distribucion:
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
+    services:
+      syncro-adjustment: /inventory/syncro/adjustment
+      syncro-shipment: /inventory/syncro/shipment
+      syncro-sale: /inventory/syncro/reservation
+      full-inventory: /inventory/syncro/full
+      max-references: /inventory/maxReferences
+  oms:
+    tenant: '{cipher}c6eb8ee5ab858fadfcd73f28f98a8f1815f7caa6f54ed2025a654b6b035be9ef'
+    oauth:
+      client-id: '{cipher}933a5692f1595a9b28f440f8dedcd1e332f36e86201d848946acba211aa0bc1eb59e758b815d5018ad1cb6e20c9d64edeb7793ebb3313bcd49bff3dac94072ce'
+      client-secret: '{cipher}16b233a3ac4e8a43fdf3cdec9cc41262c246bce17d692ef879dbb555a8d83ac95ff21e4c0a32bed55b2dd7e2dd7cf3dcc713c2c70158cf3ef96d5a56ac2fd615'
+    base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.oms.tenant}/v1
+    services:
+      supplies: /supplies
+      oauth: /oauth2/token
+      ship-nodes: /configuration/shipNodes
