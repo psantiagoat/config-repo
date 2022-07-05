@@ -17,7 +17,8 @@ project:
 # API distribucion
   distribucion:
     api:
-      host: 'http://desazure.byl.local//'
+#      host: 'http://desazure.byl.local//'
+      host: 'http://localhost:8080/'
       endpoint: 'gateway-distribucion-api-v1//items//item-variants'
   num-items-per-message : 1
 
