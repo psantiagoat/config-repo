@@ -1,7 +1,6 @@
 concrete-message: Configuration Específica entorno Des! (fichero apps/gateway-product/gateway-product.yml)
 
 test_encriptacion_en_servidor: QN6IZRoY8xk4COVJjyMZZfSSnHU0IZ3ilpr/2MlDuuY=
-# test_encriptacion_en_servidor: ENC(QN6IZRoY8xk4COVJjyMZZfSSnHU0IZ3ilpr/2MlDuuY=)
 
 spring:
   profiles:
@@ -21,6 +20,7 @@ spring:
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB
     username: usrvcdevfrontatcro
-    password: _@o<R23@{Mp}=iDK;yFi>fc!2|Q5IE
+    # password: _@o<R23@{Mp}=iDK;yFi>fc!2|Q5IE
+    password: '{cipher}c98eafd099593c6bf75baaf91d963f29193455000c1e0412eaf2445995414b58a6fd3fffc4a1b11eccf5003219107760'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal

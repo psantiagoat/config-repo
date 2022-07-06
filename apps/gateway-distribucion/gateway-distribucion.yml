@@ -1,10 +1,7 @@
-
-
-
-
 spring:
   profiles:
     active: ${SHORT_ENV}
+
 # Datasources
   datasource:
     datasource-initializer-enabled: false
@@ -18,8 +15,7 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2
-#    username: uomsdevro
     username: uomsdev
-    password: 'q·Sz·JqY/o|Hu{";*07;WFf%?NEl"E'
+    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
