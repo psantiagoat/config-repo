@@ -19,7 +19,7 @@ spring:
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2
 #    username: uomsdevro
-    username: svmos101036-sql
+    username: uomsdev
     password: 'q·Sz·JqY/o|Hu{";*07;WFf%?NEl"E'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
