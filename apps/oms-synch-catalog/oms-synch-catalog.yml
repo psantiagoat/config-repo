@@ -5,6 +5,7 @@ spring:
 project:
   mq:
     host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
+    
     port: 15443
     queue-manager: OM_QMGR
     channel: SYSTEM.TLS.SVRCONN
