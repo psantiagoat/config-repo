@@ -11,12 +11,15 @@ project:
     username: mqm #MQ creado por el usuario
     password: xxxxxx # Crear contraseÃ±a de conexiÃ³n de usuario MQ
     receive-timeout: 20000
+    delivery-timeout: 20000
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     queue: BYL_DOM_IN_CATALOG_Q
 #    queue: TEST_QUEUE_1
 # API distribucion
   distribucion:
     api:
-      host: 'http://desazure.byl.local/'
-      endpoint: 'gateway-distribucion-api-v1/items/item-variants'
+      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/items/'
+      endpoints: 
+        items: 'item-variants'
+        active-season: 'active-season'
   num-items-per-message : 1
