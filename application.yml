@@ -60,7 +60,7 @@ elasticsearch:
   host: 10.80.54.4
   authorization: 
     type: Basic 
-    password: '{cipher}853c8cfe2cee03370d779f0b2ff1967baacc13ff44924c1f88039ca7918f836a7e3dc38f0b74595cca621a1f20d12fcee1e1c6a3c2e6b6b5206ed6516a7a79e023b3ba11d042361663396258911c5803'
+    password: bG9nc3Rhc2hfd3JpdGVyOnJhNjNOc1RHez12NlA9dmpDUyVUeA==
   timeout: 30000
   
 # jasypt:
