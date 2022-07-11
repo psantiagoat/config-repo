@@ -21,5 +21,5 @@ project:
       host: 'http://desazure.byl.local/gateway-distribucion-api-v1/items/'
       endpoints: 
         items: 'item-variants'
-        active-season: 'active-season'
+        active-season: 'activeSeason'
   num-items-per-message : 1
