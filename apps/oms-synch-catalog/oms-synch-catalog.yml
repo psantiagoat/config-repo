@@ -18,7 +18,8 @@ project:
 # API distribucion
   distribucion:
     api:
-      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/'
+#      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/'
+      host: 'http://localhost:8080/gateway-distribucion-api-v1/'
       endpoints: 
         items: 'items/item-variants'
         active-season: 'items/activeSeason'
