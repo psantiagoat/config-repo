@@ -1,10 +1,9 @@
 concrete-message: Configuration Específica entorno Des! (fichero apps/gateway-product/gateway-product.yml)
 
-
 spring:
   profiles:
     active: ${SHORT_ENV}
-
+    
 # Datasources
   datasource:
     datasource-initializer-enabled: false
