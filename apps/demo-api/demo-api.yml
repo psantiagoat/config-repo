@@ -16,7 +16,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos107021.byl.local;databaseName=NAVPRE;sslProtocol=TLSv1.2;trustServerCertificate=true
+    url: jdbc:sqlserver://svmos107021.byl.local;databaseName=NAVPRE;sslProtocol=TLSv1.2;trustServerCertificate=true;disabledAlgorithms=true
     username: uproductintegration
     password: '{cipher}36d3c99d1c4cb4d531835909ff139913b5edbf3d147b2358db3ffa3f34c654e3771a55538e44031b14d1f174ebca4eb3f32c415db47cd0e9be311267860f32f3'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
