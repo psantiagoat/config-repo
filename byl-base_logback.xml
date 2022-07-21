@@ -101,9 +101,6 @@
       </appender>
     </logger>
     
-    <root level="INFO">
-			<include resource="logback_conf.xml" />  
-    </root>
-     
+		<include resource="logback_conf.xml" />  
   
 </configuration>
