@@ -97,7 +97,6 @@
       </appender>
     </logger>
     
-		<include resource="logback_conf_pruebas.xml" />  
-		<include resource="${SCCS}/sccs/${name}/${SHORT_ENV}/main/logback_conf_pruebas.xml"/>
+		<include resource="C:\Users\pw-psantiago\Documents\config-repo\logback_conf_pruebas.xml"/>  
   
 </configuration>
