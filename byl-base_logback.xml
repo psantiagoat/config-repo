@@ -97,6 +97,12 @@
       </appender>
     </logger>
     
+    
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+    
+    
 		<include resource="logback_conf_pruebas.xml" />  
   
 </configuration>
