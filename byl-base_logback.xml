@@ -97,6 +97,6 @@
       </appender>
     </logger>
     
-		<include resource="logback_conf.xml" />  
+		<include resource="apps/${name}/logback_conf.xml" />  
   
 </configuration>
