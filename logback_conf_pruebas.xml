@@ -4,17 +4,8 @@
 
     <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
 
-    <if condition='property("profile").contains("test") || property("profile").contains("local")'>
-        <then>
-            <root level="DEBUG">
-                <appender-ref ref="CONSOLE" />
-            </root>
-        </then>
-        <else>
-            <root level="DEBUG">
-                <appender-ref ref="ELASTIC" />
-            </root>
-        </else>
-    </if>
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
 
 </included>
