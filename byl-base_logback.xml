@@ -12,10 +12,6 @@
   <springProperty scope="context" name="elasticAuthorizationType" source = "elasticsearch.authorization.type" defaultValue=""/>
   <springProperty scope="context" name="elasticAuthorizationPassword" source = "elasticsearch.authorization.password" defaultValue=""/>
   <springProperty scope="context" name="elasticTimeout" source = "elasticsearch.timeout" defaultValue="30000"/>
-  
-  <logger name="org" level="OFF"/>
-  <logger name="reactor" level="OFF"/>
-  <logger name="io" level="OFF"/>
 
   <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
       <!--authentication class="com.internetitem.logback.elasticsearch.config.BasicAuthentication" /-->
