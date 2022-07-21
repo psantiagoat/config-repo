@@ -97,12 +97,7 @@
       </appender>
     </logger>
     
-    
-    <root level="DEBUG">
-        <appender-ref ref="CONSOLE" />
-    </root>
-    
-    
 		<include resource="logback_conf_pruebas.xml" />  
+		<include resource="${SCCS}/sccs/${name}/${SHORT_ENV}/main/logback_conf_pruebas.xml"/>
   
 </configuration>
