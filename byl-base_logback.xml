@@ -97,6 +97,6 @@
       </appender>
     </logger>
     
-		<include resource="logback_conf.xml" />  
+		<include url="${spring.cloud.config.uri}/logback_conf_pruebas.xml"/>
   
 </configuration>
