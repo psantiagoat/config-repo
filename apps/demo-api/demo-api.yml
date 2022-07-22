@@ -23,4 +23,6 @@ spring:
     poolName: HikariCP-Principal
     
 logback:
-  level: ERROR
+  level:
+    console: ERROR
+    elastic: ERROR
