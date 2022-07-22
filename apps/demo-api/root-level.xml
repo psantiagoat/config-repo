@@ -7,6 +7,4 @@
     <!--  root level  -->
     <property name="root.level" value="ERROR"/>
     
-    <c:out value="${root.level}"/>
-
 </included>
