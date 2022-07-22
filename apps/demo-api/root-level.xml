@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<included>
-
-    <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
-    
-    <variable name="LEVEL" value="ERROR" scope="local"/>
-
-</included>

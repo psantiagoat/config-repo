@@ -97,7 +97,7 @@
       </appender>
     </logger>
     
-		<include resource="${SCCS}/sccs/${name}/${SHORT_ENV}/main/apps/${name}/root-level.xml"/>
+		<variable file="${SCCS}/sccs/${name}/${SHORT_ENV}/main/apps/${name}/root-level.properties"/>
 		
     <include resource="logback_conf.xml"/>  
     
