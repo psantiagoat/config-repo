@@ -21,3 +21,6 @@ spring:
     password: '{cipher}36d3c99d1c4cb4d531835909ff139913b5edbf3d147b2358db3ffa3f34c654e3771a55538e44031b14d1f174ebca4eb3f32c415db47cd0e9be311267860f32f3'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
+    
+logback:
+  level: ERROR
