@@ -2,9 +2,9 @@
 
 <included>
 
-    <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
 
     <!--  root level  -->
     <property name="root.level" value="ERROR"/>
+    <contextName>@project.artifactId@-@project.version@_@build.timestamp@ ${root.level}</contextName>
 
 </included>
