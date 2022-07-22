@@ -4,8 +4,7 @@
 
     <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
 
-    <root level="ERROR">
-        <appender-ref ref="CONSOLE" />
-    </root>
+    <!--  root level  -->
+    <property name="root.level" value="ERROR"/>
 
 </included>
