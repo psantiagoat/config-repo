@@ -97,7 +97,7 @@
       </appender>
     </logger>
     
-		<property file="${SCCS}/sccs/${spring.application.name}/${SHORT_ENV}/main/apps/${spring.application.name}/root-level.properties"/>
+		<property file="${SCCS}/sccs/${name}/${SHORT_ENV}/main/apps/${name}/root-level.properties"/>
 		
     <include resource="logback_conf.xml"/>  
     
