@@ -4,7 +4,7 @@
 
     <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
 
-    <root level="DEBUG">
+    <root level="ERROR">
         <appender-ref ref="CONSOLE" />
     </root>
 
