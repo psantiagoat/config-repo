@@ -5,6 +5,6 @@
     <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
 
     <!--  root level  -->
-    <property name="level" value="ERROR" scope="system"/>
+    <property name="level" value="ERROR" scope="context"/>
     
 </included>
