@@ -97,6 +97,8 @@
       </appender>
     </logger>
     
+    <include resource="logback_conf.xml"/>  
+    
 		<include url="${SCCS}/sccs/${spring.application.name}/${SHORT_ENV}/main/logback_conf_pruebas.xml"/>
   
 </configuration>
