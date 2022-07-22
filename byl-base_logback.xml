@@ -97,6 +97,6 @@
       </appender>
     </logger>
     
-		<include resource="C:\Users\pw-psantiago\Documents\config-repo\logback_conf_pruebas.xml"/>  
+		<include resource="logback_conf.xml" />  
   
 </configuration>
