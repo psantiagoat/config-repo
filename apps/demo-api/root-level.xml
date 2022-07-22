@@ -4,6 +4,6 @@
 
     <contextName>@project.artifactId@-@project.version@_@build.timestamp@</contextName>
     
-    <property name="level" value="ERROR" scope="local"/>
+    <property name="LEVEL" value="ERROR" scope="local"/>
 
 </included>
