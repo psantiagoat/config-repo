@@ -22,5 +22,5 @@ project:
       host: 'http://localhost:8080/gateway-distribucion-api-v1/'
       endpoints: 
         items: 'items/item-variants'
-        active-season: 'items/activeSeason'
+        catalog-by-season: 'items/catalog-by-season'
   num-items-per-message : 1
