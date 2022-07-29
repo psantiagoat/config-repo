@@ -1,5 +1,6 @@
 app:
   version: '@project.version@'
+  full-max-page-size: 50000
 
 springdoc:
   api-docs:
