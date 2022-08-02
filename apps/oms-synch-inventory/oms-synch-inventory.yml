@@ -1,4 +1,5 @@
 spring:
+  port: 8081
   profiles:
     active: ${SHORT_ENV}
   
