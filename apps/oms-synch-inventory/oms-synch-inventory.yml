@@ -12,6 +12,7 @@ process:
       region-code: ES
 
 webclient:
+  max-in-memory-size: 10000000
   distribucion:
     base-path: 'http://localhost:8080/gateway-distribucion-api-v1'
     #base-path: http://desazure.byl.local/gateway-distribucion-api-v1
