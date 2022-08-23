@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+project:
+  mq:
+    host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
+    port: 15443
+    queue-manager: OM_QMGR
+    channel: SYSTEM.TLS.SVRCONN
+    username: mqm #MQ creado por el usuario
+    password: xxxxxx # Crear contraseÃ±a de conexiÃ³n de usuario MQ
+    receive-timeout: 20000
+    delivery-timeout: 20000
+    cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    queue: BYL_DOM_IN_CATALOG_Q
+#    queue: TEST_QUEUE_1
+# API distribucion
+  distribucion:
+    api:
+#      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/'
+      host: 'http://localhost:8080/gateway-distribucion-api-v1/'
+      endpoints: 
+        items: 'items/item-variants'
+        catalog-by-season: 'items/catalog-by-season'
+  num-items-per-message : 1
