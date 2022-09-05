@@ -24,8 +24,3 @@ spring:
 codeunit:
   user: srvcnavparserdev
   password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
-  endpoint: http://svmos101037-nas.BYL.LOCAL:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSHelloWorld
-  soap-action: HelloWorld
-  soap-workstation: LOCALHOST
-  soap-domain: BYL.LOCAL
-  
