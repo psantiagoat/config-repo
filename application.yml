@@ -1,23 +1,88 @@
+#-------------------------
+# NET core:
+#-------------------------
+
+ApplicationInsights:
+  InstrumentationKey: __application_insights_instrumentation_key__
+AllowedHosts: "*"
+
+# Identity:
+Identity:
+  MetadataAddress: https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+  Issuer: https://sts.windows.net/ad3e5ddd-b802-46fa-a45e-1ebda6f783a8/
+
+# Serilog
+Serilog:
+  Enrich:
+    - FromLogContext
+    - WithExceptionDetails
+    - WithProcessId
+    - WithProcessName
+    - WithThreadId
+    - WithThreadName
+  MinimumLevel: Information
+  Using:
+    - Serilog.Sinks.ElasticSearch
+  WriteTo:
+    - Name: Elasticsearch
+      Args:
+        autoRegisterTemplate: true
+        autoRegisterTemplateVersion: ESv7
+        batchAction: Create
+        connectionTimeout: 30000
+        deadLetterIndexName: deadletter-%SHORT_ENV%-{0:yyyy.MM}
+        formatter: Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact
+        indexFormat: app-log-%SHORT_ENV%-{0:yyyy.MM.dd}
+        inlineFields: true
+        nodeUris: "{cipher}ab3bb46f344c45b1b78e354a8d647f2b150a97aff64e3d9156bd672c073b31e39353621e31c7e25f8008d986f60d7816c880deab8e79d157e2daea62c823a3531906a4778745e6e81fcc16842a29261b"
+        queueSizeLimit: "104857600"
+        renderMessage: false
+      restrictedToMinimumLevel: Information
+
+
+#-------------------------
+# End NET core:
+#-------------------------
+
+#-------------------------
+# Java:
+#-------------------------
+
 app:
-  version: '@project.version@'
+  version: "@project.version@"
   full-max-page-size: 50000
 
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger/index.html
-    
+cache:
+  enable-redis: false
+  task-force: ${TASK_FORCE}
+  host: 52.169.161.152
+  port: 6379
+  default-ttl: 86400
+  password: 'secretpassword'
+  key-prefix: '${spring.application.name}'
+  use-key-prefix: true
+  # Tiempo de cache en sg.
+  caches-ttl:
+    cache1: 30000
+    cache2: 60000
+
+# Elasticsearch props
+elasticsearch:
+  host: 10.80.54.4
+  authorization:
+    type: Basic
+    password: "{cipher}0329d666e5a4cdb9964b1f7b71722c4f1d0a398d1716db14353d477bdcc4d5a4caaa45ab8212a7005472faebf890945cca5687c87a5f099c277d238fad67213ebba0acf35021283ddf7e5ea903278fc0"
+  timeout: 30000
+
+logback:
+  level:
+    elastic: INFO
+
 # Para exponer los endpoints de actuator
 management:
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure:
-        include: health,info,prometheus,env
-      cors:
-        allowed-origins: "http://localhost"
-        allowed-methods: "GET,POST"
+  health:
+    ldap:
+      enabled: false
   endpoint:
     health:
       show-details: always
@@ -25,16 +90,29 @@ management:
         enabled: true
     prometheus:
       enabled: true
+  endpoints:
+    web:
+      base-path: /actuator
+      cors:
+        allowed-methods: "GET,POST"
+        allowed-origins: "http://localhost"
+      exposure:
+        include: health,info,prometheus,env
   metrics:
     export:
       prometheus:
         enabled: true
+      health:
+        time-export: 60000
+
+persistence:
+  path: "/mnt/persistent"
 
 # Datos del server
 server:
   port: 8080
   servlet:
-    context-path: "/${spring.application.name}-api-v${app.version_url}" 
+    context-path: "/${spring.application.name}-api-v${app.version_url}"
   ssl:
     enabled: false
 
@@ -44,36 +122,29 @@ spring:
     location: classpath:/banner.txt
   main:
     banner-mode: console
+  jpa:
+    open-in-view: false
   # profiles:
   #  active: des
   output:
     ansi:
       enabled: DETECT
-# Seguridad
+  # Seguridad
   security:
     enable-csrf: false
     enabled: false
     basic:
       enabled: false
 
-#elasticsearch
-elasticsearch:
-  host: 10.80.54.4
-  authorization: 
-    type: Basic 
-    password: bG9nc3Rhc2hfd3JpdGVyOnJhNjNOc1RHez12NlA9dmpDUyVUeA==
-  timeout: 30000
-  
-# jasypt:
-#   encryptor:
-#     algorithm: PBEWithMD5AndDES
-#     keyObtentionIterations: 1000
-#     poolSize: 1
-#     providerName: SunJCE
-#     saltGeneratorClassname: org.jasypt.salt.RandomSaltGenerator
-#     iv-generator-classname: org.jasypt.iv.NoIvGenerator
-#     stringOutputType: base64
-#     password: BylArqzrx2022Abr
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger/index.html
+    displayOperationId: true
 
-global-message: Configuration General entorno Des! (fichero application.yml)
-arqrama-message: Mensaje general.
+
+#-------------------------
+# End Java:
+#-------------------------
+
