@@ -1,9 +1,34 @@
-concrete-message: Configuration Específica entorno Des! (fichero apps/gateway-product/gateway-product.yml)
 
 spring:
   profiles:
     active: ${SHORT_ENV}
-    
+
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  ldap:
+    active: false
+  addTraceInApiException: true
+  isRestAuditable: true
+  excludeAuditRest: ''
+
+cache:
+  enable-redis: true
+
+spring:
+  profiles:
+    active: ${SHORT_ENV},jar
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+  security:
+    user:
+      name: mock
+      password: ''
+      ip-white: localhost,127.0.0.1
+
 # Datasources
   datasource:
     datasource-initializer-enabled: false
@@ -21,8 +46,26 @@ spring:
     password: '{cipher}36d3c99d1c4cb4d531835909ff139913b5edbf3d147b2358db3ffa3f34c654e3771a55538e44031b14d1f174ebca4eb3f32c415db47cd0e9be311267860f32f3'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
-    
+
+  datasource-audit:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:sqlserver://mosdevsql01.byl.local:11433;databaseName=process_log;encrypt=true;trustServerCertificate=true;
+    username: '{cipher}e8a3fa5627ab7ebafacf865f85b71bb3db84743f057550d81bd9d058cfa178c4'
+    password: '{cipher}2621ac5fa9ec33accc018c722e34e39096c72681d14b98f25665f2692d9d9120b44ee80dfea05c1944cdd4cdf5557882'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Audit
+
 logback:
   level:
     console: DEBUG
     elastic: DEBUG
+  
