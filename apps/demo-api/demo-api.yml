@@ -1,7 +1,5 @@
-
-spring:
-  profiles:
-    active: ${SHORT_ENV}
+app:
+  fqdn: localhost
 
 byl:
   audit:
