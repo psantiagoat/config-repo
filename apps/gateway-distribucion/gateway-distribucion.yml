@@ -21,12 +21,6 @@ spring:
     exclude:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
       - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
-  security:
-    user:
-      name: mock
-      password: ''
-      ip-white: localhost,127.0.0.1
-          
           
 # Datasources
   datasource:
@@ -43,7 +37,6 @@ spring:
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
     username: uomsdev
     password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
-#    password: 'R41L%$Bh@wDL'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
     
@@ -64,7 +57,10 @@ spring:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Audit
     
-    
 codeunit:
   user: srvcnavparserdev
   password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
+  
+logback:
+  level:
+    elastic: DEBUG
