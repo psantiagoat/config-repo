@@ -11,7 +11,8 @@ process:
     persistence-max-records: 5
     inventory-params:
       region-code: ES
-
+    log-inventory-data: true
+    
 webclient:
   max-in-memory-size: 10000000
   distribucion:
