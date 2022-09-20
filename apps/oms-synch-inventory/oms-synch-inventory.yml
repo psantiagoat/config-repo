@@ -12,6 +12,9 @@ process:
     inventory-params:
       region-code: ES
     log-inventory-data: true
+    log-full-file: true
+    max-full-files: 2
+    single-season: false
     
 webclient:
   max-in-memory-size: 10000000
@@ -24,6 +27,7 @@ webclient:
       syncro-sale: /inventory/syncro/reservation
       full-inventory: /inventory/syncro/full
       max-references: /inventory/maxReferences
+      active-seasons: /inventory/active-seasons
   oms:
     tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
     oauth:
