@@ -1,0 +1,32 @@
+process:
+  config:
+    distribucion-page-size: 500
+    persistence-file-path: /mnt/persistent/${spring.application.name}
+    persistence-max-records: 5
+    persistence-block-size: 100
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+webclient:
+  max-in-memory-size: 10000000
+  distribucion:
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
+    services:
+      synch-order-status: /order/synch/status
+
+server:
+  port: 8081
+
+project:
+  mq:
+    host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
+    port: 15443
+    queue-manager: OM_QMGR
+    channel: SYSTEM.TLS.SVRCONN
+    receive-timeout: 20000
+    cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    queue:
+      confirm-shipment-in: BYL_CONFIRM_SHIPMENT_IN
+
