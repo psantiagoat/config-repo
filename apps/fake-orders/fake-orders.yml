@@ -14,6 +14,14 @@ byl:
 cache:
   enable-redis: false
 
+services:
+  oms:
+    user: BYLOMS
+    pass: '{cipher}4252f0a81fcb5ffac30e7a9ae905495b23dff623acaa142e2bd8ee9f5b342d32'
+    base-path: https://bylla-dev-1.oms.supply-chain.ibm.com/smcfs/restapi/executeFlow
+    endpoints:
+      create-order: /ByLOrderCreationInSyncService
+
 spring:
   profiles:
     active: ${SHORT_ENV},jar
