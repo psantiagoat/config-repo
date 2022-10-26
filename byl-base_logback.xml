@@ -15,6 +15,8 @@
                   defaultValue=""/>
   <springProperty scope="context" name="elasticTimeout" source="elasticsearch.timeout" defaultValue="30000"/>
 
+  <springProperty scope="context" name="elasticLogLevel" source="elasticsearch.log-level" defaultValue="INFO"/>
+
   <logger name="org" level="OFF"/>
   <logger name="_org" level="OFF"/>
   <logger name="reactor" level="OFF"/>
@@ -131,10 +133,10 @@
 
   <include resource="logback_conf.xml"/>
 
-  <if condition='!property("profile").contains("test") && !property("profile").contains("local")'>
+  <if condition='!property("profile").contains("test") &amp;&amp; !property("profile").contains("local")'>
     <then>
       <root level="INFO">
-        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="${elasticLogLevel}"/>
       </root>
     </then>
     <!--<else>

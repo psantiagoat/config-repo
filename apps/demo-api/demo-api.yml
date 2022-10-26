@@ -27,7 +27,7 @@ spring:
       password: ''
       ip-white: localhost,127.0.0.1
 
-# Datasources
+  # Datasources
   datasource:
     datasource-initializer-enabled: false
     hikari:
@@ -62,8 +62,6 @@ spring:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Audit
 
-logback:
-  level:
-    console: DEBUG
-    elastic: DEBUG
+elasticsearch:
+  log-level: INFO
   
