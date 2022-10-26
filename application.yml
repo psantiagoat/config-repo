@@ -73,7 +73,7 @@ elasticsearch:
     type: Basic
     password: "{cipher}0329d666e5a4cdb9964b1f7b71722c4f1d0a398d1716db14353d477bdcc4d5a4caaa45ab8212a7005472faebf890945cca5687c87a5f099c277d238fad67213ebba0acf35021283ddf7e5ea903278fc0"
   timeout: 30000
-  log-level: INFO
+  log-level: DEBUG
 
 logback:
   level:

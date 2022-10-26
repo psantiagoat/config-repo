@@ -135,8 +135,8 @@
 
   <if condition='!property("profile").contains("test") &amp;&amp; !property("profile").contains("local")'>
     <then>
-      <root level="INFO">
-        <appender-ref ref="${elasticLogLevel}"/>
+      <root level="${elasticLogLevel}">
+        <appender-ref ref="CONSOLE"/>
       </root>
     </then>
     <!--<else>
