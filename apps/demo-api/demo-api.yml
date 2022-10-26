@@ -63,5 +63,5 @@ spring:
     poolName: HikariCP-Audit
 
 elasticsearch:
-  log-level: INFO
+  log-level: DEBUG
   
