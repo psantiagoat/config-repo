@@ -1,23 +1,33 @@
+command:
+  name: configuracionComandos
+  commands:
+    - name: SYNCH_INVENTORY_FULL
+      bean-name: fullInventoryCommand
+    - name: SYNCH_INVENTORY
+      bean-name: incrementalInventoryCommand
+    - name: UNLOCK_EXECUTION
+      bean-name: unlockExecutionCommand
+
 spring:
   port: 8081
   profiles:
     active: ${SHORT_ENV}
-  
+
 process:
   config:
     distribucion-page-size: 50000
     supplies-page-size: 100
     persistence-file-path: /mnt/persistent/${spring.application.name}
     persistence-max-records: 5
-    inventory-params:
-      region-code: ES
     log-inventory-data: true
     log-full-file: true
-    max-full-files: 2
+    max-full-files: 1
     single-season: false
-    
+
 webclient:
   max-in-memory-size: 10000000
+  retry-attemps: 3
+  retry-time: 10
   distribucion:
     base-path: 'http://localhost:8080/gateway-distribucion-api-v1'
     #base-path: http://desazure.byl.local/gateway-distribucion-api-v1
