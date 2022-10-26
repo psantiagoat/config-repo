@@ -131,8 +131,18 @@
 
   <include resource="logback_conf.xml"/>
 
-  <root level="INFO">
-    <appender-ref ref="CONSOLE"/>
-  </root>
+  <if condition='!property("profile").contains("test") && !property("profile").contains("local")'>
+    <then>
+      <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+      </root>
+    </then>
+    <!--<else>
+        <root level="${level-elastic}">
+            <appender-ref ref="ELASTIC" />
+        </root>
+    </else>-->
+  </if>
+
 
 </configuration>
