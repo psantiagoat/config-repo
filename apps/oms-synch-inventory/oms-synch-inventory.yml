@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 command:
   name: configuracionComandos
   commands:
@@ -9,7 +12,6 @@ command:
       bean-name: unlockExecutionCommand
 
 spring:
-  port: 8081
   profiles:
     active: ${SHORT_ENV}
 
