@@ -62,6 +62,4 @@ spring:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Audit
 
-elasticsearch:
-  log-level: DEBUG
   

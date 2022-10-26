@@ -132,20 +132,13 @@
   </logger>
 
   <include resource="logback_conf.xml"/>
-
-  <!--#&amp;&amp;-->
-
-  <if condition='property("profile").contains("test") || property("profile").contains("local")'>
+  
+  <if condition='!property("profile").contains("test") #&amp;&amp; !property("profile").contains("local")'>
     <then>
       <root level="${elasticLogLevel}">
-        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ELASTIC"/>
       </root>
     </then>
-    <!--<else>
-        <root level="${level-elastic}">
-            <appender-ref ref="ELASTIC" />
-        </root>
-    </else>-->
   </if>
 
 
