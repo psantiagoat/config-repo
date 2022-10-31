@@ -1,0 +1,18 @@
+app:
+  fqdn: localhost
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  ldap:
+    active: false
+cache:
+  enable-redis: false
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
