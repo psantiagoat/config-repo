@@ -23,7 +23,9 @@ services:
     pass: 'password'
     base-path: https://bylla-dev-1.oms.supply-chain.ibm.com/smcfs/restapi/invoke
     endpoints:
+      get-page: /getPage
       item-list: /getItemList
+
   oms:
     tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
     oauth:
