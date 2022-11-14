@@ -1,0 +1,39 @@
+app:
+  fqdn: localhost
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  datasource-primary:
+    enabled: false
+  ldap:
+    active: false
+
+cache:
+  enable-redis: false
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  # Datasources
+  # datasource:
+  #   datasource-initializer-enabled: false
+  #   hikari:
+  #     minimum-idle: 5
+  #     maximum-pool-size: 20
+  #     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  #     auto-commit: true
+  #     idle-timeout: 600000
+  #     max-lifetime: 1800000
+  #     connection-timeout: 30000
+  #     connection-test-query: SELECT 1
+  #   url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
+  #   username: uapistore
+  #   password: '{cipher}ebb43b7a92d28c773459005255a961a8e05b0157e52ad30b749dcfe0f87337fef63ccd6f1daf594236e875d71055dafa'
+  #   driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  #   poolName: HikariCP-Principal
