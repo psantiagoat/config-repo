@@ -18,6 +18,7 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 services:
+  export-pagesize: 5000
   article:
     user: 'admin'
     pass: 'password'
