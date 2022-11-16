@@ -305,7 +305,7 @@ spring:
       password: ''
       ip-white: localhost,127.0.0.1
 
-# Datasources
+  # Datasources
   datasource:
     datasource-initializer-enabled: false
     hikari:
@@ -317,7 +317,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    jdbcUrl: jdbc:mysql://10.20.107.30:3306/MTEC?useUnicode=true&characterEncoding=utf8
+    jdbcUrl: jdbc:mysql://localhost:3306/MTEC?useUnicode=true&characterEncoding=utf8
     username: '{cipher}b838a2ccfd2c3ec02e59c5552acc4603bf5d1e2d04ec0d8bbcb4bc9df773a63e'
     password: '{cipher}b344dd4cec77aff72e9a6392b8bb0ac26082d071b8731912a246fb0376d6ef3b'
     driverClassName: com.mysql.cj.jdbc.Driver
@@ -362,7 +362,7 @@ spring:
           use_structured_entries: true
           use_minimal_puts: true
 
-# Configuración ehCache
+  # Configuración ehCache
   cache:
     jcache:
       config: classpath:ehcache.xml
@@ -397,7 +397,7 @@ spring:
       properties:
         enable:
           idempotence: false
-          
+
 springdoc:
   packagesToScan: com.byl.controller_rest
   swagger-ui:
