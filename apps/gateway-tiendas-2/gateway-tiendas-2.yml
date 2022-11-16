@@ -32,8 +32,8 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uapistore
-    password: '{cipher}ebb43b7a92d28c773459005255a961a8e05b0157e52ad30b749dcfe0f87337fef63ccd6f1daf594236e875d71055dafa'
+    username: uapistoremicroserv
+    password: '{cipher}13ebfb66177cd81ff13c8b85ac919f6f5b3176116d45577a62ab9c9fd9c20086'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
     
