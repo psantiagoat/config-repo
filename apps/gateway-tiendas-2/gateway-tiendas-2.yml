@@ -33,7 +33,7 @@ spring:
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
     username: uapistoremicroserv
-    password: '{cipher}13ebfb66177cd81ff13c8b85ac919f6f5b3176116d45577a62ab9c9fd9c20086'
+    password: '{cipher}9fecaca3a04a6963fe996810488f0c3d0f3664e91b8dd959b56c5c750f6430ee76950745160e39c89cf3615994988abd'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
     
