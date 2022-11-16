@@ -1,0 +1,405 @@
+app:
+  fqdn: localhost
+  user:
+    name: bob
+
+byl:
+  addTraceInApiException: true
+  audit:
+    enabled: true
+    internal-enable: true
+  datasource-primary:
+    enabled: true
+  excludeAuditRest: '/swagger,/api-docs,/actuator,/swagger-ui,/swagger-resources,/v2,/manage,/api/rest/cache/health,/api/rest/tracking/health,/api/rest/dropPoint/health'
+  isRestAuditable: true
+  ldap:
+    active: false
+
+cache:
+  enable-redis: false
+
+# Para ver los valores en las querys de Hibernate
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: info
+
+mtec:
+  pendingTracking:
+    retry:
+      batch-fixed-rate: 300000
+  kafka-producer:
+    output-topic: byl-mtec-trackings-processed
+    enabled: false
+  ftp:
+    batch-fixed-rate: 300000
+    init-delay: 600000
+  retry:
+    batch-fixed-rate: 60000
+    max-retries: 10
+    init-delay: 60000
+  connection-configuration:
+    protocol: ftp
+    username: imatia-des
+    password: 'd1v13d!.DES'
+    host: 10.20.107.42
+    port: 21
+    directory: /byl
+    timeout: 5000
+    filename: Tracking
+  queue:
+    directory: /apps/data/byl-mtec-core-tracking
+    name: queueFTP
+  ftp-connection-info:
+    MRW:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/MRW/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    CttExpresso:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/CttExpresso/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    DHLExpress:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/DHLExpress/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    DHLParcel:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/DHLParcel/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    Seur:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/SEUR/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    Correos:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/Correos/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+    CorreosExpress:
+      protocol: ftp
+      username: imatia-des
+      password: 'd1v13d!.DES'
+      host: 10.20.107.42
+      port: 21
+      root-directory: /trackings/CorreosExpress/
+      processing-directory: processing/
+      processed-directory: processed/
+      error-directory: error/
+      timeout: 5000
+      filename: BimbaYLola
+  courier-file-info:
+    MRW:
+      file-columns-count: 9
+      file-header: 'ReferenciaCliente;NumeroMrw;CodigoEstado;DescripcionEstado;FechaAlbaran;HoraAlbaran;FechaHoraEstado;NombreClienteEntrega;NumeroBultos'
+      file-separator: '\;'
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        ReferenciaCliente:
+          - 'TEST-[0-9]{10}[0-9]*(_[0-9]+)?'
+          - '[PE]W-[0-9]{10}[0-9]*(_[0-9]+)?'
+          - 'PEDT22-[0-9]{6}[0-9]*(_[0-9]+)?'
+          - 'PRO-TEST-[0-9]{10}[0-9]*(_[0-9]+)?'
+          - 'PRO-[PE]W-[0-9]{10}[0-9]*(_[0-9]+)?'
+          - 'PRO-PEDT22-[0-9]{6}[0-9]*(_[0-9]+)?'
+        NumeroMrw:
+          - '[0-9]{12}'
+        CodigoEstado:
+          - '[0-9]{2}'
+    CttExpresso:
+      file-columns-count: 7
+      file-header: 'labelReference|courierReference|changeDate|courierTrackingStatusCode|unsuccesfulDeliveryCode|measureTakenCode|remarks'
+      file-separator: '\|'
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        labelReference:
+          - 'PW-[0-9]{10}/[0-9]{3}'
+          - 'DW-[0-9]{13}'
+          - 'DW-[0-9]{10}/[0-9]{3}'
+          - 'PRO-PW-[0-9]{10}/[0-9]{3}'
+          - 'PRO-DW-[0-9]{13}'
+          - 'PRO-DW-[0-9]{10}/[0-9]{3}'
+        courierReference:
+          - 'DA[0-9]{9}PT'
+          - 'DE[0-9]{9}PT'
+        courierTrackingStatusCode:
+          - 'EM[A-Z]{1}'
+          - 'E[A-Z]{2}'
+    DHLExpress:
+      file-columns-count: 28
+      file-header: '||trackingStatusCode|trackingStatusDescription||||||orderCode|courierReference|changeDate||||||||||||||||'
+      file-separator: '\|'
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        orderCode:
+          - '(PW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+          - '(PW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+          - '(TRI22-)?[0-9]{6}'
+          - '[0-9]{10}[A-Z]{2}[0-9]{17}'
+          - 'PRO-(PW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+          - 'PRO-(TRI22-)?[0-9]{6}'
+          - 'PRO-[0-9]{10}[A-Z]{2}[0-9]{17}'
+          - 'PRO-(EW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+        trackingStatusCode:
+          - '[A-Z]{2}'
+        courierReference:
+          - '[0-9]{10}'
+          - '[0-Z]{20}'
+          - '[0-Z]{21}'
+    DHLParcel:
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        orderCode:
+          - '(PW-)?(EW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+          - 'PRO-(PW-)?(EW-)?[0-9]{10}[0-9]*(_[0-9]+)?'
+        trackingStatusCode:
+          - '[0-9]{2}'
+          - '[A-Z]{2}[0-9]{6}'
+          - '[A-Z]{1}[0-9]{6}'
+          - '[A-Z]{1}[0-9]{4}'
+          - '[A-Z]{1}[0-9]{5}'
+          - '[A-Z]{2}[0-9]{5}'
+        courierReference:
+          - '[0-Z]{23}'
+    Seur:
+      file-columns-count: 11
+      file-header: ';;;;;orderCode;courierReference;;trackingStatusCode;changeDate;'
+      file-separator: '\;'
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        trackingStatusCode:
+          - '[A-Z]{2}[0-9]{3}'
+    Correos:
+      file-columns-count: 12
+      file-header: 'none	none	courierReference	orderCode	trackingStatusCode	trackingStatusDescription	date	time	none	none	none	none'
+      file-separator: '\t'
+      file-name-pattern: ".*(ES).*.+\\.(?i)(csv|txt)$"
+      file-formats:
+        orderCode:
+          - 'DW-[0-9]{13}'
+          - 'DW-[0-9]{12}'
+          - 'DW-[0-9]{10}'
+          - 'DW-[0-9]{9}'
+          - 'DW-[0-9]{10}/[0-9]{3}'
+          - 'DW-[0-9]{9}/[0-9]{3}'
+          - 'DW-[0-9]{7}/[0-9]{3}'
+          - 'DW-[0-9]{6}/[0-9]{3}'
+          - 'PRO-DW-[0-9]{13}'
+          - 'PRO-DW-[0-9]{12}'
+          - 'PRO-DW-[0-9]{10}'
+          - 'PRO-DW-[0-9]{9}'
+          - 'PRO-DW-[0-9]{10}/[0-9]{3}'
+          - 'PRO-DW-[0-9]{9}/[0-9]{3}'
+          - 'PRO-DW-[0-9]{7}/[0-9]{3}'
+          - 'PRO-DW-[0-9]{6}/[0-9]{3}'
+        trackingStatusCode:
+          - 'ES[0-9]{4}'
+        courierReference:
+          - '[0-Z]{23}'
+    CorreosExpress:
+      line-length: 514
+      file-name-pattern: ".+\\.(?i)(csv|txt)$"
+      file-formats:
+        courierReference: '[0-Z]{15}'
+      url: "https://www.correosexpress.com/url/v?s="
+  api-rest-connection-info-dhl-express:
+    username: bimbaylola_pre
+    password: 72#bimb13263
+    readtimeout: 3000
+    connectiontimeout: 3000
+    chunk: 50
+    endpointTrackings: https://express.api.dhl.com/mydhlapi/test/tracking
+  api-rest-connection-info-estafeta:
+    grantType: 'client_credentials'
+    clientId: 'l79461c56c98084bbdae814a42a4d0e991'
+    clientSecret: '3cf7627aec8342699aaaa098047d75f3'
+    username: 'mdemanuel'
+    password: '@Mdemanuel2022'
+    scope: 'execute'
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointAuthentication: 'https://csrestqa.estafeta.com/auth/oauth/v2/token'
+    endpointTrackings: 'https://csrestqa.estafeta.com/v3/CustShipmentTracking/ExecuteQuery'
+    suscriberId: '55'
+    login: 'WSCTrakingUser'
+    endpointPassword: 'dh8>>S_PBj(a+MtQ'
+  api-courier:
+    courierCodes:
+      - '12'
+  api-rest-connection-info-ninjavan:
+    clientSecret: 'b004c884e2db4f8e8300faddf0f68dd6'
+
+#API REST
+rest:
+  path: /api/rest
+
+server:
+  servlet:
+    # context-path: /mtec-core-tracking-api-v1
+    context-path: /byl-mtec-core-tracking-application
+
+
+spring:
+  jackson:
+    mapper:
+      accept_case_insensitive_properties: true
+  profiles:
+    active: ${SHORT_ENV},jar
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+  security:
+    user:
+      name: mock
+      password: ''
+      ip-white: localhost,127.0.0.1
+
+# Datasources
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.mysql.cj.jdbc.Driver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:mysql://10.20.107.30:3306/MTEC?useUnicode=true&characterEncoding=utf8
+    username: '{cipher}b838a2ccfd2c3ec02e59c5552acc4603bf5d1e2d04ec0d8bbcb4bc9df773a63e'
+    password: '{cipher}b344dd4cec77aff72e9a6392b8bb0ac26082d071b8731912a246fb0376d6ef3b'
+    driverClassName: com.mysql.cj.jdbc.Driver
+    poolName: HikariCP-Principal
+
+  datasource-audit:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:sqlserver://mosdevsql01.byl.local:11433;databaseName=process_log;encrypt=true;trustServerCertificate=true;
+    username: '{cipher}e8a3fa5627ab7ebafacf865f85b71bb3db84743f057550d81bd9d058cfa178c4'
+    password: '{cipher}2621ac5fa9ec33accc018c722e34e39096c72681d14b98f25665f2692d9d9120b44ee80dfea05c1944cdd4cdf5557882'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Audit
+
+  # Configuración JPA e Hibernate
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: true
+        show_sql: false
+        format_sql: true
+        jdbc:
+          fetch_size: 100
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+        cache:
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+          provider_class: net.sf.ehcache.hibernate.EhCacheProvider
+          use_query_cache: true
+          use_second_level_cache: true
+          use_structured_entries: true
+          use_minimal_puts: true
+
+# Configuración ehCache
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+      provider: org.ehcache.jsr107.EhcacheCachingProvider
+  jmx:
+    enabled: true
+    default-domain: ${spring.application.name}
+
+  kafka:
+    topic: byl-mtec-trackings
+    topicHealth: byl-mtec-trackings-health
+    jass:
+      enabled: true
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: SCRAM-SHA-256
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="byl-mtec-dev-pro" password="o2SWmjcY2W6URBGe7uhN";
+    listener:
+      concurrency: 4
+    bootstrap-servers: mosdevkafka01:9092
+    consumer:
+      group-id: 0
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable:
+          idempotence: false
+          
+springdoc:
+  packagesToScan: com.byl.controller_rest
+  swagger-ui:
+    displayOperationId: true
+
