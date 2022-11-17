@@ -1,12 +1,25 @@
-concrete-message: Configuration Específica entorno Des! (fichero apps/gateway-product/gateway-product.yml)
+app:
+  fqdn: localhost
 
-test_encriptacion_en_servidor: QN6IZRoY8xk4COVJjyMZZfSSnHU0IZ3ilpr/2MlDuuY=
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  ldap:
+    active: false
+
+cache:
+  enable-redis: false
 
 spring:
   profiles:
     active: ${SHORT_ENV}
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
 
-# Datasources
+  # Datasources
   datasource:
     datasource-initializer-enabled: false
     hikari:
@@ -18,7 +31,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB
+    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
     username: usrvcdevfrontatcro
     # password: _@o<R23@{Mp}=iDK;yFi>fc!2|Q5IE
     password: '{cipher}c98eafd099593c6bf75baaf91d963f29193455000c1e0412eaf2445995414b58a6fd3fffc4a1b11eccf5003219107760'
