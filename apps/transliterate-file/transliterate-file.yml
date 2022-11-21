@@ -4,105 +4,35 @@ AppName: transliterate-file-api-v1
 Path_Base: /transliterate-file-api-v1
 Path_Metrics: /actuator/prometheus
 
-# Parámetros específicos de BYL Arquitecturas
+app:
+  fqdn: localhost
 byl:
-  # LDAP
+  audit:
+    enabled: false
+    internal-enable: false
   ldap:
     active: false
-  # Swagger
-  swagger:
-    controller:
-      basePackage: com.byl.transliterate.controller_rest
-      title: ${spring.application.name}
-      description: Controller REST API For ${spring.application.name} Application
-      version: ${app.version}
-      termsOfServiceUrl:
-      contact:
-        name: Departamento Arquitectura
-        url:
-        email: <pbaranano@bimbaylola.com>
-      license:
-      licenseUrl:
+cache:
+  enable-redis: false
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
-app:
-  version: '@project.version@'
-  fqdn: localhost
-
-# Datos del server
-server:
-  port: 8080
-  servlet:
-    context-path: "/${spring.application.name}"
-  ssl:
-    enabled: false
+  jmx:
+    enabled: true
 
 #API REST
 rest:
   path: /api/rest
 
-# Para exponer los endpoints de actuator
-management:
-  endpoints:
-    web:
-      base-path: /actuator
-      exposure:
-        include: health,info,prometheus
-      cors:
-        allowed-origins: "http://${app.fqdn}"
-        allowed-methods: "GET,POST"
-  endpoint:
-    health:
-      show-details: always
-      probes:
-        enabled: true
-    prometheus:
-      enabled: true
-  metrics:
-    export:
-      prometheus:
-        enabled: true
-
-
-# Encriptación con jasypt, para las password
-jasypt:
-  encryptor:
-    algorithm: PBEWithMD5AndDES
-    iv-generator-classname: org.jasypt.iv.NoIvGenerator
-    password: zrxJuly
-
-# Datos de spring
-spring:
-  banner:
-    location: classpath:/banner.txt
-  profiles:
-    active: local,web,jar
-    # config:
-    #   import: optional:file:${HOME_CONFIG_APLICACIONES}/Arquetipo-aditional.yml
-
-  # Para no habilitar tomcat como contenedor si no queremos usar el arquetipo para exponer servicios web y demas operaciones que requierean un contenedor web
-  # Posibles valores
-  # NONE
-  # The application should not run as a web application and should not start an embedded web server.
-  # REACTIVE
-  # The application should run as a reactive web application and should start an embedded reactive web server.
-  # SERVLET
-  # The application should run as a servlet-based web application and should start an embedded servlet web server.
-  #  main:
-  #    web-application-type: none
-  main:
-    banner-mode: console
-  application:
-    name: translation-api-v1
-  output:
-    ansi:
-      enabled: DETECT
-  # Seguridad
-  security:
-    enable-csrf: false
-    enabled: false
-    basic:
-      enabled: false
-
-  jmx:
-    enabled: true
-
+    # Encriptación con jasypt, para las password
+    #jasypt:
+    # encryptor:
+    #   algorithm: PBEWithMD5AndDES
+  #  iv-generator-classname: org.jasypt.iv.NoIvGenerator
+  #  password: zrxJuly
