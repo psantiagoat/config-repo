@@ -1,8 +1,8 @@
-AppConfig:
-  TransliterationServiceURL: http://translation-api-v1.dev-arqsw.svc.cluster.local:8080/translation-api-v1/api/rest/transliterate/to
-AppName: transliterate-file-api-v1
-Path_Base: /transliterate-file-api-v1
-Path_Metrics: /actuator/prometheus
+#AppConfig:
+#  TransliterationServiceURL: http://translation-api-v1.dev-arqsw.svc.cluster.local:8080/translation-api-v1/api/rest/transliterate/to
+#AppName: transliterate-file-api-v1
+#Path_Base: /transliterate-file-api-v1
+#Path_Metrics: /actuator/prometheus
 
 app:
   fqdn: localhost
@@ -30,9 +30,9 @@ spring:
 rest:
   path: /api/rest
 
-    # Encriptación con jasypt, para las password
-    #jasypt:
-    # encryptor:
-    #   algorithm: PBEWithMD5AndDES
-  #  iv-generator-classname: org.jasypt.iv.NoIvGenerator
-  #  password: zrxJuly
+# Encriptación con jasypt, para las password
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    password: zrxJuly
