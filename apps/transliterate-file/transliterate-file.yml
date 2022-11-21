@@ -16,7 +16,7 @@ cache:
   enable-redis: false
 spring:
   profiles:
-    active: ${SHORT_ENV},web,jar
+    active: web
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
