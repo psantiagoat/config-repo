@@ -1,3 +1,11 @@
+command:
+  name: configuracionComandos
+  commands:
+    - name: SYNCH_CATALOG
+      bean-name: synchCatalogCommand
+    - name: FULL_CATALOG
+      bean-name: fullCatalogCommand
+
 spring:
   profiles:
     active: ${SHORT_ENV}
@@ -14,13 +22,13 @@ project:
     delivery-timeout: 20000
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     queue: BYL_DOM_IN_CATALOG_Q
-#    queue: TEST_QUEUE_1
-# API distribucion
+  #    queue: TEST_QUEUE_1
+  # API distribucion
   distribucion:
     api:
-#      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/'
+      #      host: 'http://desazure.byl.local/gateway-distribucion-api-v1/'
       host: 'http://localhost:8080/gateway-distribucion-api-v1/'
-      endpoints: 
+      endpoints:
         items: 'items/item-variants'
         catalog-by-season: 'items/catalog-by-season'
-  num-items-per-message : 1
+  num-items-per-message: 1
