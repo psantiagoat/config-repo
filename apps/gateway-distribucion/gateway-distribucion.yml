@@ -1,6 +1,6 @@
 app:
   fqdn: localhost
-  
+
 byl:
   audit:
     enabled: false
@@ -21,8 +21,8 @@ spring:
     exclude:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
       - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
-          
-# Datasources
+
+  # Datasources
   datasource:
     datasource-initializer-enabled: false
     hikari:
@@ -39,8 +39,17 @@ spring:
     password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
-    
+
 codeunit:
   user: srvcnavparserdev
   password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
-  
+
+
+azure:
+  tables:
+    connection:
+      account-name: globalpersistence
+      account-key: '{cipher}ab7c87285e6e360c9629b21f8530e2283f8d3c99ac999c7745292c381d8bc99cdf9670c1fc1711a811aae5abad02c4c0e10e38796ae950ff69d85d5dd8683440d76bc14fdbb4e2fcb3448d4cc833a900df8eb97e6788386368ef45fe8e21a7c6b0b5259caf9e966d402fb4355402af15'
+    names:
+      order-queue-audit: DevOmsSynchOrders
+
