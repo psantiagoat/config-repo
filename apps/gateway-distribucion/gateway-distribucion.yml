@@ -48,17 +48,23 @@ azure:
   storage:
     accounts:
       global-persistence:
-        account-name: globalpersistence
-        account-key: '{cipher}633140e53ebeb3f501200f518c6904ba30e33d829f971c9ad9e12f732bdfad3ed00831f2a9abdc7feeec3805b33787f3cf2aa80b04e0ed0c94beb7123ab458491e2e071355328fb1035095f435d082858b6f872127982c9788fbc0e38d1c8a797130ea2b15ff13a907269d9f8bc95970'
+        account-id: global-persistence
         tables:
           order-queue-audit: DevOmsSynchOrders
       core-data:
-        account-name: coredatabyldev
-        account-key: '{cipher}ae88f46b87c3d2b0a37c496016e061f0a25112fa992bf7e97d899d91d86c5e98378b852112dc3642e37d10210e88795c63985298176a94bc823ccc3c1321d477193c9916a5308fdceb6a516418e81faee913f36c2df50a396e971374d38cbd84a9cef0531865bd72a45f06daa532bf51'
+        account-id: core-data
         tables:
           product-images: images
         blobs:
           product-images: images
+    config:
+      accounts:
+        global-persistence:
+          name: globalpersistence
+          key: '{cipher}633140e53ebeb3f501200f518c6904ba30e33d829f971c9ad9e12f732bdfad3ed00831f2a9abdc7feeec3805b33787f3cf2aa80b04e0ed0c94beb7123ab458491e2e071355328fb1035095f435d082858b6f872127982c9788fbc0e38d1c8a797130ea2b15ff13a907269d9f8bc95970'
+        core-data:
+          name: coredatabyldev
+          key: '{cipher}ae88f46b87c3d2b0a37c496016e061f0a25112fa992bf7e97d899d91d86c5e98378b852112dc3642e37d10210e88795c63985298176a94bc823ccc3c1321d477193c9916a5308fdceb6a516418e81faee913f36c2df50a396e971374d38cbd84a9cef0531865bd72a45f06daa532bf51'
 
 
 api:
