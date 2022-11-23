@@ -59,3 +59,8 @@ azure:
           product-images: images
         blobs:
           product-images: images
+
+
+api:
+  endpoint:
+    product-image: https://desazure.byl.local/gateway-distribucion-api-v1/products/image/{imageSize}/
