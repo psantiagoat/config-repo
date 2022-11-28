@@ -55,7 +55,7 @@ app:
 cache:
   enable-redis: false
   task-force: ${TASK_FORCE}
-  host: 52.169.161.152
+  host: 10.80.50.112
   port: 6379
   default-ttl: 86400
   password: 'secretpassword'
