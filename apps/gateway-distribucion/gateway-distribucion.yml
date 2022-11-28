@@ -12,6 +12,7 @@ byl:
 
 cache:
   enable-redis: true
+  task-force: distribucion
 
 spring:
   profiles:
