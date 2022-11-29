@@ -13,6 +13,9 @@ byl:
 cache:
   enable-redis: true
   task-force: distribucion
+  # Tiempo de cache en sg.
+  caches-ttl:
+    image-name: 86400
 
 spring:
   profiles:
