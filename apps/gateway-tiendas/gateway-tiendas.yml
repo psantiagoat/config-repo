@@ -8,8 +8,15 @@ byl:
   ldap:
     active: false
 
+#cache:
+#  enable-redis: false
+
 cache:
-  enable-redis: false
+  enable-redis: true
+  task-force: tiendas
+  # Tiempo de cache en sg.
+  caches-ttl:
+    tiendas-cache: 86400
 
 spring:
   profiles:
