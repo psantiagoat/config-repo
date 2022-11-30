@@ -1,52 +1,10 @@
 app:
   fqdn: localhost
 
-byl:
-  audit:
-    enabled: false
-    internal-enable: false
-  encryption:
-    enabled: true
-    private: '{cipher}540423e80bc80be33e02d144505e3c27340ec1eea67c0e747d89871a5cdf0269fa716f60b8817492135e2718868472f2f601d928522d47fad63e8f07170d98984e5094313e151f8281c230387d112ff8aee6447a510ee30dc824421a6a99263737a6ebdad690d13572de6ab760c15cd4e24991cfd8eebc9b4e4fe3110fb3e05a35c0b933d196702cf7204f87db0f5b4ca06e11f422410536260f662ebb4e6016a2e66fdd8fe0efb541242277dfc304c40b6c0dc99cfa6a09d16ca9c030ad3be4970a7c9c5eb817427f56bd8e6bf30cff05d93a46a6079e33b97850ec38901c9a14a239051c887e8627b8f1c0a251c8da2b17e74804e7f7b216a20e68f241a1e99f975ffacd3c07c061f55d9ac05ed21c6071e070a668a1536a18ffdb0da54eb1f6fc0ea4aa958a62ca479425db07b957c515486610e17968cb28c0f4dfb53619cc236936f6dad50d1feba3af134cef1c526b787a4d921fd2c3f29f1695869c5fe6a8e6b02c6d39abb2cee868c2b64fde2700fc84e68b340201a63b622f68df782d398d930a1e6849b46992911f85cd1d0c2d8dc8742b6f8a66b29980cdf70dcf0164b6a638690ca819e35f07f9f367d08f04f1996eb7e44c72fcbb2546fd0f5ede58f8a473ed3c617d0ad9e7a4213400352135bf5614b13a57b365972cb76177eeb0fab8bb87e30d0bd0ac18da196873e5a7efb9c901d9d0ec9a3b864cb752d68c2881a007f8d840bac32e82a8f97189dc588bd046ccb4c78035e5b7419bdca1ac66fb6c0db40202759696169d075585'
-    public: '{cipher}f27aeec445035e71a89385db8c951a07ec56085ccceed29f80fb484240c18916d7f686f0edb97d2c21d86002752f780d4f351841e8eee2208d0961e39346c23b75ba8ab30455323819e8546dabbcf383da151d0d7df8793824550ad53555e1851b643717c7220be8c1c556b6ef9dddf0e6611383d8cb8f625af8f269569f5600b668bbc8ef15e585b85aabb3bf0fb8ab0e87ab03a49b395d0e3a3192e3a8cf3ab40cf3503af353fb271cfa519fd44a7d'
-
-cache:
-  enable-redis: true
-  task-force: distribucion
-  # Tiempo de cache en sg.
-  caches-ttl:
-    image-name: 86400
-
-spring:
-  profiles:
-    active: ${SHORT_ENV},jar
-  #  autoconfigure:
-  #    exclude:
-  #      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-  #      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
-
-  # Datasources
-  datasource:
-    datasource-initializer-enabled: false
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 20
-      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      auto-commit: true
-      idle-timeout: 600000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uomsdev
-    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    poolName: HikariCP-Principal
-
-codeunit:
-  user: srvcnavparserdev
-  password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
-
+api:
+  endpoint:
+    product-image:
+      image-url: https://bimbayloladev.azure-api.net/khkuremouwcx/products/image/{imageSize}
 
 azure:
   storage:
@@ -71,7 +29,51 @@ azure:
           key: '{cipher}ae88f46b87c3d2b0a37c496016e061f0a25112fa992bf7e97d899d91d86c5e98378b852112dc3642e37d10210e88795c63985298176a94bc823ccc3c1321d477193c9916a5308fdceb6a516418e81faee913f36c2df50a396e971374d38cbd84a9cef0531865bd72a45f06daa532bf51'
 
 
-api:
-  endpoint:
-    product-image:
-      image-url: https://desazure.byl.local/gateway-distribucion-api-v1/products/image/{imageSize}/
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  encryption:
+    enabled: true
+    private: '{cipher}540423e80bc80be33e02d144505e3c27340ec1eea67c0e747d89871a5cdf0269fa716f60b8817492135e2718868472f2f601d928522d47fad63e8f07170d98984e5094313e151f8281c230387d112ff8aee6447a510ee30dc824421a6a99263737a6ebdad690d13572de6ab760c15cd4e24991cfd8eebc9b4e4fe3110fb3e05a35c0b933d196702cf7204f87db0f5b4ca06e11f422410536260f662ebb4e6016a2e66fdd8fe0efb541242277dfc304c40b6c0dc99cfa6a09d16ca9c030ad3be4970a7c9c5eb817427f56bd8e6bf30cff05d93a46a6079e33b97850ec38901c9a14a239051c887e8627b8f1c0a251c8da2b17e74804e7f7b216a20e68f241a1e99f975ffacd3c07c061f55d9ac05ed21c6071e070a668a1536a18ffdb0da54eb1f6fc0ea4aa958a62ca479425db07b957c515486610e17968cb28c0f4dfb53619cc236936f6dad50d1feba3af134cef1c526b787a4d921fd2c3f29f1695869c5fe6a8e6b02c6d39abb2cee868c2b64fde2700fc84e68b340201a63b622f68df782d398d930a1e6849b46992911f85cd1d0c2d8dc8742b6f8a66b29980cdf70dcf0164b6a638690ca819e35f07f9f367d08f04f1996eb7e44c72fcbb2546fd0f5ede58f8a473ed3c617d0ad9e7a4213400352135bf5614b13a57b365972cb76177eeb0fab8bb87e30d0bd0ac18da196873e5a7efb9c901d9d0ec9a3b864cb752d68c2881a007f8d840bac32e82a8f97189dc588bd046ccb4c78035e5b7419bdca1ac66fb6c0db40202759696169d075585'
+  datasource:
+    query-timeout: 300
+
+
+cache:
+  enable-redis: true
+  # Tiempo de cache en sg.
+  caches-ttl:
+    image-name: 86400
+
+codeunit:
+  user: srvcnavparserdev
+  password: '{cipher}119d6957224f92362f15c45ba60b91681bf564d31db2453d6e6825cd60144f7fb45fc2ad5b12512f1b5008e863a4aa39'
+
+redis:
+  caches:
+    image-name: image-name
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+  # Datasources
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
+    username: uomsdev
+    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Principal
+
+
