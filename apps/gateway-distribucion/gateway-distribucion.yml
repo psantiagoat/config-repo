@@ -45,7 +45,7 @@ codeunit:
 
 azure:
   storage:
-    enabled: false
+    enabled: true
     accounts:
       global-persistence:
         account-id: global-persistence
