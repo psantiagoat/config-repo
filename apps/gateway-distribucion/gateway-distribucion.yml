@@ -45,6 +45,7 @@ codeunit:
 
 azure:
   storage:
+    enabled: true
     accounts:
       global-persistence:
         account-id: global-persistence
@@ -64,6 +65,7 @@ azure:
         core-data:
           name: coredatabyldev
           key: '{cipher}ae88f46b87c3d2b0a37c496016e061f0a25112fa992bf7e97d899d91d86c5e98378b852112dc3642e37d10210e88795c63985298176a94bc823ccc3c1321d477193c9916a5308fdceb6a516418e81faee913f36c2df50a396e971374d38cbd84a9cef0531865bd72a45f06daa532bf51'
+
 
 api:
   endpoint:
