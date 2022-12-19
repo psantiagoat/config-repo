@@ -63,6 +63,7 @@ cache:
   use-key-prefix: true
   # Tiempo de cache en sg.
   caches-ttl:
+    cache-week: 604800
     cache-day: 86400
     cache-hour: 3600
 

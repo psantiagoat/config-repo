@@ -8,20 +8,12 @@ byl:
   ldap:
     active: false
 
-#cache:
-#  enable-redis: false
-
 cache:
   enable-redis: true
-  task-force: tiendas
-  # Tiempo de cache en sg.
-  caches-ttl:
-    tiendas-cache: 86400
 
 spring:
   profiles:
     active: ${SHORT_ENV}
-
 
   # Datasources
   datasource:
