@@ -1,6 +1,3 @@
-server:
-  port: 8081
-
 command:
   name: configuracionComandos
   commands:
@@ -28,11 +25,10 @@ process:
 
 webclient:
   max-in-memory-size: 10000000
-  retry-attemps: 3
-  retry-time: 10
   distribucion:
-    base-path: 'http://localhost:8080/gateway-distribucion-api-v1'
-    #base-path: http://desazure.byl.local/gateway-distribucion-api-v1
+    retry-attemps: 7
+    retry-time: 60
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
     services:
       syncro-adjustment: /inventory/syncro/adjustment
       syncro-shipment: /inventory/syncro/shipment
@@ -41,6 +37,8 @@ webclient:
       max-references: /inventory/maxReferences
       active-seasons: /inventory/active-seasons
   oms:
+    retry-attemps: 5
+    retry-time: 10
     tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
     oauth:
       client-id: '{cipher}9f648580f8bf05b29bad159e6b118417ed03cd0d2ed6f2a97edcbeab6b34a28bcbc65d79664b5132fae8d25c8a41306825084da72d3672f5c3513e3890a32cff'
