@@ -1,0 +1,81 @@
+command:
+  name: configuracionComandos
+  commands:
+    -
+      name: SEND_ORDER_LABELLING
+      bean-name: sendOrderLabellingCommand
+    -
+      name: FINAL_COLORS_INTEGRATION
+      bean-name: finalColorsIntegrationCommand
+    -
+      name: PRINTS_INTEGRATION
+      bean-name: printsIntegrationCommand
+    -
+      name: TYPES_INTEGRATION
+      bean-name: typesIntegrationCommand
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+    
+plm-config:
+  enabled: true
+  base-path: https://bimba-preprod.centricsoftware.com/csi-requesthandler/api/v2
+  centric-login: /session
+  user: Administrator
+  password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
+
+process:
+  config:
+    out-path: \\svmos101025-fs\equivalenciastallas$\DES\
+    size-equivalence-csv: \\svmos101025-fs\equivalenciastallas$\DES\EQUIVALENCIAS_TALLAS.csv
+    mail:
+      mail-host: correoweb.bimbaylola.com
+      mail-port: 587
+      username: srvcmailsml@bimbaylola.com
+      password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
+      from: srvcmailsml@bimbaylola.com
+      to: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      cc: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      errors: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+
+codeunit:
+  user: srvcplmnavdes
+  password: '{cipher}15d9a7d20ca746dac938b549d087ab96b4cde879286e036eb1103257be084af4'
+
+webclient:
+  max-in-memory-size: 10000000
+  retry-attemps: 3
+  retry-time: 10
+  producto:
+    services:
+      bom: /apparel_boms
+      bom-id: /apparel_boms/{id}
+      bom-revision: /apparel_bom_revisions
+      bom-revision-id: /apparel_bom_revisions/{id}
+      categories: /category1s
+      categories-id: /category1s/{id}
+      colorways: /colorways
+      colorways-id: /colorways/{id}
+      countries: /countries
+      countries-id: /countries/{id}
+      lookup-items: /lookup_items
+      lookup-items-id: /lookup_items/{id}
+      lookup-item-subtypes: /lookup_item_subtypes 
+      materials: /materials/{id}
+      material-types: /material_types
+      orders: /orders/{id}
+      print-design-colors: /print_design_colors      
+      print-design-colors-id: /print_design_colors/{id}
+      purchase-orders: /purchase_orders
+      purchase-orders-id: /purchase_orders/{id}
+      seasons: /seasons
+      sizes-id: /product_sizes/{id}
+      size-ranges-id: /size_ranges/{id}
+      skus-id: /skus/{id}
+      styles-id: /styles/{id}
+      suppliers-id: /suppliers/{id}
+      
+      
+      
+      
