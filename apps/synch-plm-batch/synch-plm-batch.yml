@@ -1,23 +1,19 @@
 command:
   name: configuracionComandos
   commands:
-    -
-      name: SEND_ORDER_LABELLING
+    - name: SEND_ORDER_LABELLING
       bean-name: sendOrderLabellingCommand
-    -
-      name: FINAL_COLORS_INTEGRATION
+    - name: FINAL_COLORS_INTEGRATION
       bean-name: finalColorsIntegrationCommand
-    -
-      name: PRINTS_INTEGRATION
+    - name: PRINTS_INTEGRATION
       bean-name: printsIntegrationCommand
-    -
-      name: TYPES_INTEGRATION
+    - name: TYPES_INTEGRATION
       bean-name: typesIntegrationCommand
 
 spring:
   profiles:
     active: ${SHORT_ENV}
-    
+
 plm-config:
   enabled: true
   base-path: https://bimba-preprod.centricsoftware.com/csi-requesthandler/api/v2
@@ -40,6 +36,7 @@ process:
       errors: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
 
 codeunit:
+  url: svmos101037-nas:7047/CENTRAL/WS/BIMBA Y LOLA/Codeunit/WSCreateEan
   user: srvcplmnavdes
   password: '{cipher}15d9a7d20ca746dac938b549d087ab96b4cde879286e036eb1103257be084af4'
 
@@ -61,11 +58,11 @@ webclient:
       countries-id: /countries/{id}
       lookup-items: /lookup_items
       lookup-items-id: /lookup_items/{id}
-      lookup-item-subtypes: /lookup_item_subtypes 
+      lookup-item-subtypes: /lookup_item_subtypes
       materials: /materials/{id}
       material-types: /material_types
       orders: /orders/{id}
-      print-design-colors: /print_design_colors      
+      print-design-colors: /print_design_colors
       print-design-colors-id: /print_design_colors/{id}
       purchase-orders: /purchase_orders
       purchase-orders-id: /purchase_orders/{id}
