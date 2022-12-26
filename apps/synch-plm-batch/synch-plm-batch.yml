@@ -23,8 +23,16 @@ plm-config:
 
 process:
   config:
+    # user-file: srvcplmnavdes
+    user-file: srvcplmnavpre
+    # pass-file: "DXeQzQ#Y2d&8NC8"
+    pass-file: "7oep*KLR@d0$082"
+    host-file: 10.20.101.25
+    src-dir: "equivalenciastallas$"
+    src-folder: PRE
+
     out-path: \\svmos101025-fs\equivalenciastallas$\DES\
-    persistence-file-path: \mnt\orderlabelling
+    persistence-file-path: \mnt\plmorderlabelling\DES
     size-equivalence-csv: EQUIVALENCIAS_TALLAS.csv
     mail:
       mail-host: correoweb.bimbaylola.com
@@ -32,9 +40,12 @@ process:
       username: srvcmailsml@bimbaylola.com
       password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
       from: srvcmailsml@bimbaylola.com
-      to: psantiago@atsistemas.com
-      cc: psantiago@atsistemas.com
-      errors: psantiago@atsistemas.com
+      #to: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      #cc: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      #errors: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      to: pbaranano@bimbaylola.com;psantiago@atsistemas.com
+      cc: pbaranano@bimbaylola.com;psantiago@atsistemas.com
+      errors: pbaranano@bimbaylola.com;psantiago@atsistemas.com
 
 codeunit:
   url: svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSCreateEan
