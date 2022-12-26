@@ -23,13 +23,13 @@ plm-config:
 
 process:
   config:
-    # user-file: srvcplmnavdes
-    user-file: srvcplmnavpre
-    # pass-file: "DXeQzQ#Y2d&8NC8"
-    pass-file: "7oep*KLR@d0$082"
+    user-file: srvcplmnavdes
+    # user-file: srvcplmnavpre
+    pass-file: "DXeQzQ#Y2d&8NC8"
+    # pass-file: "7oep*KLR@d0$082"
     host-file: 10.20.101.25
     src-dir: "equivalenciastallas$"
-    src-folder: PRE
+    src-folder: DES
 
     out-path: \\svmos101025-fs\equivalenciastallas$\DES\
     persistence-file-path: \mnt\plmorderlabelling\DES
