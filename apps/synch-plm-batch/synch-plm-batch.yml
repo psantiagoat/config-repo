@@ -32,9 +32,9 @@ process:
       username: srvcmailsml@bimbaylola.com
       password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
       from: srvcmailsml@bimbaylola.com
-      to: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
-      cc: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
-      errors: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
+      to: psantiago@atsistemas.com
+      cc: psantiago@atsistemas.com
+      errors: psantiago@atsistemas.com
 
 codeunit:
   url: svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSCreateEan
