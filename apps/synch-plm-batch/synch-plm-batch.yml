@@ -24,7 +24,8 @@ plm-config:
 process:
   config:
     out-path: \\svmos101025-fs\equivalenciastallas$\DES\
-    size-equivalence-csv: \\svmos101025-fs\equivalenciastallas$\DES\EQUIVALENCIAS_TALLAS.csv
+    persistence-file-path: \mnt\orderlabelling
+    size-equivalence-csv: EQUIVALENCIAS_TALLAS.csv
     mail:
       mail-host: correoweb.bimbaylola.com
       mail-port: 587
