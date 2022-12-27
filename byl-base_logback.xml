@@ -18,11 +18,11 @@
   <springProperty scope="context" name="elasticTimeout" source="elasticsearch.timeout" defaultValue="30000"/>
   <springProperty scope="context" name="elasticLogLevel" source="elasticsearch.log-level" defaultValue="INFO"/>
 
-  <!--<logger name="org" level="OFF"/>
+  <logger name="org" level="OFF"/>
   <logger name="_org" level="OFF"/>
   <logger name="reactor" level="OFF"/>
   <logger name="io" level="OFF"/>
-  <logger name="com.zaxxer" level="INFO"/-->>
+  <logger name="com.zaxxer" level="INFO"/>
 
   <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
     <connectTimeout>${elasticTimeout}</connectTimeout> <!-- optional (in ms, default 30000) -->
