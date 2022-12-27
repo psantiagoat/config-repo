@@ -23,7 +23,7 @@ plm-config:
 
 process:
   config:
-    persistence-file-path: \mnt\plmequivalenciastallas
+    persistence-file-path: \mnt\plmequivalenciastallas\
     size-equivalence-csv: EQUIVALENCIAS_TALLAS.csv
     update-purchase-orders: false
     mail:
