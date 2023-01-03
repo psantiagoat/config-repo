@@ -9,7 +9,7 @@ command:
 process:
   config:
     persistence:
-      max-days: 6
+      max-days: 5
 
 azure:
   storage:
