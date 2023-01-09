@@ -40,7 +40,7 @@ process:
       errors: pbaranano@bimbaylola.com;psantiago@atsistemas.com
 
 codeunit:
-  url: svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSCreateEan
+  url: http://svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSCreateEan
   user: srvcplmnavdes
   password: '{cipher}15d9a7d20ca746dac938b549d087ab96b4cde879286e036eb1103257be084af4'
 
