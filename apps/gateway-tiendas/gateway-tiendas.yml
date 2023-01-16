@@ -11,6 +11,20 @@ byl:
 cache:
   enable-redis: true
 
+azure:
+  storage:
+    enabled: true
+    accounts:
+      tiendas:
+        account-id: storage-general
+        tables:
+          app-versions: DevTiendasAppVersions
+    config:
+      accounts:
+        storage-general:
+          name: storagegeneraldev
+          key: '{cipher}aece0548dab8ff215ec1eb334256c9a33a75170f6022003ef069205f9c703a01d9ff9371d812bb58b4eaecfd209af1ae7a4bdaa452a7db66efc22a170cb4a5344e15ea83e9bb724a2134b8a30ebf42d5e0bceef910fc26999189becff5bac0ad9890251d4f49d720c6727875897d75b0'
+
 spring:
   profiles:
     active: ${SHORT_ENV}
