@@ -82,6 +82,7 @@ webclient:
       size-ranges-id: /size_ranges/{id}
       skus: /skus
       skus-id: /skus/{id}
+      skus-node-name: /skus/{node_name}
       styles-id: /styles/{id}
       styles: /styles
       suppliers-id: /suppliers/{id}
