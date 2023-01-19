@@ -17,7 +17,7 @@ spring:
     active: ${SHORT_ENV}
   jms:
     servicebus:
-      connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=pruebas-arquetipo;SharedAccessKey=oHDzahMkse1jQD+TTFi4526VKREmb2LtmrI4B8ORWBM=;"
+      connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=SendAndReadKey;SharedAccessKey=v4AGZFlKuIRndWAm+hp3VpyJK9iUtjWUi2Azk2Tq2cg="
       pricing-tier: "standard"
 
 plm-config:
@@ -82,7 +82,6 @@ webclient:
       size-ranges-id: /size_ranges/{id}
       skus: /skus
       skus-id: /skus/{id}
-      skus-node-name: /skus/{node_name}
       styles-id: /styles/{id}
       styles: /styles
       suppliers-id: /suppliers/{id}
