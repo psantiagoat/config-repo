@@ -79,6 +79,7 @@ webclient:
       skus: /skus
       skus-id: /skus/{id}
       styles-id: /styles/{id}
+      styles: /styles
       suppliers-id: /suppliers/{id}
       
       
