@@ -9,6 +9,8 @@ command:
       bean-name: printsIntegrationCommand
     - name: TYPES_INTEGRATION
       bean-name: typesIntegrationCommand
+    - name: TRANSFER_SKUS
+      bean-name: transferSkusCommand
 
 spring:
   profiles:
@@ -23,7 +25,7 @@ plm-config:
 
 process:
   config:
-    persistence-file-path: \mnt\plmequivalenciastallas\
+    persistence-file-path: /mnt/plmequivalenciastallas/
     size-equivalence-csv: EQUIVALENCIAS_TALLAS.csv
     update-purchase-orders: false
     mail:
@@ -48,7 +50,7 @@ webclient:
   max-in-memory-size: 10000000
   retry-attemps: 3
   retry-time: 10
-  producto:
+  plm:
     services:
       bom: /apparel_boms
       bom-id: /apparel_boms/{id}
@@ -66,6 +68,7 @@ webclient:
       materials: /materials/{id}
       material-types: /material_types
       orders: /orders/{id}
+      part-materials-id: /part_materials/{id}
       print-design-colors: /print_design_colors
       print-design-colors-id: /print_design_colors/{id}
       purchase-orders: /purchase_orders
@@ -73,6 +76,7 @@ webclient:
       seasons: /seasons
       sizes-id: /product_sizes/{id}
       size-ranges-id: /size_ranges/{id}
+      skus: /skus
       skus-id: /skus/{id}
       styles-id: /styles/{id}
       suppliers-id: /suppliers/{id}
