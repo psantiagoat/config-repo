@@ -17,7 +17,7 @@ spring:
     active: ${SHORT_ENV}
   jms:
     servicebus:
-      connection-string: ""
+      connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=pruebas-arquetipo;SharedAccessKey=oHDzahMkse1jQD+TTFi4526VKREmb2LtmrI4B8ORWBM=;"
 
 plm-config:
   enabled: true
