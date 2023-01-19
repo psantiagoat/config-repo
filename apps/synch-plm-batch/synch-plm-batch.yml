@@ -15,6 +15,9 @@ command:
 spring:
   profiles:
     active: ${SHORT_ENV}
+  jms:
+    servicebus:
+      connection-string: ""
 
 plm-config:
   enabled: true
