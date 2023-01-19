@@ -18,6 +18,7 @@ spring:
   jms:
     servicebus:
       connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=pruebas-arquetipo;SharedAccessKey=oHDzahMkse1jQD+TTFi4526VKREmb2LtmrI4B8ORWBM=;"
+      pricing-tier: "standard"
 
 plm-config:
   enabled: true
