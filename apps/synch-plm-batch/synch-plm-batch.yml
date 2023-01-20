@@ -19,6 +19,30 @@ spring:
     servicebus:
       connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=SendAndReadKey;SharedAccessKey=v4AGZFlKuIRndWAm+hp3VpyJK9iUtjWUi2Azk2Tq2cg="
       pricing-tier: "standard"
+  cloud:
+    azure:
+      servicebus:
+        connection-string: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=SendAndReadKey;SharedAccessKey=v4AGZFlKuIRndWAm+hp3VpyJK9iUtjWUi2Azk2Tq2cg="
+    stream:
+      bindings:
+        consume-in-0:
+          destination: topicprueba
+          group: ignorar
+        supply-out-0:
+          destination: topicprueba
+      servicebus:
+        bindings:
+          consume-in-0:
+            consumer:
+              auto-complete: false
+          supply-out-0:
+            producer:
+              entity-type: topic
+      function:
+        definition: consume;supply;
+      poller:
+        fixed-delay: 1000
+        initial-delay: 0
 
 plm-config:
   enabled: true
