@@ -48,6 +48,8 @@ codeunit:
   user: srvcplmnavdes
   password: '{cipher}15d9a7d20ca746dac938b549d087ab96b4cde879286e036eb1103257be084af4'
 
+
+
 webclient:
   max-in-memory-size: 10000000
   retry-attemps: 3
@@ -85,7 +87,7 @@ webclient:
       suppliers-id: /suppliers/{id}
 
 service-bus:
-  connection: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=plm-integration;SharedAccessKey=Q6TvM82SjR/cLZ7ozuvbvxpO2vaIrzI3hGC+4ttDkR8=;";
+  connection: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=plm-integration;SharedAccessKey=Q6TvM82SjR/cLZ7ozuvbvxpO2vaIrzI3hGC+4ttDkR8=;"
   topic: "producto.plm-integration"
   subscription: "update_sku_status"
   move-to-dead-letter: true
