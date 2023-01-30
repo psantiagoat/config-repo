@@ -1,0 +1,56 @@
+app:
+  fqdn: localhost
+
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+  ldap:
+    active: false
+
+cache:
+  enable-redis: false
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      tiendas:
+        account-id: storage-general
+        tables:
+          app-versions: DevTiendasAppVersions
+    config:
+      accounts:
+        storage-general:
+          name: storagegeneraldev
+          key: '{cipher}aece0548dab8ff215ec1eb334256c9a33a75170f6022003ef069205f9c703a01d9ff9371d812bb58b4eaecfd209af1ae7a4bdaa452a7db66efc22a170cb4a5344e15ea83e9bb724a2134b8a30ebf42d5e0bceef910fc26999189becff5bac0ad9890251d4f49d720c6727875897d75b0'
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+  # Datasources
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
+    username: uapistore
+    password: '{cipher}ebb43b7a92d28c773459005255a961a8e05b0157e52ad30b749dcfe0f87337fef63ccd6f1daf594236e875d71055dafa'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Principal
+
+springdoc:
+  swagger-ui:
+    operationsSorter: alpha
+    tagsSorter: alpha
+
+elasticsearch:
+  log-level: DEBUG
