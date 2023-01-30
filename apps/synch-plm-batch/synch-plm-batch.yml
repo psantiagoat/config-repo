@@ -28,6 +28,9 @@ process:
     persistence-file-path: /mnt/plmequivalenciastallas/
     size-equivalence-csv: EQUIVALENCIAS_TALLAS.csv
     update-purchase-orders: false
+    communicate-skus: false
+    transfer-skus: false
+    retry-attempts: 3
     mail:
       mail-host: correoweb.bimbaylola.com
       mail-port: 587
@@ -40,15 +43,12 @@ process:
       to: pbaranano@bimbaylola.com;psantiago@atsistemas.com
       cc: pbaranano@bimbaylola.com;psantiago@atsistemas.com
       errors: pbaranano@bimbaylola.com;psantiago@atsistemas.com
-    retry-attempts: 3
-    transfer-skus: false
+
 
 codeunit:
   url: http://svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSCreateEan
   user: srvcplmnavdes
   password: '{cipher}15d9a7d20ca746dac938b549d087ab96b4cde879286e036eb1103257be084af4'
-
-
 
 webclient:
   max-in-memory-size: 10000000
@@ -75,6 +75,7 @@ webclient:
       part-materials-id: /part_materials/{id}
       print-design-colors: /print_design_colors
       print-design-colors-id: /print_design_colors/{id}
+      product-sizes-id: /product_sizes/{id}
       purchase-orders: /purchase_orders
       purchase-orders-id: /purchase_orders/{id}
       seasons: /seasons
@@ -85,6 +86,7 @@ webclient:
       styles-id: /styles/{id}
       styles: /styles
       suppliers-id: /suppliers/{id}
+      users-id: /users/{id}
 
 service-bus:
   connection: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=plm-integration;SharedAccessKey=Q6TvM82SjR/cLZ7ozuvbvxpO2vaIrzI3hGC+4ttDkR8=;"
