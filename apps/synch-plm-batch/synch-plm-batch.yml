@@ -9,6 +9,8 @@ command:
       bean-name: printsIntegrationCommand
     - name: TYPES_INTEGRATION
       bean-name: typesIntegrationCommand
+    - name: SKUS_INTEGRATION
+      bean-name: skusIntegrationCommand
     - name: TRANSFER_SKUS
       bean-name: transferSkusCommand
 
@@ -55,6 +57,7 @@ webclient:
   retry-attemps: 3
   retry-time: 10
   plm:
+    limit: 50
     services:
       bom: /apparel_boms
       bom-id: /apparel_boms/{id}
@@ -87,6 +90,11 @@ webclient:
       styles: /styles
       suppliers-id: /suppliers/{id}
       users-id: /users/{id}
+  producto:
+    base-path: http://desazure.byl.local/gateway-product-api-v1
+    services:
+      sku-integration: /plm/sku-integration
+      disable-sku: /plm/block-sku/{id}
 
 service-bus:
   connection: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=plm-integration;SharedAccessKey=Q6TvM82SjR/cLZ7ozuvbvxpO2vaIrzI3hGC+4ttDkR8=;"
