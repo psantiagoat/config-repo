@@ -1,0 +1,39 @@
+command:
+  name: configuracionComandos
+  commands:
+    - name: SYNC_SALES_PRICE
+      bean-name: syncSalesPriceCommand
+
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+plm-config:
+  enabled: true
+  base-path: https://bimba-preprod.centricsoftware.com/csi-requesthandler/api/v2
+  centric-login: /session
+  user: Administrator
+  password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
+
+process:
+  config:
+    plm-changes: false
+    retry-attempts: 3
+
+webclient:
+  retry-attemps: 3
+  retry-time: 10
+  plm:
+    limit: 50
+    services:
+      colorways: /colorways
+      colorways-id: /colorways/{id}
+  producto:
+    base-path: http://desazure.byl.local/gateway-product-api-v1
+    services:
+      reference-prices: /plm/reference-prices
+
+
+      
+      
