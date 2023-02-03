@@ -18,8 +18,17 @@ plm-config:
 
 process:
   config:
-    plm-changes: false
+    execute-plm-changes: false
     retry-attempts: 3
+    mail:
+      mail-host: correoweb.bimbaylola.com
+      mail-port: 587
+      username: srvcmailsml@bimbaylola.com
+      password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
+      from: srvcmailsml@bimbaylola.com
+      to: ahathat@atsistemas.com;psantiago@atsistemas.com
+      cc: ahathat@atsistemas.com;psantiago@atsistemas.com
+      errors: ahathat@atsistemas.com;psantiago@atsistemas.com
 
 webclient:
   retry-attemps: 3
