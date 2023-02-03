@@ -1,8 +1,8 @@
 command:
   name: configuracionComandos
   commands:
-    - name: SYNC_SALES_PRICE
-      bean-name: syncSalesPriceCommand
+    - name: SYNC_REFERENCE_PRICE
+      bean-name: syncReferencePriceCommand
 
 
 spring:
