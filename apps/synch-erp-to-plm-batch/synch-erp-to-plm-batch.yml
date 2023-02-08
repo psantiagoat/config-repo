@@ -33,6 +33,7 @@ process:
       errors: ahathat@atsistemas.com;psantiago@atsistemas.com
 
 webclient:
+  max-in-memory-size: 10000000
   retry-attemps: 3
   retry-time: 10
   plm:
