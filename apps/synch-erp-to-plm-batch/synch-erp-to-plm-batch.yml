@@ -46,7 +46,7 @@ webclient:
     ##base-path: http://desazure.byl.local/gateway-product-api-v1
     base-path: http://localhost:8080/gateway-product-api-v1
     services:
-      reference-prices: /plm/reference-prices
+      reference-price: /plm/reference-price
 
 
       
