@@ -1,9 +1,11 @@
+server:
+  port: 8081
+
 command:
   name: configuracionComandos
   commands:
     - name: SYNC_REFERENCE_PRICE
       bean-name: syncReferencePriceCommand
-
 
 spring:
   profiles:
