@@ -47,9 +47,9 @@ process:
       #to: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
       #cc: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
       #errors: mcondel@bimbaylola.com;lcordoba@bimbaylola.com;srodriguez@bimbaylola.com
-      to: pbaranano@bimbaylola.com;psantiago@atsistemas.com
-      cc: pbaranano@bimbaylola.com;psantiago@atsistemas.com
-      errors: pbaranano@bimbaylola.com;psantiago@atsistemas.com
+      to: psantiago@atsistemas.com
+      cc: psantiago@atsistemas.com
+      errors: psantiago@atsistemas.com
 
 
 codeunit:
