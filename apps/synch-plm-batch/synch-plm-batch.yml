@@ -27,7 +27,8 @@ plm-config:
   base-path: https://bimba-preprod.centricsoftware.com/csi-requesthandler/api/v2
   centric-login: /session
   user: Administrator
-  password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
+  ##password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
+  password: 'mal'
 
 process:
   config:
