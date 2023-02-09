@@ -30,7 +30,7 @@ process:
       from: srvcmailsml@bimbaylola.com
       to: ahathat@atsistemas.com, psantiago@atsistemas.com
       cc: ahathat@atsistemas.com, psantiago@atsistemas.com
-      errors: ahathat@atsistemas.com, psantiago@atsistemas.com
+      errors: psantiago@atsistemas.com
 
 webclient:
   max-in-memory-size: 10000000
