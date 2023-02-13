@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-
 command:
   name: configuracionComandos
   commands:
@@ -17,6 +16,8 @@ command:
       bean-name: skusIntegrationCommand
     - name: TRANSFER_SKUS
       bean-name: transferSkusCommand
+    - name: COMPOSITIONS_INTEGRATION
+      bean-name: compositionsIntegrationCommand
 
 spring:
   profiles:
@@ -27,8 +28,8 @@ plm-config:
   base-path: https://bimba-preprod.centricsoftware.com/csi-requesthandler/api/v2
   centric-login: /session
   user: Administrator
-  ##password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
-  password: 'mal'
+  password: '{cipher}9115c6ec1dc04f938caf129f44f5a614cc775c2094b85d335b9d3ff6d4b034604ca11fe805ba69538e63c999e5c99c0d'
+
 
 process:
   config:
@@ -68,8 +69,11 @@ webclient:
       bom-id: /apparel_boms/{id}
       bom-revision: /apparel_bom_revisions
       bom-revision-id: /apparel_bom_revisions/{id}
+      care-and-compositions: /care_and_compositions
+      care-and-compositions-id: /care_and_compositions/{id}
       categories: /category1s
       categories-id: /category1s/{id}
+      compositions-id: /compositions/{id}
       colorways: /colorways
       colorways-id: /colorways/{id}
       countries: /countries
@@ -79,6 +83,7 @@ webclient:
       lookup-item-subtypes: /lookup_item_subtypes
       materials: /materials/{id}
       material-types: /material_types
+      material-compositions-id: /material_compositions/{id}
       orders: /orders/{id}
       part-materials-id: /part_materials/{id}
       print-design-colors: /print_design_colors
@@ -92,7 +97,6 @@ webclient:
       skus: /skus
       skus-id: /skus/{id}
       styles-id: /styles/{id}
-      styles: /styles
       suppliers-id: /suppliers/{id}
       users-id: /users/{id}
   producto:
@@ -100,6 +104,7 @@ webclient:
     services:
       sku-integration: /plm/sku-integration
       disable-sku: /plm/block-sku/{id}
+      composition-integration: /plm/composition-integration
 
 service-bus:
   connection: "Endpoint=sb://byl-core-dev.servicebus.windows.net/;SharedAccessKeyName=plm-integration;SharedAccessKey=Q6TvM82SjR/cLZ7ozuvbvxpO2vaIrzI3hGC+4ttDkR8=;"
