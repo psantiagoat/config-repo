@@ -20,7 +20,7 @@ plm-config:
 
 process:
   config:
-    execute-plm-changes: false
+    execute-plm-changes: true
     retry-attempts: 3
     mail:
       host: correoweb.bimbaylola.com
