@@ -43,8 +43,8 @@ webclient:
       colorways-id: /colorways/{id}
   producto:
     page-size: 500
-    ##base-path: http://desazure.byl.local/gateway-product-api-v1
-    base-path: http://localhost:8080/gateway-product-api-v1
+    base-path: http://desazure.byl.local/gateway-product-api-v1
+    ##base-path: http://localhost:8080/gateway-product-api-v1
     services:
       reference-price: /plm/reference-price
 
