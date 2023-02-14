@@ -100,7 +100,8 @@ webclient:
       suppliers-id: /suppliers/{id}
       users-id: /users/{id}
   producto:
-    base-path: http://desazure.byl.local/gateway-product-api-v1
+    ##base-path: http://desazure.byl.local/gateway-product-api-v1
+    base-path: http://localhost:8080/gateway-product-api-v1
     services:
       sku-integration: /plm/sku-integration
       disable-sku: /plm/block-sku/{id}
