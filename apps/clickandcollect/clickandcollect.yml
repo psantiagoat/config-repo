@@ -28,11 +28,6 @@ azure:
 spring:
   profiles:
     active: ${SHORT_ENV}
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
   # Datasources
   datasource:
@@ -47,8 +42,8 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uapistore
-    password: '{cipher}ebb43b7a92d28c773459005255a961a8e05b0157e52ad30b749dcfe0f87337fef63ccd6f1daf594236e875d71055dafa'
+    username: uapiclickandcollect
+    password: '{cipher}69e46e66f96ec41a9d108c673bc6abca3c7c3a69bde539fd34c55377696e9e484894f2338c791a3be9ef136af359de7c64445943a71b670c80d9f36b9690eff5'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
 
@@ -58,4 +53,7 @@ springdoc:
     tagsSorter: alpha
 
 elasticsearch:
-  log-level: DEBUG
+  log-level: INFO
+
+controller:
+  max-pagesize: 100
