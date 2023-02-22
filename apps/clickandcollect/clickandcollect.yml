@@ -9,22 +9,21 @@ byl:
     active: false
 
 cache:
-  enable-redis: false
+  enable-redis: true
 
 azure:
   storage:
     enabled: false
     accounts:
       tiendas:
-        account-id: storage-general
+        account-id: tskf_tiendas
         tables:
-          app-versions: DevTiendasAppVersions
+          mapping-behaviour: clickCollectApiMappingBehaviour
     config:
       accounts:
-        storage-general:
-          name: storagegeneraldev
-          key: '{cipher}aece0548dab8ff215ec1eb334256c9a33a75170f6022003ef069205f9c703a01d9ff9371d812bb58b4eaecfd209af1ae7a4bdaa452a7db66efc22a170cb4a5344e15ea83e9bb724a2134b8a30ebf42d5e0bceef910fc26999189becff5bac0ad9890251d4f49d720c6727875897d75b0'
-
+        tskf_tiendas:
+          name: tskftiendasdev
+          key: '{cipher}f743bdbb61298816e331fc863b103d9be92efb064ae20d38a3ab665d36265a8f3d3fc976e2854baab4f0bd25a51028ecf66bf8d742e7c2a0d17616387e3886bd48e4eb90ced25e0152d3f541090fb99edd64b232b2f7536ff62a8e9b1a83b1fb5fb2c2e23f99ccad6fc06f5aa07904c5'
 spring:
   profiles:
     active: ${SHORT_ENV}
