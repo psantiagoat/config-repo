@@ -38,6 +38,7 @@ process:
     update-purchase-orders: false
     communicate-skus: false
     transfer-skus: false
+    update-compositions: false
     retry-attempts: 3
     mail:
       mail-host: correoweb.bimbaylola.com
