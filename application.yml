@@ -59,7 +59,7 @@ byl:
     internal-enable: false
   auto-health: false
   datasource-erp:
-    enabled: false
+    enabled: true
   datasource-primary:
     enabled: false
   encryption:
