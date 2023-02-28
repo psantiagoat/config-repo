@@ -52,6 +52,28 @@ app:
   version: "@project.version@"
   full-max-page-size: 50000
 
+byl:
+  addTraceInApiException: true
+  audit:
+    enabled: false
+    internal-enable: false
+  auto-health: false
+  datasource-erp:
+    enabled: false
+  datasource-primary:
+    enabled: false
+  encryption:
+    enabled: false
+  excludeAuditRest: '/swagger,/api-docs,/actuator,/swagger-ui,/swagger-resources,/v3,/health'
+  isRestAuditable: true
+  ldap:
+    active: false
+  sftp:
+    host: sftp-service.dev-arqsw.svc.cluster.local
+    port: 2222
+    user: docker
+    password: "{cipher}145dc2e538c4d305dbda92705a79c82b03fbaedaed7deb76d411c6541751db10"
+
 cache:
   enable-redis: false
   task-force: ${TASK_FORCE}
