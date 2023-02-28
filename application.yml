@@ -61,7 +61,7 @@ byl:
   datasource-erp:
     enabled: false
   datasource-primary:
-    enabled: false
+    enabled: true
   encryption:
     enabled: false
   excludeAuditRest: '/swagger,/api-docs,/actuator,/swagger-ui,/swagger-resources,/v3,/health'
