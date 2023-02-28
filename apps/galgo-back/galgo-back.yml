@@ -14,12 +14,11 @@ spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
 services:
   export-pagesize: 5000
   supply-chain:
     user: 'admin'
-    pass: '{cipher}0dee57ce5dd59a09bcf13f438dc6c396f5eacf97110e4a00c4656f052f7d521e'
+    pass: 'password'
     base-path: https://bylla-dev-1.oms.supply-chain.ibm.com/smcfs/restapi/invoke
     endpoints:
       get-page: /getPage
@@ -27,6 +26,7 @@ services:
     pageable-endpoints:
       item-list: getItemList
       order-line-list: getOrderLineList
+
   oms:
     tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
     oauth:
@@ -37,3 +37,19 @@ services:
       oauth: /oauth2/token
       availability-network: /availability/network
       distribution-groups: /configuration/distributionGroups
+
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      distribucion:
+        account-id: distribucion
+        tables:
+          restocking-config: DevRestockingConfig
+
+    config:
+      accounts:
+        distribucion:
+          name: tskfdistribuciondev
+          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
