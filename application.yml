@@ -100,7 +100,7 @@ cache:
     cache-hour: 3600
   default-ttl: 86400
   enable-redis: false
-  host: 10.80.50.112
+  host: 10.80.50.121
   key-prefix: '${spring.application.name}'
   password: 'secretpassword'
   port: 6379
