@@ -6,40 +6,20 @@ byl:
     internal-enable: false
   ldap:
     active: false
-  datasource-primary:
-    enabled: false
-
-
 cache:
   enable-redis: true
 spring:
   profiles:
     active: ${SHORT_ENV}
-
-
-  # Datasources
-  datasource:
-    datasource-initializer-enabled: false
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 20
-      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      auto-commit: true
-      idle-timeout: 600000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uomsdev
-    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    poolName: HikariCP-Principal
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 services:
-  export-pagesize: 5000
+  export-pagesize: 500
   supply-chain:
     user: 'admin'
-    pass: 'password'
+    pass: '{cipher}0dee57ce5dd59a09bcf13f438dc6c396f5eacf97110e4a00c4656f052f7d521e'
     base-path: https://bylla-dev-1.oms.supply-chain.ibm.com/smcfs/restapi/invoke
     endpoints:
       get-page: /getPage
@@ -47,7 +27,6 @@ services:
     pageable-endpoints:
       item-list: getItemList
       order-line-list: getOrderLineList
-
   oms:
     tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
     oauth:
@@ -59,7 +38,6 @@ services:
       availability-network: /availability/network
       distribution-groups: /configuration/distributionGroups
 
-
 azure:
   storage:
     enabled: false
@@ -68,9 +46,8 @@ azure:
         account-id: distribucion
         tables:
           restocking-config: DevRestockingConfig
-
     config:
       accounts:
         distribucion:
           name: tskfdistribuciondev
-          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
+          key: '{cipher}f15852849941c1ac3595381f352973e6b059c2288a824c11b3c0655c58d944174b514059a3a4fd11a5c41d745710b522aec8c4b7429e7a6840063e0ba34bf9dbd8761910c1e9f37e05982181b5782b89235b7fbf652f82877a8010b972611b565e57795234362dc47b514f0fa3eaac0f'
