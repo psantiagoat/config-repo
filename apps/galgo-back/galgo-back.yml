@@ -52,8 +52,9 @@ azure:
           name: tskfdistribuciondev
           key: '{cipher}f15852849941c1ac3595381f352973e6b059c2288a824c11b3c0655c58d944174b514059a3a4fd11a5c41d745710b522aec8c4b7429e7a6840063e0ba34bf9dbd8761910c1e9f37e05982181b5782b89235b7fbf652f82877a8010b972611b565e57795234362dc47b514f0fa3eaac0f'
 
-jwk:
-  provider:
-  url: https://login.microsoftonline.com/common/discovery/keys
-  app:
-  id: demo-oauth-roles
+security:
+  jwk:
+    provider:
+      url: https://login.microsoftonline.com/common/discovery/keys
+    app:
+      id: demo-oauth-roles
