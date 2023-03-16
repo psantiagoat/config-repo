@@ -58,4 +58,5 @@ security:
     provider:
       url: https://login.microsoftonline.com/common/discovery/keys
     app:
-      id: demo-oauth-roles
+      aud: api://a2089459-7f1f-4291-a416-6cf367ee3598
+      appid: a2089459-7f1f-4291-a416-6cf367ee3598
