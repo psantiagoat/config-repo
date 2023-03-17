@@ -1,0 +1,11 @@
+app:
+  fqdn: localhost
+
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
