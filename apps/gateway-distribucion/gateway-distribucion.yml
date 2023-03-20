@@ -75,6 +75,6 @@ inventory:
     tipo-almacen-2: 0, 1, 2, 3, 4, 10
     tipo-almacen: 2, 3
     codes-tipo-almacen-not-in: SERGIO
-    country-region-codes: ES, MX, CO, CL, PR, US, DE, FR, GB, PT, NL, PL
+    codes-country-region: ES, MX, CO, CL, PR, US, DE, FR, GB, PT, NL, PL
     codes-tipo-almacen-6: WEB, MXWEB, COWEB, CLWEB
     codes-tipo-almacen-1: AL2, ALCAN, ALM, CLAL, COAL, JEV, KRAL, MXAL, SGAL, CNAL, ALSTG
