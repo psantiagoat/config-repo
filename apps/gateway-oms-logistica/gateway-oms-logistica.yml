@@ -23,3 +23,19 @@ webclient:
     base-path: https://desonprem.byl.local/byl-mtec-core-manifest-application/api/rest
     services:
       add-manifest: /manifest/addManifest
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      oms-logistica:
+        account-id: oms-logistica
+        tables:
+          companies: DevEmpresas
+    config:
+      accounts:
+        oms-logistica:
+          name: storagegeneraldev
+          key: '{cipher}cd927331c871fc4b796dbc1f0e1dd6c6a836b14c7db4c5915a7ec8fadc6483fe5ed73e8b08305bcf7f1490781b3d41fb130dcb5bf027919874ba1de35f54d06c68b7feb075d97cd5f36734d98f6614b83dd1c8dd96dddbab3c8f720e9a3d49ed2f474a80e10bad42bb711df467f566ad'
+
+
