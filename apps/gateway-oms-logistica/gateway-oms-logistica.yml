@@ -24,7 +24,8 @@ webclient:
     services:
       add-manifest: /manifest/addManifest
   tiendas:
-    base-path: http://gateway-tiendas-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-api-v1
+    #base-path: http://gateway-tiendas-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-api-v1
+    base-path: http://desazure.byl.local/gateway-tiendas-api-v1
     services:
       get-location: /Locations/{location}
 
