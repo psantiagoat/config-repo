@@ -20,7 +20,7 @@ webclient:
   retry-attemps: 3
   retry-time: 10
   mtec:
-    base-path: https://desonprem.byl.local/byl-mtec-core-manifest-application/api/rest
+    base-path: http://desonprem.byl.local/byl-mtec-core-manifest-application/api/rest
     services:
       add-manifest: /manifest/addManifest
   tiendas:
