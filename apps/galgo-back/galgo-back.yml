@@ -46,6 +46,7 @@ azure:
         account-id: distribucion
         tables:
           restocking-config: DevRestockingConfig
+          restocking-audit: DevRestockingAudit
     config:
       accounts:
         distribucion:
