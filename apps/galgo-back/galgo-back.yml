@@ -47,6 +47,7 @@ azure:
         tables:
           restocking-config: DevRestockingConfig
           restocking-audit: DevRestockingAudit
+          batch-status: DevBatchStatus
     config:
       accounts:
         distribucion:
