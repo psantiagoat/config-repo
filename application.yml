@@ -66,14 +66,15 @@ Serilog:
 #-------------------------
 
 app:
+  consumer:
+    enabled: false
+  producer:
+    enabled: false
+
   version: ${project.version:0.0.0}
   full-max-page-size: 50000
 
-azure:
-  service-bus:
-    enabled: false
-  storage:
-    enabled: false
+
 
 byl:
   addTraceInApiException: true
@@ -91,22 +92,27 @@ byl:
   isRestAuditable: true
   ldap:
     active: false
+  sftp:
+    host: sftp-service.dev-arqsw.svc.cluster.local
+    port: 2222
+    user: docker
+    password: "{cipher}145dc2e538c4d305dbda92705a79c82b03fbaedaed7deb76d411c6541751db10"
 
 cache:
+  enable-redis: false
+  task-force: ${TASK_FORCE}
+  host: 10.80.50.82
+  port: 6379
+  ssl: false
+  default-ttl: 86400
+  password: 'secretpassword'
+  key-prefix: '${spring.application.name}'
+  use-key-prefix: true
   # Tiempo de cache en sg.
   caches-ttl:
     cache-week: 604800
     cache-day: 86400
     cache-hour: 3600
-  default-ttl: 86400
-  enable-redis: false
-  host: 10.80.50.121
-  key-prefix: '${spring.application.name}'
-  password: 'secretpassword'
-  port: 6379
-  ssl: false
-  task-force: ${TASK_FORCE}
-  use-key-prefix: true
 
 # Elasticsearch props
 elasticsearch:
@@ -194,8 +200,7 @@ spring:
     ansi:
       enabled: DETECT
   profiles:
-    active: ${SHORT_ENV}
-
+    active: des
   # Seguridad
   security:
     enable-csrf: false
@@ -216,3 +221,58 @@ springdoc:
 # End Java:
 #-------------------------
 
+services:
+  arqsw:
+    interna:
+      demo-api-v1: http://demo-api-v1.dev-arqsw.svc.cluster.local:8080/demo-api-v1/
+      demo-net-api-v1: http://demo-net-api-v1.dev-arqsw.svc.cluster.local:8080/demo-net-api-v1/
+      fake-orders-api-v1: http://fake-orders-api-v1.dev-arqsw.svc.cluster.local:8080/fake-orders-api-v1/
+      fake-orders-front-v1: http://fake-orders-front-v1.dev-arqsw.svc.cluster.local:8080/fake-orders-front-v1/
+      sccs: http://sccs.dev-arqsw.svc.cluster.local:8080/sccs/
+      sftp-service: http://sftp-service.dev-arqsw.svc.cluster.local:8080/sftp-service/
+      translation-api-v1: http://translation-api-v1.dev-arqsw.svc.cluster.local:8080/translation-api-v1/
+      transliterate-file-api-v1: http://transliterate-file-api-v1.transliterate-file-api-v1.dev-arqsw.svc.cluster.local:8080/transliterate-file-api-v1/
+  distribucion:
+    interna:
+      galgo-back-api-v1: http://galgo-back-api-v1.dev-distribucion.svc.cluster.local:8080/galgo-back-api-v1/
+      galgo-front-v1: http://galgo-front-v1.dev-distribucion.svc.cluster.local:8080/galgo-front-v1/
+      gateway-distribucion-api-v1: http://gateway-distribucion-api-v1.dev-distribucion.svc.cluster.local:8080/gateway-distribucion-api-v1/
+      gateway-oms-logistica-api-v1: http://gateway-oms-logistica-api-v1.dev-distribucion.svc.cluster.local:8080/gateway-oms-logistica-api-v1/
+  expansion:
+    interna:
+      pdp-api-v1: http://pdp-api-v1.dev-expansion.svc.cluster.local:8080/pdp-api-v1/
+  logistica:
+    interna:
+      etiq-back-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/etiq-back-api-v1/
+      etiq-front-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/etiq-front-v1/
+      mtec-core-order-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/mtec-core-order-api-v1/
+      mtec-core-tracking-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/mtec-core-tracking-api-v1/
+      mtec-dashboard-web-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/mtec-dashboard-web-v1/
+      mtec-manifest-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/mtec-manifest-api-v1/
+      tms-support-back-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/tms-support-back-api-v1:1/
+      tms-support-front-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/tms-support-front-v1/
+      vas-back-api-v1: http://pdp-api-v1.dev-logistica.svc.cluster.local:8080/vas-back-api-v1/
+  marketing:
+    interna:
+      gateway-helpdesk-atc-api-v1: http://gateway-helpdesk-atc-api-v1.dev-marketing.svc.cluster.local:8080/gateway-helpdesk-atc-api-v1/
+  producto:
+    interna:
+      gateway-product-api-v1: http://gateway-product-api-v1.dev-producto.svc.cluster.local:8080/gateway-product-api-v1/
+      global-labelling-api-v1: http://global-labelling-api-v1.dev-producto.svc.cluster.local:8080/global-labelling-api-v1/
+  tiendas:
+    interna:
+      administration-api-v1: http://administration-api-v1.dev-tiendas.svc.cluster.local:8080/administration-api-v1/
+      cards-api-v1: http://cards-api-v1.dev-tiendas.svc.cluster.local:8080/cards-api-v1/
+      clickandcollect-api-v1: http://clickandcollect-api-v1.dev-tiendas.svc.cluster.local:8080/clickandcollect-api-v1/
+      comisiones-back-api-v1: http://comisiones-back-api-v1.dev-tiendas.svc.cluster.local:8080/comisiones-back-api-v1/
+      comisiones-batch-v1: http://comisiones-batch-v1.dev-tiendas.svc.cluster.local:8080/comisiones-batch-v1/
+      comisiones-front-v1: http://comisiones-front-v1.dev-tiendas.svc.cluster.local:8080/comisiones-front-v1/
+      cornersales-api-v1: http://cornersales-api-v1.dev-tiendas.svc.cluster.local:8080/cornersales-api-v1/
+      gateway-tiendas-2-api-v1: http://gateway-tiendas-2-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-2-api-v1/
+      gateway-tiendas-api-v1: http://gateway-tiendas-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-api-v1/
+      products-api-v1: http://products-api-v1.dev-tiendas.svc.cluster.local:8080/products-api-v1/
+      rates-api-v1: http://rates-api-v1.dev-tiendas.svc.cluster.local:8080/rates-api-v1/
+      sales-api-v1: http://sales-api-v1.dev-tiendas.svc.cluster.local:8080/sales-api-v1/
+      shippings-api-v1: http://shippings-api-v1.dev-tiendas.svc.cluster.local:8080/shippings-api-v1/
+      stocks-api-v1: http://stocks-api-v1.dev-tiendas.svc.cluster.local:8080/stocks-api-v1/
+      webreturns-api-v1: http://webreturns-api-v1.dev-tiendas.svc.cluster.local:8080/webreturns-api-v1/
