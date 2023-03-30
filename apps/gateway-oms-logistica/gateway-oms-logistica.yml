@@ -24,6 +24,7 @@ webclient:
     services:
       add-manifest: /manifest/addManifest
   tiendas:
+    base-path: ${services.tiendas.interna.gateway-tiendas-api-v1}
     services:
       get-location: /Locations/{location}
 
