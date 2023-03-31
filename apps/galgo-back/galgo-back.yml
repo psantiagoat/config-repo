@@ -62,3 +62,10 @@ security:
     app:
       aud: api://a2089459-7f1f-4291-a416-6cf367ee3598
       appid: a2089459-7f1f-4291-a416-6cf367ee3598
+
+config:
+  dependencies:
+    batch:
+      run-restock:
+        - batch: oms-restocking
+          command: PLANNED
