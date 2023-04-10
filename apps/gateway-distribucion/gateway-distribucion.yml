@@ -11,40 +11,16 @@ byl:
   datasource:
     query-timeout: 300
 
+
 cache:
   enable-redis: true
   # Tiempo de cache en sg.
   caches-ttl:
     image-name: 86400
 
-spring:
-  profiles:
-    active: ${SHORT_ENV}
-
-  # Datasources
-  datasource:
-    datasource-initializer-enabled: false
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 20
-      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-      auto-commit: true
-      idle-timeout: 600000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uomsdev
-    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    poolName: HikariCP-Principal
-
-codeunit:
-  user: srvcnavparserdev
-  password: '{cipher}119d6957224f92362f15c45ba60b91681bf564d31db2453d6e6825cd60144f7fb45fc2ad5b12512f1b5008e863a4aa39'
-
 azure:
   storage:
+    enabled: false
     accounts:
       global-persistence:
         account-id: global-persistence
@@ -68,7 +44,51 @@ azure:
 api:
   endpoint:
     product-image:
-      image-url: https://bimbayloladev.azure-api.net/khkuremouwcx/products/image/{imageSize}
+      image-url: https://desazure.byl.local/gateway-distribucion-api-v1/products/image/{imageSize}
+
+spring:
+  profiles:
+    active: ${SHORT_ENV},jar
+
+  # Datasources
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
+    username: uomsdev
+    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Principal
+
+  datasource-audit:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;encrypt=true;trustServerCertificate=true;
+    username: uomsdev
+    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Audit
+
+codeunit:
+  user: srvcnavparserdev
+  password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
+
 
 inventory:
   locations:
@@ -78,3 +98,7 @@ inventory:
     codes-country-region: ES, MX, CO, CL, PR, US, DE, FR, GB, PT, NL, PL
     codes-tipo-almacen-6: WEB, MXWEB, COWEB, CLWEB
     codes-tipo-almacen-1: AL2, ALCAN, ALM, CLAL, COAL, JEV, KRAL, MXAL, SGAL, CNAL, ALSTG
+
+logback:
+  level:
+    elastic: DEBUG

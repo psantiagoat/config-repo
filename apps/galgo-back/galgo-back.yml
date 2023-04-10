@@ -1,5 +1,6 @@
 app:
   fqdn: localhost
+
 byl:
   audit:
     enabled: false
@@ -16,7 +17,7 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 services:
-  export-pagesize: 500
+  export-pagesize: 5000
   supply-chain:
     user: 'admin'
     pass: '{cipher}0dee57ce5dd59a09bcf13f438dc6c396f5eacf97110e4a00c4656f052f7d521e'
@@ -38,6 +39,7 @@ services:
       availability-network: /availability/network
       distribution-groups: /configuration/distributionGroups
 
+
 azure:
   storage:
     enabled: false
@@ -45,14 +47,15 @@ azure:
       distribucion:
         account-id: distribucion
         tables:
-          restocking-config: DevRestockingConfig
-          restocking-audit: DevRestockingAudit
+          replenishment-config: DevReplenishmentConfig
+          replenishment-audit: DevReplenishmentAudit
           batch-status: DevBatchStatus
+
     config:
       accounts:
         distribucion:
           name: tskfdistribuciondev
-          key: '{cipher}f15852849941c1ac3595381f352973e6b059c2288a824c11b3c0655c58d944174b514059a3a4fd11a5c41d745710b522aec8c4b7429e7a6840063e0ba34bf9dbd8761910c1e9f37e05982181b5782b89235b7fbf652f82877a8010b972611b565e57795234362dc47b514f0fa3eaac0f'
+          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
 
 security:
   enable-csrf: false
@@ -63,9 +66,22 @@ security:
       aud: api://a2089459-7f1f-4291-a416-6cf367ee3598
       appid: a2089459-7f1f-4291-a416-6cf367ee3598
 
+
 config:
   dependencies:
     batch:
-      run-restock:
-        - batch: oms-restocking
+      on-demand-replenishment:
+        - batch: oms-replenishment
           command: PLANNED
+
+app:
+  azure:
+    service-bus:
+      distribucion:
+        endpoint: sb://byl-core-dev.servicebus.windows.net/
+        sharedAccessKeyName: oms-erp
+        sharedAccessKey: axSOs+H3JbmTcmS4NmGJouCU2CiMRWUvS+ASbNfTIjo=
+        entityPath: distribucion.oms-erp
+        labels:
+          on-demand-replenishment: onDemandReplenishment
+ 

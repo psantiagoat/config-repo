@@ -1,0 +1,105 @@
+server:
+  port: ${random.int(5000,5100)}
+
+command:
+  name: configuracionComandos
+  commands:
+    -
+      name: PLANNED
+      bean-name: plannedReplenishmentCommand
+    -
+      name: ONDEMAND
+      bean-name: onDemandReplenishmentCommand
+    -
+      name: CLEAN
+      bean-name: cleanAuditCommand
+    -
+      name: UNLOCK
+      bean-name: unlockExecutionCommand   
+
+spring:
+  profiles:
+    active: ${SHORT_ENV}
+
+
+webclient:
+  max-in-memory-size: 10000000
+  distribucion:
+    page-size: 500
+    update-size: 100
+    retry-attemps: 5
+    retry-time: 30
+    base-path: http://localhost:8080/gateway-distribucion-api-v1
+    services:
+      items-to-replenish: /replenishment/items-to-replenish
+      available-stock: /replenishment/available
+      save-proposal: /replenishment/proposal
+      clear-proposal: /replenishment/proposal/{userId}
+      erp-process: /replenishment/erp-process/{processName}
+  galgo:
+    page-size: 1000
+    retry-attemps: 5
+    retry-time: 30
+    base-path: http://desazure.byl.local/galgo-back-api-v1
+    services:
+      get-replenishment-config: /replenishment/config/{id}
+      get-all-replenishment-config: /replenishment/config
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      distribucion:
+        account-id: distribucion
+        tables:
+          replenishment-config: DevReplenishmentConfig 
+          replenishment-audit: DevReplenishmentAudit
+          batch-status: DevBatchStatus
+    config:
+      accounts:
+        distribucion:
+          name: tskfdistribuciondev
+          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
+  service-bus:
+    enabled: true
+    distribucion:
+      endpoint: sb://byl-core-dev.servicebus.windows.net/
+      sharedAccessKeyName: oms-erp
+      sharedAccessKey: axSOs+H3JbmTcmS4NmGJouCU2CiMRWUvS+ASbNfTIjo=
+      entityPath: distribucion.oms-erp
+      topic: distribucion.oms-erp
+      processInitDeadLetter: false
+      procesarSoloDeadLetter: false
+      subscriptions:
+        on-demand-replenishment: onDemandReplenishment
+        status-replenishment: statusReplenishment
+                
+
+mail:
+  host: smtp-mail.outlook.com
+  port: 587
+  username: develop.byl@outlook.com
+  password: Dev10101010
+  from: develop.byl@outlook.com
+  
+process:
+  config:
+    replenishment-user: UOMSDEV 
+    audit:
+      execution-keep-days: 30
+      config-keep-days: 30
+    wait-time: 60  
+    dependencies:
+       PLANNED:
+         - batch: oms-replenishment
+           command: ONDEMAND
+           action: WAIT
+       ONDEMAND:
+         - batch: oms-replenishment
+           command: PLANNED
+           action: CANCEL
+      
+
+  
+      
+      
