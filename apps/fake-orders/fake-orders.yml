@@ -47,3 +47,15 @@ spring:
     password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
+
+project:
+  mq:
+    host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
+    port: 15443
+    queue-manager: OM_QMGR
+    channel: SYSTEM.TLS.SVRCONN
+    receive-timeout: 20000
+    cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    queue:
+      create-order: BYL_DOM_OUT_RELEASE
+      confirm-shipment: BYL_STORE_CONFIRM_SHIP_OUT
