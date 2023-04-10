@@ -1,6 +1,3 @@
-app:
-  fqdn: localhost
-
 byl:
   audit:
     enabled: false
