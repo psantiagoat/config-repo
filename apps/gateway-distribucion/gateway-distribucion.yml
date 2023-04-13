@@ -86,8 +86,8 @@ spring:
     poolName: HikariCP-Audit
 
 codeunit:
-  user: srvcnavparserdev
-  password: 70wQw8nLOiUBIdt14sTns4bwPT86AJ
+  user: srvcnavdistridev
+  password: zqrHe7n16KHVDhoz6XYK5rFmwImsMD
   url: http://svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSReplenishment
 
 inventory:
