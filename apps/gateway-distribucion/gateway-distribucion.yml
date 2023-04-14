@@ -85,6 +85,9 @@ spring:
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Audit
 
+database:
+  insert-batch: 100
+
 codeunit:
   user: srvcnavdistridev
   password: zqrHe7n16KHVDhoz6XYK5rFmwImsMD
