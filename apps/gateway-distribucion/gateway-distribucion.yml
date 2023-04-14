@@ -89,6 +89,10 @@ codeunit:
   user: srvcnavdistridev
   password: zqrHe7n16KHVDhoz6XYK5rFmwImsMD
   url: http://svmos101037-nas:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSReplenishment
+  workstation: LOCALHOST
+  domain: BYL.LOCAL
+  actions:
+    replenishment-actions: ReplenishmentActions
 
 inventory:
   locations:
