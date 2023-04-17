@@ -4,18 +4,14 @@ server:
 command:
   name: configuracionComandos
   commands:
-    -
-      name: PLANNED
+    - name: PLANNED
       bean-name: plannedReplenishmentCommand
-    -
-      name: ONDEMAND
+    - name: ONDEMAND
       bean-name: onDemandReplenishmentCommand
-    -
-      name: CLEAN
+    - name: CLEAN
       bean-name: cleanAuditCommand
-    -
-      name: UNLOCK
-      bean-name: unlockExecutionCommand   
+    - name: UNLOCK
+      bean-name: unlockExecutionCommand
 
 spring:
   profiles:
@@ -52,7 +48,7 @@ azure:
       distribucion:
         account-id: distribucion
         tables:
-          replenishment-config: DevReplenishmentConfig 
+          replenishment-config: DevReplenishmentConfig
           replenishment-audit: DevReplenishmentAudit
           batch-status: DevBatchStatus
     config:
@@ -73,7 +69,7 @@ azure:
       subscriptions:
         on-demand-replenishment: onDemandReplenishment
         status-replenishment: statusReplenishment
-                
+
 
 mail:
   host: smtp-mail.outlook.com
@@ -81,23 +77,32 @@ mail:
   username: develop.byl@outlook.com
   password: Dev10101010
   from: develop.byl@outlook.com
-  
+
 process:
   config:
-    replenishment-user: UOMSDEV 
+    replenishment-user: UOMSDEV
     audit:
       execution-keep-days: 30
       config-keep-days: 30
-    wait-time: 60  
+    wait-time: 60
     dependencies:
-       PLANNED:
-         - batch: oms-replenishment
-           command: ONDEMAND
-           action: WAIT
-       ONDEMAND:
-         - batch: oms-replenishment
-           command: PLANNED
-           action: CANCEL
+      PLANNED:
+        - batch: oms-replenishment
+          command: ONDEMAND
+          action: WAIT
+      ONDEMAND:
+        - batch: oms-replenishment
+          command: PLANNED
+          action: CANCEL
+    erp-process:
+      ClosePendingOrders:
+        sleep-time: 10
+        timeout: 100
+        retry-attempts: 5
+      CreateTransferOrders:
+        sleep-time: 10
+        timeout: 100
+        retry-attempts: 5
       
 
   
