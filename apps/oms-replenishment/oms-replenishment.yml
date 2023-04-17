@@ -36,7 +36,8 @@ webclient:
     page-size: 1000
     retry-attemps: 5
     retry-time: 30
-    base-path: http://desazure.byl.local/galgo-back-api-v1
+    base-path: http://localhost:8080/galgo-back-api-v1
+    #http://desazure.byl.local/galgo-back-api-v1
     services:
       get-replenishment-config: /replenishment/config/{id}
       get-all-replenishment-config: /replenishment/config
