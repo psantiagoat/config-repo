@@ -106,6 +106,22 @@ inventory:
     codes-tipo-almacen-6: WEB, MXWEB, COWEB, CLWEB
     codes-tipo-almacen-1: AL2, ALCAN, ALM, CLAL, COAL, JEV, KRAL, MXAL, SGAL, CNAL, ALSTG
 
+orders:
+  enterprise-codes:
+    default-code: 001
+    codes:
+      21: 007
+      30: 003
+      31: 005
+      33: 004
+      34: 006
+      70: 002
+      71: 014
+
+
+
+
+
 logback:
   level:
     elastic: DEBUG
