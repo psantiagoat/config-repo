@@ -44,9 +44,9 @@ azure:
       distribucion:
         account-id: distribucion
         tables:
-          replenishment-config: DevReplenishmentConfig
-          replenishment-audit: DevReplenishmentAudit
-          batch-status: DevBatchStatus
+          replenishment-config: ReplenishmentConfig
+          replenishment-audit: ReplenishmentAudit
+          batch-status: BatchStatus
 
     config:
       accounts:
