@@ -14,7 +14,7 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 services:
-  export-pagesize: 5000
+  export-pagesize: 500
   supply-chain:
     user: 'admin'
     pass: '{cipher}0dee57ce5dd59a09bcf13f438dc6c396f5eacf97110e4a00c4656f052f7d521e'
