@@ -16,12 +16,17 @@ process:
   config:
     distribucion-page-size: 50000
     supplies-page-size: 100
-    persistence-file-path: /mnt/persistent/${spring.application.name}
-    persistence-max-records: 5
     log-inventory-data: true
-    log-full-file: true
-    max-full-files: 1
     single-season: false
+    dependencies:
+      SYNCH_INVENTORY_FULL:
+        - batch: oms-inventory
+          command: SYNCH_INVENTORY
+          action: WAIT
+      SYNCH_INVENTORY:
+        - batch: oms-inventory
+          command: SYNCH_INVENTORY_FULL
+          action: CANCEL
 
 webclient:
   max-in-memory-size: 10000000
@@ -48,3 +53,18 @@ webclient:
       supplies: /supplies
       oauth: /oauth2/token
       ship-nodes: /configuration/shipNodes
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      distribucion:
+        account-id: distribucion
+        tables:
+          sync-references: SyncReferences
+          batch-status: BatchStatus
+    config:
+      accounts:
+        distribucion:
+          name: tskfdistribuciondev
+          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
