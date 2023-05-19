@@ -1,8 +1,14 @@
+command:
+  name: configuracionComandos
+  commands:
+    - name: SYNCH_ORDER_STATUS
+      bean-name: synchOrderStatusCommand
+
 process:
   config:
     distribucion-page-size: 500
-    persistence-file-path: /mnt/persistent/${spring.application.name}
-    persistence-max-records: 5
+    inventory-file-path: /mnt/persistent/oms-synch-inventory
+    persistence-max-records: 1
     persistence-block-size: 100
 
 spring:
@@ -12,13 +18,11 @@ spring:
 webclient:
   max-in-memory-size: 10000000
   distribucion:
-    #base-path: http://desazure.byl.local/gateway-distribucion-api-v1
-    base-path : http://localhost:8080/gateway-distribucion-api-v1
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
     services:
       synch-order-status: /order/synch/status
+      max-references: /inventory/maxReferences
 
-server:
-  port: 8081
 
 project:
   mq:
