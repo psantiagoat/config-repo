@@ -11,7 +11,7 @@ process:
     distribucion-page-size: 500
     dependencies:
       SYNCH_ORDER_STATUS:
-        - batch: oms-inventory
+        - batch: oms-synch-inventory
           command: SYNCH_INVENTORY_FULL
           action: CANCEL
 

@@ -20,14 +20,14 @@ process:
     single-season: false
     dependencies:
       SYNCH_INVENTORY_FULL:
-        - batch: oms-inventory
+        - batch: oms-synch-inventory
           command: SYNCH_INVENTORY
           action: WAIT
         - batch: oms-synch-order-status
           command: SYNCH_ORDER_STATUS
           action: WAIT
       SYNCH_INVENTORY:
-        - batch: oms-inventory
+        - batch: oms-synch-inventory
           command: SYNCH_INVENTORY_FULL
           action: CANCEL
 
