@@ -23,6 +23,9 @@ process:
         - batch: oms-inventory
           command: SYNCH_INVENTORY
           action: WAIT
+        - batch: oms-synch-order-status
+          command: SYNCH_ORDER_STATUS
+          action: WAIT
       SYNCH_INVENTORY:
         - batch: oms-inventory
           command: SYNCH_INVENTORY_FULL
