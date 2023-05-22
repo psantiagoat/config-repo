@@ -7,9 +7,11 @@ command:
 process:
   config:
     distribucion-page-size: 500
-    inventory-file-path: /mnt/persistent/oms-synch-inventory
-    persistence-max-records: 1
-    persistence-block-size: 100
+    dependencies:
+      SYNCH_INVENTORY_FULL:
+        - batch: oms-inventory
+          command: SYNCH_INVENTORY
+          action: CANCEL
 
 spring:
   profiles:
@@ -35,3 +37,17 @@ project:
     queue:
       confirm-shipment-in: BYL_CONFIRM_SHIPMENT_IN
 
+azure:
+  storage:
+    enabled: false
+    accounts:
+      distribucion:
+        account-id: distribucion
+        tables:
+          sync-references: SyncReferences
+          batch-status: BatchStatus
+    config:
+      accounts:
+        distribucion:
+          name: tskfdistribuciondev
+          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
