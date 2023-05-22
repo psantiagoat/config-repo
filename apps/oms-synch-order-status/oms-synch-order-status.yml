@@ -12,7 +12,7 @@ process:
     dependencies:
       SYNCH_ORDER_STATUS:
         - batch: oms-inventory
-          command: SYNCH_INVENTORY
+          command: SYNCH_INVENTORY_FULL
           action: CANCEL
 
 spring:
