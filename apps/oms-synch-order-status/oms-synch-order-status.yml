@@ -3,12 +3,14 @@ command:
   commands:
     - name: SYNCH_ORDER_STATUS
       bean-name: synchOrderStatusCommand
+    - name: UNLOCK_EXECUTION
+      bean-name: unlockExecutionCommand
 
 process:
   config:
     distribucion-page-size: 500
     dependencies:
-      SYNCH_INVENTORY_FULL:
+      SYNCH_ORDER_STATUS:
         - batch: oms-inventory
           command: SYNCH_INVENTORY
           action: CANCEL
