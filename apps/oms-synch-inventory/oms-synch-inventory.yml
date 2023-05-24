@@ -5,6 +5,8 @@ command:
       bean-name: fullInventoryCommand
     - name: SYNCH_INVENTORY
       bean-name: incrementalInventoryCommand
+    - name: SYNCH_INVENTORY_PARTIAL_FULL
+      bean-name: partialFullInventoryCommand
     - name: UNLOCK_EXECUTION
       bean-name: unlockExecutionCommand
 
@@ -30,6 +32,13 @@ process:
         - batch: oms-synch-inventory
           command: SYNCH_INVENTORY_FULL
           action: CANCEL
+      SYNCH_INVENTORY_PARTIAL_FULL:
+        - batch: oms-synch-inventory
+          command: SYNCH_INVENTORY
+          action: WAIT
+        - batch: oms-synch-order-status
+          command: SYNCH_ORDER_STATUS
+          action: WAIT
 
 webclient:
   max-in-memory-size: 10000000
