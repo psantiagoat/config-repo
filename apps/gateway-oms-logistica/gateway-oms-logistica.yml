@@ -42,4 +42,9 @@ azure:
           name: globalpersistence
           key: '{cipher}631ba77c8feadeee09564b405f10f8e81af2f90b3bb86cff0c59772db84e5f4564f8a6e306a2529c1a2cd8ec6b7cee9f0de7df4b4eff3878916cdfc4ca12c3812914a9785649c4fec8af34118a3ca9ba9a59cfa3714c3f9113be20a9f0761fc0d438b559024a5b2025d26530655b48af'
 
+cache:
+  enable-redis: true
+  # Tiempo de cache en sg.
+  caches-ttl:
+    shipment-code: 345600
 
