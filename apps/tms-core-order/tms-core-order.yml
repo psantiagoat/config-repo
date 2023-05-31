@@ -1,0 +1,328 @@
+app:
+  fqdn: localhost
+  user:
+    name: mock
+
+byl:
+  audit:
+    enabled: true
+    internal-enable: true
+  datasource-primary:
+    enabled: true
+  ldap:
+    active: false
+  addTraceInApiException: true
+  isApiAuditable: true
+  excludeAuditApi: '/api-docs,/swagger-ui,/swagger-resources,/v2,/v3,/manage/health,/actuator/prometheus,/actuator/health,/api/rest/cache/health,/api/rest/order/health,/api/rest/label/health,/api/rest/dropPoint/health'
+
+cache:
+  enable-redis: false
+
+# Para ver los valores en las querys de Hibernate
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: info
+
+management:
+  metrics:
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
+
+tms:
+  courierRange:
+    retry:
+      batch-fixed-rate: 300000
+  cache:
+    retry:
+      batch-cron: 30 23 * * * *
+  api-rest-connection-info-seur:
+    grantType: password
+    clientId: 5d0d0a6a
+    clientSecret: 309922aa6a6c878f83892eff2313df42
+    username: bimbaylola_pre
+    password: 72#bimb13263
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointAuthentication: https://servicios.apipre.seur.io/pic_token
+    endpointDropPoints: https://servicios.apipre.seur.io/pic/v1/pickups
+    endpointCities: https://servicios.apipre.seur.io/pic/v1/cities
+    endpointCollections: https://servicios.apipre.seur.io/pic/v1/collections
+    endpointCollectionsCancel: https://servicios.apipre.seur.io/pic/v1/collections/cancel
+    endpointTimeSlots: https://servicios.apipre.seur.io/pic/v1/collections/time-slots
+    endpointLabels: https://servicios.apipre.seur.io/pic/v1/labels
+    endpointShipments: https://servicios.apipre.seur.io/pic/v1/shipments
+    endpointShipmentsCancel: https://servicios.apipre.seur.io/pic/v1/shipments/cancel
+  api-rest-connection-info-estafeta:
+    grantType: 'client_credentials'
+    clientId: 'l79461c56c98084bbdae814a42a4d0e991'
+    clientSecret: '3cf7627aec8342699aaaa098047d75f3'
+    username: 'mdemanuel'
+    password: '@Mdemanuel2022'
+    scope: 'execute'
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointAuthentication: 'https://apiqa.estafeta.com:8443/auth/oauth/v2/token'
+    endpointLabels: 'https://labelqa.estafeta.com/v1/wayBills'
+    suscriberId: '01'
+    customerNumber: '0000000'
+    systemInformationId: 'ByL'
+    systemInformationName: ${spring.application.name}
+    systemInformationVersion: ${app.version}
+    salesOrganization: '112'
+  api-rest-connection-info-dhl-parcel:
+    b2b-customer: 362-011079
+    b2b-userId: 362011079BIMBA
+    b2b-key: 21178891-f4ab-4e2b-be3c-3de6a385bd15
+    b2c-customer: 362-041070
+    b2c-userId: 362041070BIMBA
+    b2c-key: 2418de3e-bbcc-4fcd-abe7-eb116d9402db
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointAuthentication: https://external.dhl.es/cimapi/api/v1/customer/authenticate
+    endpointShipment: https://external.dhl.es/cimapi/api/v1/customer/shipment
+    endpointShipmentCancel: https://external.dhl.es/cimapi/api/v1/customer/shipment
+    endpointShipmentLabels: https://external.dhl.es/cimapi/api/v1/customer/shipment    
+    endpointServicePoint: https://external.dhl.es/cimapi/api/v1/customer/servicepoint
+    endpointPickup: https://external.dhl.es/cimapi/api/v1/customer/pickup
+  api-rest-connection-info-paack:
+    grantType: client_credentials
+    clientId: ds3CII7RVPcdMDRv6mX0xJt8ezM9Kgpw
+    clientSecret: QcZkvPDHGO1tqeXbEcnf4lpcwva8s1AJJGH5mKmgjok2MPLZHV_BAANijKFyNGQy
+    audienceOrders: https://ggl-stg-gcp-gw
+    audienceLabels: https://api.oms.staging.paack.app
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointAuthentication: https://paack-hq-staging.eu.auth0.com/oauth/token
+    endpointOrders: https://api.staging.paack.app/public/v3/orders
+    endpointLabels: https://api.staging.paack.io/v3/labels
+  api-soap-connection-info-legacy:
+    endpointOrder: https://imatia-des.bimbaylola.com:8443/mtec-external-soap11-ws/OrderController
+    endpointLabel: https://imatia-des.bimbaylola.com:8443/mtec-external-soap11-ws/LabelController
+    username: bimba_lola
+    password: 81m84l0l4
+    timeout: 5000
+  api-rest-connection-info-dhl-express:
+    username: bimbaylolaES
+    password: Z@1cS#1eF@5l
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointInvoiceData: https://express.api.dhl.com/mydhlapi/test/invoices/upload-invoice-data
+    endpointShipment: https://wsbexpress.dhl.com/sndpt/expressRateBook
+    endpointIdentifier: https://wsbexpress.dhl.com/sndpt/requestIdentifier
+    accountNumber: 300881587
+  api-rest-connection-info-correos:
+    username: wusutest
+    password: mAHB9yi0
+    contractNumber: 54025239
+    detallableNumber: 80972883
+    taggerCode: XXX1
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointPreregistroenvios: https://preregistroenviospre.correos.es/preregistroenvios
+    endpointRecogidas: https://serviciorecogidaspre.correos.es:20189/serviciorecogidas
+  api-rest-connection-info-labelary:
+    readtimeout: 3000
+    connectiontimeout: 3000
+    endpointInit: http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/
+  api-rest-connection-info-google:
+    readtimeout: 3000
+    connectiontimeout: 3000
+    key: AIzaSyCPA2Chz5r_wzwNTlum34iria2D-2qroL0
+    endpointGeocode: https://maps.googleapis.com/maps/api/geocode/json    
+  retryable:
+    CTT_EXPRESS:
+      delay: 500
+      maxAttempts: 3
+    DHL_PARCEL:
+      delay: 500
+      maxAttempts: 3
+    ESTAFETA:
+      delay: 500
+      maxAttempts: 3
+    INTERNO:
+      delay: 500
+      maxAttempts: 3
+    MRW:
+      delay: 500
+      maxAttempts: 3
+    PAACK:
+      delay: 500
+      maxAttempts: 3
+    SEUR:
+      delay: 500
+      maxAttempts: 3
+    DHL_EXPRESS:
+      delay: 500
+      maxAttempts: 3
+    CORREOS:
+      delay: 500
+      maxAttempts: 3
+
+#API REST
+rest:
+  path: /api/rest
+
+server:
+  servlet:
+    context-path: /tms-core-order-api-v1
+
+spring:
+  jackson:
+    mapper:
+      accept_case_insensitive_properties: true
+  profiles:
+    active: ${SHORT_ENV},jar,with_ds_primary,auditoria_externa
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+  security:
+    user:
+      name: mock
+      password: ''
+      ip-white: localhost,127.0.0.1
+
+# Datasources
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.mysql.cj.jdbc.Driver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:mysql://10.20.107.30:3306/MTEC?useUnicode=true&characterEncoding=utf8
+    username: mteccore
+    password: mt3cc0r381m84
+    driverClassName: com.mysql.cj.jdbc.Driver
+    poolName: HikariCP-Principal
+    
+  datasource-wms:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:sqlserver://svmos107069.byl.local:1433;databaseName=ILS;encrypt=false;trustServerCertificate=false
+    username: umontms
+    password: '{cipher}d2e4f7a548981075ea5dcd6e0a1eef9b047cc0bbf959d4a21602657e8c1e05d337157b17e36a5c30f5866e34a7542dc2'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Audit
+
+  datasource-audit:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    jdbcUrl: jdbc:sqlserver://mosdessql.byl.local:11433;databaseName=process_log;encrypt=false;trustServerCertificate=false
+    username: usrvcmtecdev
+    password: t5YPeHxWjaPl4dQgHuy0jVoSg9Rp8F
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    poolName: HikariCP-Audit
+
+  #Configuracion MongoDB
+  data:
+    mongodb:
+      label:
+        host: 10.20.107.30
+        port: 27017
+        database: MTEC_LABEL
+        username: mteccore
+        password: mt3cc0r381m84
+      order:
+        host: 10.20.107.30
+        port: 27017
+        database: MTEC_ORDER
+        username: mteccore
+        password: mt3cc0r381m84
+      shipment:
+        host: 10.20.107.30
+        port: 27017
+        database: MTEC_SHIPMENT
+        username: mteccore
+        password: mt3cc0r381m84 
+
+  # Configuración JPA e Hibernate
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: false
+        show_sql: false
+        format_sql: true
+        jdbc:
+          fetch_size: 100
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
+        cache:
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+          provider_class: net.sf.ehcache.hibernate.EhCacheProvider
+          use_query_cache: true
+          use_second_level_cache: true
+          use_structured_entries: true
+          use_minimal_puts: true
+
+# Configuración ehCache
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+      provider: org.ehcache.jsr107.EhcacheCachingProvider
+  jmx:
+    enabled: true
+    default-domain: ${spring.application.name}
+
+  kafka:
+    topic: byl-mtec-orders
+    topicHealth: byl-mtec-orders-health
+    jass:
+      enabled: true
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: SCRAM-SHA-256
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule required username="byl-mtec-dev-pro" password="o2SWmjcY2W6URBGe7uhN";
+    listener:
+      concurrency: 4
+    bootstrap-servers: mosdevkafka01:9092
+    consumer:
+      group-id: 0
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        reconnect.backoff.ms: 60000
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable:
+          idempotence: false
+          
+springdoc:
+  packagesToScan: com.byl.controller_rest
+
