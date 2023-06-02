@@ -1,6 +1,3 @@
-server:
-  port: ${random.int(5000,5100)}
-
 command:
   name: configuracionComandos
   commands:
@@ -21,48 +18,52 @@ spring:
 webclient:
   max-in-memory-size: 10000000
   distribucion:
-    page-size: 500
-    update-size: 100
-    retry-attemps: 5
-    retry-time: 30
-    base-path: http://localhost:8080/gateway-distribucion-api-v1
+    page-size: 50000
+    update-size: 10000
+    query-size: 500
+    retry-attemps: 1
+    retry-time: 1
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
     services:
       items-to-replenish: /replenishment/items-to-replenish
       available-stock: /replenishment/available
       save-proposal: /replenishment/proposal
-      clear-proposal: /replenishment/proposal/{userId}
+      clear-proposal: /replenishment/proposal
       erp-process: /replenishment/erp-process/{processName}
   galgo:
-    page-size: 1000
+    page-size: 500
     retry-attemps: 5
     retry-time: 30
-    base-path: http://localhost:8080/galgo-back-api-v1
-    #http://desazure.byl.local/galgo-back-api-v1
+    base-path: ${services.distribucion.interna.galgo-back-api-v1}
     services:
       get-replenishment-config: /replenishment/config/{id}
       get-all-replenishment-config: /replenishment/config
 
 azure:
+  consumer:
+    enabled: true
+  producer:
+    enabled: true
   storage:
     enabled: false
     accounts:
       distribucion:
         account-id: distribucion
         tables:
-          replenishment-config: DevReplenishmentConfig
-          replenishment-audit: DevReplenishmentAudit
-          batch-status: DevBatchStatus
+          replenishment-config: ReplenishmentConfig
+          replenishment-audit: ReplenishmentAudit
+          batch-status: BatchStatus
     config:
       accounts:
         distribucion:
           name: tskfdistribuciondev
-          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
+          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
   service-bus:
     enabled: true
     distribucion:
       endpoint: sb://byl-core-dev.servicebus.windows.net/
       sharedAccessKeyName: oms-erp
-      sharedAccessKey: axSOs+H3JbmTcmS4NmGJouCU2CiMRWUvS+ASbNfTIjo=
+      sharedAccessKey: '{cipher}f21808ed3369c07931015f286eec69684ea630a65a58abd137da803c3cc2e0d4cb77239b9d9fdab41bf9c945480121dace2cca2cb78beae2bd5aad4f86b4dfe8'
       entityPath: distribucion.oms-erp
       topic: distribucion.oms-erp
       processInitDeadLetter: false
@@ -73,15 +74,14 @@ azure:
 
 
 mail:
-  host: smtp-mail.outlook.com
+  host: correoweb.bimbaylola.com
   port: 587
-  username: develop.byl@outlook.com
-  password: Dev10101010
-  from: develop.byl@outlook.com
+  username: srvcmailsml@bimbaylola.com
+  password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
+  from: srvcmailsml@bimbaylola.com
 
 process:
   config:
-    replenishment-user: UOMSDEV
     audit:
       execution-keep-days: 30
       config-keep-days: 30
@@ -97,13 +97,17 @@ process:
           action: CANCEL
     erp-process:
       ClosePendingOrders:
-        sleep-time: 10
+        sleep-time: 0
         timeout: 100
-        retry-attempts: 5
+        retry-attempts: 2
+        retry-attempts-blocked: 5
+        retry-sleep-time: 0
       CreateTransferOrders:
-        sleep-time: 10
+        sleep-time: 0
         timeout: 100
-        retry-attempts: 5
+        retry-attempts: 2
+        retry-attempts-blocked: 5
+        retry-sleep-time: 0
       
 
   
