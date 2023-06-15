@@ -21,6 +21,10 @@ services:
     base-path: https://bylla-dev-1.oms.supply-chain.ibm.com/smcfs/restapi/executeFlow
     endpoints:
       create-order: /ByLOrderCreationInSyncService
+  distribucion:
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
+    endpoints:
+      create-order: /order/create
 
 spring:
   profiles:
@@ -66,5 +70,5 @@ security:
     provider:
       url: https://login.microsoftonline.com/common/discovery/keys
     app:
-      aud: '{cipher}9cd897ede4cb38f2fc2acdee083fb11fb50fec528b23972e38053703064ebb01297337f99927f762b742257520783e76f136d321182f482043dddbb3eb1003fd'
-      appid: '{cipher}6088cd8bf816b547bc461e5345e48f13c7cc47cc01196f85d636ffb4a10aa702f705a77b5a703625cf9c138f87a22ab31dff00b31af8514b7b00d8259cbd0453'
+      aud: api://a2089459-7f1f-4291-a416-6cf367ee3598
+      appid: a2089459-7f1f-4291-a416-6cf367ee3598
