@@ -27,7 +27,7 @@ webclient:
     order:
       base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
       services:
-        add-manifest: /order/addOrder
+        add-order: /order/addOrder
   tiendas:
     base-path: ${services.tiendas.interna.gateway-tiendas-api-v1}
     services:
