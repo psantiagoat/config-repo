@@ -20,9 +20,14 @@ webclient:
   retry-attemps: 3
   retry-time: 10
   mtec:
-    base-path: http://desonprem.byl.local/byl-mtec-core-manifest-application/api/rest
-    services:
-      add-manifest: /manifest/addManifest
+    manifest:
+      base-path: http://desonprem.byl.local/tms-core-manifest-api-v1/api/rest
+      services:
+        add-manifest: /manifest/addManifest
+    order:
+      base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
+      services:
+        add-manifest: /order/addOrder
   tiendas:
     base-path: ${services.tiendas.interna.gateway-tiendas-api-v1}
     services:
