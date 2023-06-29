@@ -46,6 +46,8 @@ azure:
         tables:
           replenishment-config: ReplenishmentConfig
           replenishment-audit: ReplenishmentAudit
+          top-commercial: TopCommercial
+          top-commercial-hist: HistTopCommercial
           batch-status: BatchStatus
 
     config:
