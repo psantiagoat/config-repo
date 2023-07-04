@@ -54,4 +54,8 @@ cache:
   caches-ttl:
     shipment-code: 345600
 
+click-and-collect:
+  courier-code: INTERNO
+  courier-service-code: GENERICO
+
 
