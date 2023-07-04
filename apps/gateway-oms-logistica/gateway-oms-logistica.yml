@@ -28,6 +28,7 @@ webclient:
       base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
       services:
         add-order: /order/addOrder
+        get-labels: /label/getLabels
   tiendas:
     base-path: ${services.tiendas.interna.gateway-tiendas-api-v1}
     services:
@@ -52,4 +53,5 @@ cache:
   # Tiempo de cache en sg.
   caches-ttl:
     shipment-code: 345600
+
 
