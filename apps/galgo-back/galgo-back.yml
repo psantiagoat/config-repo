@@ -35,6 +35,12 @@ services:
       oauth: /oauth2/token
       availability-network: /availability/network
       distribution-groups: /configuration/distributionGroups
+  distribucion:
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
+    endpoints:
+      top-store-filters: /top-store/filters/{filterName}
+      top-store-locations: /top-store/locations
+      top-store-superfamilies: /top-store/superfamilies
 
 
 azure:
