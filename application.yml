@@ -223,69 +223,27 @@ springdoc:
 
 services:
   arqsw:
-    externa:
-      master-api-v1: http://desazure.byl.local/master-api-v1
     interna:
-      demo-api-v1: http://demo-api-v1.dev-arqsw.svc.cluster.local:8080/demo-api-v1
-      demo-net-api-v1: http://demo-net-api-v1.dev-arqsw.svc.cluster.local:8080/demo-net-api-v1
-      fake-orders-api-v1: http://fake-orders-api-v1.dev-arqsw.svc.cluster.local:8080/fake-orders-api-v1
-      fake-orders-front-v1: http://fake-orders-front-v1.dev-arqsw.svc.cluster.local:8080/fake-orders-front-v1
-      master-api-v1: http://master-api-v1.dev-arqsw.svc.cluster.local:8080/master-api-v1
-      sccs: http://sccs.dev-arqsw.svc.cluster.local:8080/sccs
-      sftp-service: http://sftp-service.dev-arqsw.svc.cluster.local:8080/sftp-service
-      translation-api-v1: http://translation-api-v1.dev-arqsw.svc.cluster.local:8080/translation-api-v1
-      transliterate-file-api-v1: http://transliterate-file-api-v1.transliterate-file-api-v1.dev-arqsw.svc.cluster.local:8080/transliterate-file-api-v1
+      demo-api-v1: http://desazure.byl.local/demo-api-v1
+      fake-orders-api-v1: http://desazure.byl.local/fake-orders-api-v1
+      fake-orders-front-v1: http://desazure.byl.local/fake-orders-front-v1
+      sccs: http://desazure.byl.local/sccs
+      master-api-v1: http://desazure.byl.local/master-api-v1
   distribucion:
     interna:
-      galgo-back-api-v1: http://galgo-back-api-v1.dev-distribucion.svc.cluster.local:8080/galgo-back-api-v1
-      galgo-front-v1: http://galgo-front-v1.dev-distribucion.svc.cluster.local:8080/galgo-front-v1
-      gateway-distribucion-api-v1: http://gateway-distribucion-api-v1.dev-distribucion.svc.cluster.local:8080/gateway-distribucion-api-v1
-      gateway-oms-logistica-api-v1: http://gateway-oms-logistica-api-v1.dev-distribucion.svc.cluster.local:8080/gateway-oms-logistica-api-v1
-  expansion:
-    interna:
-      pdp-api-v1: http://pdp-api-v1.dev-expansion.svc.cluster.local:8080/pdp-api-v1
-  logistica:
-    externa:
-      gateway-logistica-api-v1: http://desazure.byl.local/gateway-logistica-api-v1
-    interna:
-      etiq-back-api-v1: http://etiq-back-api-v1.dev-logistica.svc.cluster.local:8080/etiq-back-api-v1
-      etiq-front-v1: http://etiq-front-v1.dev-logistica.svc.cluster.local:8080/etiq-front-v1
-      gateway-logistica-api-v1: http://gateway-logistica-api-v1.dev-logistica.svc.cluster.local:8080/gateway-logistica-api-v1
-      mtec-core-order-api-v1: http://mtec-core-order-api-v1.dev-logistica.svc.cluster.local:8080/mtec-core-order-api-v1
-      mtec-core-tracking-api-v1: http://mtec-core-tracking-api-v1.dev-logistica.svc.cluster.local:8080/mtec-core-tracking-api-v1
-      mtec-dashboard-web-v1: http://mtec-dashboard-web-v1.dev-logistica.svc.cluster.local:8080/mtec-dashboard-web-v1
-      mtec-manifest-api-v1: http://mtec-manifest-api-v1.dev-logistica.svc.cluster.local:8080/mtec-manifest-api-v1
-      tms-core-manifest-api-v1: http://tms-core-manifest-api-v1.dev-logistica.svc.cluster.local:8080/tms-core-manifest-api-v1
-      tms-core-order-api-v1: http://tms-core-order-api-v1.dev-logistica.svc.cluster.local:8080/tms-core-order-api-v1
-      tms-core-tracking-api-v1: http://tms-core-tracking-api-v1.dev-logistica.svc.cluster.local:8080/tms-core-tracking-api-v1
-      tms-support-back-api-v1: http://tms-support-back-api-v1.dev-logistica.svc.cluster.local:8080/tms-support-back-api-v1
-      tms-support-front-v1: http://tms-support-front-v1.dev-logistica.svc.cluster.local:8080/tms-support-front-v1
-      vas-back-api-v1: http://vas-back-api-v1.dev-logistica.svc.cluster.local:8080/vas-back-api-v1
+      galgo-back-api-v1: http://desazure.byl.local/galgo-back-api-v1
+      galgo-front-v1: http://desazure.byl.local/galgo-front-v1
+      gateway-distribucion-api-v1: http://desazure.byl.local/gateway-distribucion-api-v1
+      gateway-oms-logistica-api-v1: http://desazure.byl.local/gateway-oms-logistica-api-v1
   marketing:
     interna:
-      gateway-helpdesk-atc-api-v1: http://gateway-helpdesk-atc-api-v1.dev-marketing.svc.cluster.local:8080/gateway-helpdesk-atc-api-v1
+      gateway-helpdesk-atc-api-v1: http://desazure.byl.local/gateway-helpdesk-atc-api-v1
   producto:
-    externa:
-      gateway-plm-api-v1: http://desazure.byl.local/gateway-plm-api-v1
     interna:
-      gateway-plm-api-v1: http://gateway-plm-api-v1.dev-producto.svc.cluster.local:8080/gateway-plm-api-v1
-      gateway-product-api-v1: http://gateway-product-api-v1.dev-producto.svc.cluster.local:8080/gateway-product-api-v1
-      global-labelling-api-v1: http://global-labelling-api-v1.dev-producto.svc.cluster.local:8080/global-labelling-api-v1
-      master-producto-api-v1: http://global-labelling-api-v1.dev-producto.svc.cluster.local:8080/master-producto-api-v1
+      gateway-product-api-v1: http://desazure.byl.local/gateway-product-api-v1
   tiendas:
     interna:
-      administration-api-v1: http://administration-api-v1.dev-tiendas.svc.cluster.local:8080/administration-api-v1
-      cards-api-v1: http://cards-api-v1.dev-tiendas.svc.cluster.local:8080/cards-api-v1
-      clickandcollect-api-v1: http://clickandcollect-api-v1.dev-tiendas.svc.cluster.local:8080/clickandcollect-api-v1
-      comisiones-back-api-v1: http://comisiones-back-api-v1.dev-tiendas.svc.cluster.local:8080/comisiones-back-api-v1
-      comisiones-batch-v1: http://comisiones-batch-v1.dev-tiendas.svc.cluster.local:8080/comisiones-batch-v1
-      comisiones-front-v1: http://comisiones-front-v1.dev-tiendas.svc.cluster.local:8080/comisiones-front-v1
-      cornersales-api-v1: http://cornersales-api-v1.dev-tiendas.svc.cluster.local:8080/cornersales-api-v1
-      gateway-tiendas-2-api-v1: http://gateway-tiendas-2-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-2-api-v1
-      gateway-tiendas-api-v1: http://gateway-tiendas-api-v1.dev-tiendas.svc.cluster.local:8080/gateway-tiendas-api-v1
-      products-api-v1: http://products-api-v1.dev-tiendas.svc.cluster.local:8080/products-api-v1
-      rates-api-v1: http://rates-api-v1.dev-tiendas.svc.cluster.local:8080/rates-api-v1
-      sales-api-v1: http://sales-api-v1.dev-tiendas.svc.cluster.local:8080/sales-api-v1
-      shippings-api-v1: http://shippings-api-v1.dev-tiendas.svc.cluster.local:8080/shippings-api-v1
-      stocks-api-v1: http://stocks-api-v1.dev-tiendas.svc.cluster.local:8080/stocks-api-v1
-      webreturns-api-v1: http://webreturns-api-v1.dev-tiendas.svc.cluster.local:8080/webreturns-api-v1
+      cards-api-v1: http://desazure.byl.local/cards-api-v1
+      clickandcollect-api-v1: http://desazure.byl.local/clickandcollect-api-v1
+      gateway-tiendas-2-api-v1: http://desazure.byl.local/gateway-tiendas-2-api-v1
+      gateway-tiendas-api-v1: http://desazure.byl.local/gateway-tiendas-api-v1
