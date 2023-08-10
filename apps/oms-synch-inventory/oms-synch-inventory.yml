@@ -19,7 +19,8 @@ process:
     distribucion-page-size: 50000
     supplies-page-size: 100
     log-inventory-data: true
-    single-season: false
+    single-season: true
+    wait-time: 60
     dependencies:
       SYNCH_INVENTORY_FULL:
         - batch: oms-synch-inventory
@@ -27,6 +28,9 @@ process:
           action: WAIT
         - batch: oms-synch-order-status
           command: SYNCH_ORDER_STATUS
+          action: WAIT
+        - batch: oms-synch-inventory
+          command: SYNCH_INVENTORY_PARTIAL_FULL
           action: WAIT
       SYNCH_INVENTORY:
         - batch: oms-synch-inventory
@@ -39,6 +43,9 @@ process:
         - batch: oms-synch-order-status
           command: SYNCH_ORDER_STATUS
           action: WAIT
+        - batch: oms-synch-inventory
+          command: SYNCH_INVENTORY_FULL
+          action: CANCEL
 
 webclient:
   max-in-memory-size: 10000000
@@ -60,11 +67,13 @@ webclient:
     oauth:
       client-id: '{cipher}9f648580f8bf05b29bad159e6b118417ed03cd0d2ed6f2a97edcbeab6b34a28bcbc65d79664b5132fae8d25c8a41306825084da72d3672f5c3513e3890a32cff'
       client-secret: '{cipher}58025dc0788227423810cfc69e3a749ae604548378eaab6efcf4c1b57f8340d97cbdb9b53f4fc384cd9f90176c5ce94dce8f608a39ede094ddf64b813bbbf118'
-    base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.oms.tenant}/v1
+    base-path:
+      inventory: https://api.watsoncommerce.ibm.com/inventory/${webclient.oms.tenant}/v1
+      configuration: https://api.watsoncommerce.ibm.com/configuration/${webclient.oms.tenant}/v1
     services:
       supplies: /supplies
       oauth: /oauth2/token
-      ship-nodes: /configuration/shipNodes
+      ship-nodes: /nodes
 
 azure:
   storage:
@@ -79,4 +88,4 @@ azure:
       accounts:
         distribucion:
           name: tskfdistribuciondev
-          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
+          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
