@@ -60,6 +60,8 @@ azure:
           top-commercial-hist: HistTopCommercial
           top-store: TopStore
           top-store-hist: HistTopStore
+          season: Season
+          season-hist: HistSeason
     config:
       accounts:
         distribucion:
