@@ -38,9 +38,7 @@ services:
   distribucion:
     base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
     endpoints:
-      top-store-filters: /top-store/filters/{filterName}
-      top-store-locations: /top-store/locations
-      top-store-superfamilies: /top-store/superfamilies
+      superfamilies: /superfamilies
   master:
     base-path: ${services.arqsw.interna.master-api-v1}
     endpoints:
