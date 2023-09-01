@@ -99,20 +99,21 @@ byl:
     password: "{cipher}145dc2e538c4d305dbda92705a79c82b03fbaedaed7deb76d411c6541751db10"
 
 cache:
-  enable-redis: false
-  task-force: ${TASK_FORCE}
-  host: 10.80.50.82
-  port: 6379
-  ssl: false
-  default-ttl: 86400
-  password: 'secretpassword'
-  key-prefix: '${spring.application.name}'
-  use-key-prefix: true
   # Tiempo de cache en sg.
   caches-ttl:
     cache-week: 604800
     cache-day: 86400
     cache-hour: 3600
+  compartida: false
+  default-ttl: 86400
+  enable-redis: false
+  host: core-byl-dev-redis.redis.cache.windows.net
+  key-prefix: '${spring.application.name}'
+  password: "{cipher}a735e0cd2a5dc30957532058d1dbe0c3b8831693ebfbd4386d470bac3abd044835f34b54886f9ff9df74595719834c0b66f8a4297fe25b9ac55c6aa0b31f208a"
+  port: 6380
+  ssl: true
+  task-force: ${TASK_FORCE}
+  use-key-prefix: true
 
 # Elasticsearch props
 elasticsearch:
