@@ -63,7 +63,7 @@ click-and-collect:
 
 
 languages:
-  manifest-pdf-labels:
+  manifest:
     ESP:
       source: Origen
       carrier: Transportista
