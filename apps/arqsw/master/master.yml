@@ -5,7 +5,7 @@ azure:
     enabled: false
   storage:
     enabled: false
-  
+
 
 byl:
   audit:
@@ -33,9 +33,11 @@ cache:
     cache-getFareByCode: 86400
     cache-getLanguagesAll: 86400
     cache-getLanguagesCode: 86400
+    cache-getLocationsAll: 86400
+    cache-getLocationByCode: 86400
     cache-getVatPostingSetup: 86400
     cache-getVatpostingsetupAll: 86400
-    
+
 info:
   app:
     name: Master api - Arquitectura Software (ByL)
@@ -46,7 +48,7 @@ spring:
   profiles:
     active: ${SHORT_ENV}
 
-# Datasources
+  # Datasources
   datasource:
     datasource-initializer-enabled: false
     hikari:

@@ -229,7 +229,8 @@ services:
       fake-orders-api-v1: http://desazure.byl.local/fake-orders-api-v1
       fake-orders-front-v1: http://desazure.byl.local/fake-orders-front-v1
       sccs: http://desazure.byl.local/sccs
-      master-api-v1: http://desazure.byl.local/master-api-v1
+      #master-api-v1: http://desazure.byl.local/master-api-v1
+      master-api-v1: localhost:8080/master-api-v1
   distribucion:
     interna:
       galgo-back-api-v1: http://desazure.byl.local/galgo-back-api-v1

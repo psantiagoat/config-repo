@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 app:
   fqdn: localhost
 
@@ -30,9 +33,9 @@ webclient:
         add-order: /order/addOrder
         get-labels: /label/getLabels
   tiendas:
-    base-path: ${services.tiendas.interna.gateway-tiendas-api-v1}
+    base-path: ${services.arqsw.interna.master-api-v1}
     services:
-      get-location: /Locations/{location}
+      get-location: /locations/{location}
 
 azure:
   storage:
