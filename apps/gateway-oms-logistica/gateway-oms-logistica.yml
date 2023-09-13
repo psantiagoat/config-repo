@@ -62,3 +62,31 @@ click-and-collect:
   courier-service-code: GENERICO
 
 
+languages:
+  manifest-pdf-labels:
+    ESP:
+      source: Origen
+      carrier: Transportista
+      date-and-time: Fecha y hora
+      customer: CLIENTE
+      total-orders: TOTAL PEDIDOS
+      total-packages: TOTAL BULTOS
+      total-weight: PESO TOTAL
+      order-no: Nº PEDIDO
+      carriers-signature: Firma del transportista
+      store-signature: Firma de la tienda
+    ENU:
+      source: Source
+      carrier: Carrier
+      date-and-time: Date and Time
+      customer: CUSTOMER
+      total-orders: TOTAL ORDERS
+      total-packages: TOTAL PACKAGES
+      total-weight: TOTAL WEIGHT
+      order-no: ORDER NO.
+      carriers-signature: Carrier's signature
+      store-signature: Store signature
+
+
+
+
