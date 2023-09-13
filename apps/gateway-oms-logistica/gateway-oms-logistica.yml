@@ -44,12 +44,12 @@ azure:
       oms-logistica:
         account-id: oms-logistica
         tables:
-          companies: DevEmpresas
+          companies: Empresas
     config:
       accounts:
         oms-logistica:
-          name: globalpersistence
-          key: '{cipher}631ba77c8feadeee09564b405f10f8e81af2f90b3bb86cff0c59772db84e5f4564f8a6e306a2529c1a2cd8ec6b7cee9f0de7df4b4eff3878916cdfc4ca12c3812914a9785649c4fec8af34118a3ca9ba9a59cfa3714c3f9113be20a9f0761fc0d438b559024a5b2025d26530655b48af'
+          name: tskfdistribuciondev
+          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
 
 cache:
   enable-redis: true
