@@ -1,6 +1,3 @@
-server:
-  port: 8081
-
 app:
   fqdn: localhost
 
@@ -86,7 +83,3 @@ languages:
       order-no: ORDER NO.
       carriers-signature: Carrier's signature
       store-signature: Store signature
-
-
-
-
