@@ -31,7 +31,7 @@ webclient:
       base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
       services:
         add-order: /order/addOrder
-        get-labels: /label/getLabels
+        modify-order: /order/modifyOrder
   tiendas:
     base-path: ${services.arqsw.interna.master-api-v1}
     services:
