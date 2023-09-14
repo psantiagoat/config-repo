@@ -9,9 +9,25 @@ cache:
 spring:
   profiles:
     active: ${SHORT_ENV}
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: org.mariadb.jdbc.Driver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    #url: jdbc:mariadb://localhost:3306/galgo
+    #username: uoms
+    #password: secretpassword
+    url: jdbc:mariadb://distribucion-des.mariadb.database.azure.com:3306/galgo-des?useSSL=true
+    username: galgo@distribucion-des
+    password: 6ySLKzWVnitQOyy
+    driverClassName: org.mariadb.jdbc.Driver
+    poolName: HikariCP-Principal
 
 services:
   export-pagesize: 5000
@@ -54,12 +70,12 @@ azure:
           batch-status: BatchStatus
           replenishment-audit: ReplenishmentAudit
           replenishment-config: ReplenishmentConfig
+          season: Season
+          season-hist: HistSeason
           top-commercial: TopCommercial
           top-commercial-hist: HistTopCommercial
           top-store: TopStore
-          top-store-hist: HistTopStore
-          season: Season
-          season-hist: HistSeason
+          top-store-change: TopStoreChange
     config:
       accounts:
         distribucion:
