@@ -80,6 +80,7 @@ azure:
           top-commercial-hist: HistTopCommercial
           top-store: TopStore
           top-store-change: TopStoreChange
+          top-store-hist: HistTopStore
     config:
       accounts:
         distribucion:
