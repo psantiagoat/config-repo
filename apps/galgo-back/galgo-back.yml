@@ -10,7 +10,7 @@ spring:
   profiles:
     active: ${SHORT_ENV}
       #autoconfigure:
-      #exclude:
+    #exclude:
     #- org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   datasource:
     datasource-initializer-enabled: false
@@ -70,13 +70,6 @@ azure:
           batch-status: BatchStatus
           replenishment-audit: ReplenishmentAudit
           replenishment-config: ReplenishmentConfig
-          season: Season
-          season-hist: HistSeason
-          top-commercial: TopCommercial
-          top-commercial-hist: HistTopCommercial
-          top-store: TopStore
-          top-store-change: TopStoreChange
-          top-store-hist: HistTopStore
     config:
       accounts:
         distribucion:
