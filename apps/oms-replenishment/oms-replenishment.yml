@@ -97,18 +97,12 @@ process:
           command: PLANNED
           action: CANCEL
     erp-process:
-      ClosePendingOrders:
-        sleep-time: 0
-        timeout: 100
-        retry-attempts: 2
-        retry-attempts-blocked: 5
-        retry-sleep-time: 0
-      CreateTransferOrders:
-        sleep-time: 0
-        timeout: 100
-        retry-attempts: 2
-        retry-attempts-blocked: 5
-        retry-sleep-time: 0
+      message-sleep-time: 0
+      close-pending-orders-timeout: 30
+      create-transfer-orders-timeout: 30
+      retry-attempts: 2
+      retry-attempts-blocked: 5
+      retry-sleep-time: 0
       
 
   
