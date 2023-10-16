@@ -79,8 +79,11 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uomsdev
-    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
+    #url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
+    #username: uomsdev
+    #password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
+    url: jdbc:sqlserver://svmos107021.byl.local;databaseName=NAVPRE;sslProtocol=TLSv1.2;trustServerCertificate=true;
+    username: uomspre
+    password: '{cipher}061ecba727e36b3f6d8779574c647393a84c1920a4ed464aa44a459cd795c02e'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
