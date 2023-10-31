@@ -1,12 +1,7 @@
-app:
-  fqdn: localhost
-
 byl:
   audit:
     enabled: false
     internal-enable: false
-  ldap:
-    active: false
 
 spring:
   profiles:
@@ -29,6 +24,7 @@ webclient:
       services:
         add-order: /order/addOrder
         modify-order: /order/modifyOrder
+        labels-return: /label/getLabelsReturn
   tiendas:
     base-path: ${services.arqsw.interna.master-api-v1}
     services:
