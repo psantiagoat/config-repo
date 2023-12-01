@@ -3,7 +3,21 @@ api:
     product-image:
       image-url: https://bimbayloladev.azure-api.net/khkuremouwcx/products/image/{imageSize}
 
+app:
+  azure:
+    service-bus:
+      ecommerce:
+        endpoint: sb://byl-core-dev.servicebus.windows.net/
+        sharedAccessKeyName: distribucion-ecommerce
+        sharedAccessKey: '{cipher}e1f75738d46606238e1b2d9ee6046edf067ce88ca40c086508b902e02884230f358d5b9f902a3a3d45c163452714808858932337d1a18e824176ee279cb1ff0d'
+        entityPath: distribucion.ecommerce
+        labels:
+          create-order: createOrder
+          create-return: createReturn
+
 azure:
+  producer:
+    enabled: true
   storage:
     accounts:
       distribucion:
@@ -56,11 +70,11 @@ database:
 
 inventory:
   locations:
-    tipo-almacen-2: 0, 1, 2, 3, 4, 10
+    tipo-almacen-2: 0, 1, 2, 3, 4, 5, 6, 10
     tipo-almacen: 2, 3
     codes-tipo-almacen-not-in: SERGIO
-    codes-country-region: ES, MX, CO, CL, PR, US, DE, FR, GB, PT, NL, PL
-    codes-tipo-almacen-6: WEB, MXWEB, COWEB, CLWEB
+    codes-country-region: ES, MX, CO, CL, PR, US, DE, FR, GB, PT, NL, PL, SG
+    codes-tipo-almacen-6: WEB, MXWEB, COWEB, CLWEB, SGWEB
     codes-tipo-almacen-1: AL2, ALCAN, ALM, CLAL, COAL, JEV, KRAL, MXAL, SGAL, CNAL, ALSTG
 
 spring:
@@ -101,3 +115,4 @@ webclient:
       execute-query: /datasets/{dataset}/executeQueries
     datasets:
       sales: 5be4a082-7828-4ef6-915b-c22a35825f46
+      operations: a3e70bc7-7a3a-4cb2-980f-14287f86904a
