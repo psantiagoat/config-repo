@@ -37,9 +37,6 @@ azure:
         account-id: oms-logistica
         tables:
           companies: Empresas
-      distribucion:
-        account-id: oms-logistica
-        tables:
           return-label: ReturnLabel
     config:
       accounts:
