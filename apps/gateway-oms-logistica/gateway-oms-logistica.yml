@@ -25,6 +25,7 @@ webclient:
         add-order: /order/addOrder
         modify-order: /order/modifyOrder
         labels-return: /label/getLabelsReturn
+        get-labels: /label/getLabels
   tiendas:
     base-path: ${services.arqsw.interna.master-api-v1}
     services:
