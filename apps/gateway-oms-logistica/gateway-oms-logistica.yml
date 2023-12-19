@@ -32,12 +32,15 @@ webclient:
 
 azure:
   storage:
-    enabled: false
     accounts:
       oms-logistica:
         account-id: oms-logistica
         tables:
           companies: Empresas
+      distribucion:
+        account-id: oms-logistica
+        tables:
+          return-label: ReturnLabel
     config:
       accounts:
         oms-logistica:
