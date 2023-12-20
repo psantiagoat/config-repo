@@ -39,6 +39,7 @@ azure:
         tables:
           companies: Empresas
           return-label: ReturnLabel
+          gift-text: GiftText
     config:
       accounts:
         oms-logistica:
