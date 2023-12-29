@@ -31,8 +31,8 @@ webclient:
       client-secret: '{cipher}74f4fc26d99a9e18cd8180c553298576d0454299f648e2b717d7d20f487f0a8149dbf45488344a0674f984774915b44fc4ef4fe5399f8cb76ba855ecb61edeb0'
     tenant: '{cipher}05f85b8159e41fa476c525cd852c11330bc2c7d55d86b8331c0a356ef772f8a9'
     inventory:
-      #base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.watson-commerce.tenant}
-      base-path: https://httpstat.us
+      base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.watson-commerce.tenant}
+      base-path-fake: https://httpstat.us
       endpoints:
         #availability-network: /v2/availability/network
         availability-network: /200?sleep=15000
