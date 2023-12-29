@@ -14,6 +14,7 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 webclient:
+  timeout-seconds: 10
   max-in-memory-size: 10000000
   supply-chain:
     auth:
