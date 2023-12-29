@@ -32,10 +32,10 @@ webclient:
     tenant: '{cipher}05f85b8159e41fa476c525cd852c11330bc2c7d55d86b8331c0a356ef772f8a9'
     inventory:
       base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.watson-commerce.tenant}
-      base-path-fake: https://httpstat.us
+      #base-path-fake: https://httpstat.us
       endpoints:
-        #availability-network: /v2/availability/network
-        availability-network: /200
+        availability-network: /v2/availability/network
+        #availability-network: /200
         availability-node: /v2/availability/node
         job-info: /v1/jobs/{jobId}
         job-trigger: /v2/configuration/events/dgAvailabilitySnapshot.v2/publish_all
