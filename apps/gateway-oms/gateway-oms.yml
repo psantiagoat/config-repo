@@ -35,7 +35,7 @@ webclient:
       base-path-fake: https://httpstat.us
       endpoints:
         #availability-network: /v2/availability/network
-        availability-network: /200?sleep=15000
+        availability-network: /200
         availability-node: /v2/availability/node
         job-info: /v1/jobs/{jobId}
         job-trigger: /v2/configuration/events/dgAvailabilitySnapshot.v2/publish_all
