@@ -16,11 +16,13 @@ webclient:
   retry-time: 10
   mtec:
     manifest:
-      base-path: http://desonprem.byl.local/tms-core-manifest-api-v1/api/rest
+      #base-path: http://desonprem.byl.local/tms-core-manifest-api-v1/api/rest
+      base-path: http://preonprem.byl.local/tms-core-manifest-api-v1/api/rest
       services:
         add-manifest: /manifest/addManifest
     order:
-      base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
+      base-path: http://preonprem.byl.local/tms-core-order-api-v1/api/rest
+      #base-path: http://desonprem.byl.local/tms-core-order-api-v1/api/rest
       services:
         add-order: /order/addOrder
         modify-order: /order/modifyOrder
