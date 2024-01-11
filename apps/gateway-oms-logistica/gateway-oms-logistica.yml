@@ -58,7 +58,6 @@ click-and-collect:
   courier-code: INTERNO
   courier-service-code: GENERICO
 
-
 languages:
   manifest:
     ESP:
@@ -83,3 +82,7 @@ languages:
       order-no: ORDER NO.
       carriers-signature: Carrier's signature
       store-signature: Store signature
+
+pdf:
+  gift-text:
+    extended-return-days: false
