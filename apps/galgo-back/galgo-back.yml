@@ -9,24 +9,25 @@ cache:
 spring:
   profiles:
     active: ${SHORT_ENV}
-      #autoconfigure:
-    #exclude:
-    #- org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
   datasource:
     datasource-initializer-enabled: false
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
-      driverClassName: org.mariadb.jdbc.Driver
+      driverClassName: com.mysql.cj.jdbc.Driver
       auto-commit: true
       idle-timeout: 600000
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:mariadb://distribucion-des.mariadb.database.azure.com:3306/galgo-des?useSSL=true
-    username: galgo@distribucion-des
-    password: 6ySLKzWVnitQOyy
-    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&clientCertificateKeyStoreUrl=file:/tmp/mysql-keystore.jks&clientCertificateKeyStorePassword=passw0rd
+    username: galgo
+    password: XBnt57eLPohDGPX
+    driverClassName: com.mysql.cj.jdbc.Driver
     poolName: HikariCP-Principal
 
 services:
@@ -51,14 +52,6 @@ services:
       oauth: /v1/oauth2/token
       availability-network: /v2/availability/network
       distribution-groups: /v1/configuration/distributionGroups
-  distribucion:
-    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
-    endpoints:
-      superfamilies: /superfamilies
-  master:
-    base-path: ${services.arqsw.interna.master-api-v1}
-    endpoints:
-      locations: /locations
 
 azure:
   storage:
@@ -102,3 +95,15 @@ app:
         entityPath: distribucion.oms-erp
         labels:
           on-demand-replenishment: onDemandReplenishment
+
+webclient:
+  max-in-memory-size: 10000000
+  distribucion:
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
+    endpoints:
+      superfamilies: /superfamilies
+      references: /references/{season}
+  master:
+    base-path: ${services.arqsw.interna.master-api-v1}
+    endpoints:
+      locations: /locations
