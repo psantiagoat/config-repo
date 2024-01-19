@@ -86,3 +86,5 @@ languages:
 pdf:
   gift-text:
     extended-return-days: false
+  manifest:
+    new-label-companies: 001, 007pdf
