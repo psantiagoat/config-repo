@@ -68,7 +68,7 @@ languages:
       total-orders: TOTAL PEDIDOS
       total-packages: TOTAL BULTOS
       total-weight: PESO TOTAL
-      order-no: Nº PEDIDO
+      order-no: No. PEDIDO
       carriers-signature: Firma del transportista
       store-signature: Firma de la tienda
     ENU:
@@ -86,5 +86,3 @@ languages:
 pdf:
   gift-text:
     extended-return-days: false
-  manifest:
-    new-label-companies: 001, 007
