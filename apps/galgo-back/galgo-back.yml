@@ -95,6 +95,11 @@ app:
         entityPath: distribucion.oms-erp
         labels:
           on-demand-replenishment: onDemandReplenishment
+  notification:
+    galgo-front:
+      base-path: http://desazure.byl.local/galgo-front-v1
+      pages:
+        top-store-audit: /store/audit
 
 webclient:
   max-in-memory-size: 10000000
