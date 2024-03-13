@@ -24,6 +24,14 @@
   <logger name="io" level="OFF"/>
   <logger name="com.zaxxer" level="INFO"/>-->
 
+  <logger name="org" level="INFO"/>
+  <logger name="_org" level="INFO"/>
+  <logger name="reactor" level="INFO"/>
+  <logger name="io" level="INFO"/>
+  <logger name="com.zaxxer" level="INFO"/>
+  <logger name="com.zaxxer" level="INFO"/>
+  <logger name="com.azure" level="WARN"/>
+
   <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
     <connectTimeout>${elasticTimeout}</connectTimeout> <!-- optional (in ms, default 30000) -->
     <errorLoggerName>es-error-logger</errorLoggerName> <!-- optional -->
@@ -94,7 +102,7 @@
     </layout>
   </appender>
 
-  <logger name="es-error-logger" level="INFO" additivity="false">
+  <logger name="es-error-logger" level="DEBUG" additivity="false">
     <appender-ref ref="CONSOLE"/>
   </logger>
 
