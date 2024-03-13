@@ -94,7 +94,7 @@
     </layout>
   </appender>
 
-  <logger name="es-error-logger" level="DEBUG" additivity="false">
+  <logger name="es-error-logger" level="INFO" additivity="false">
     <appender-ref ref="CONSOLE"/>
   </logger>
 
