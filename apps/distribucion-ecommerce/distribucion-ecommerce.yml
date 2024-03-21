@@ -1,0 +1,101 @@
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+
+
+cache:
+  enable-redis: false
+
+server:
+  servlet:
+    context-path: "/${spring.application.name}-consumer-v${app.version_url}"
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  cloud:
+    azure:
+      servicebus:
+        bindings:
+          consumeCreateOrder-in-0:
+            group: createOrder.Central
+          consumeCreateReturnOrder-in-0:
+            group: createReturn.Central
+          consumeCreateManualReturnOrder-in-0:
+            group: createManualReturn.Central
+        connection-string: '{cipher}b42364ff12b5b7ad8ed746a5b34e02a3d0a2dadc0d88c013a30bf9db4a5b154dae086589c1163ec61e08de83a46b0beee0cd6cfa45a6734ee4628b7fef72f5f7f381b4d9b9559a3141d852673f45c61fffc0ba41472b538c1b90addede0bb34c42c70e65547085539fc3e50b06a357bb61bdf1fce06feb9d8504fc3cf8cf71e490ad4ed5c6e588f2430eac281070de990394b82a115ca5dc8d8533847e73ec584a5205454aeec90213d78cd1fc6472e9bc3a307fac0fd8bfa8060f3351f9647bf60476880978eb5f7c5fcbe2e788cbaf'
+        enabled: true
+    stream:
+      bindings:
+        consumeCreateOrder-in-0:
+          destination: distribucion.ecommerce
+          group: createOrder.Central
+        consumeCreateReturnOrder-in-0:
+          destination: distribucion.ecommerce
+          group: createReturn.Central
+        consumeCreateManualReturnOrder-in-0:
+          destination: distribucion.ecommerce
+          group: createManualReturn.Central
+      default:
+        consumer:
+          maxAttempts: 4
+      function:
+        definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder
+      servicebus:
+        bindings:
+          consumeCreateOrder-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeCreateReturnOrder-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeCreateManualReturnOrder-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+  profiles:
+    active: ${SHORT_ENV}
+
+webclient:
+  max-in-memory-size: 10000000
+  gateway-distribucion:
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
+    endpoints:
+      create-return-order: /order/return/create
+      create-manual-return-order: /order/manual-return/create
+    retry-attempts: 3
+    retry-time: 10
+  gateway-oms:
+    base-path: ${services.distribucion.interna.gateway-oms-api-v1}
+    endpoints:
+      create-order: /orders
+    retry-attempts: 3
+    retry-time: 10
