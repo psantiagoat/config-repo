@@ -14,7 +14,7 @@ app:
         labels:
           create-order: createOrder
           create-return: createReturn
-          create-return-manual: createReturnManual
+          create-manual-return: createManualReturn
 
 azure:
   producer:
