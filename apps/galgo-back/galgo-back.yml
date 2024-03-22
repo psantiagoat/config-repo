@@ -29,6 +29,15 @@ spring:
     password: XBnt57eLPohDGPX
     driverClassName: com.mysql.cj.jdbc.Driver
     poolName: HikariCP-Principal
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+persistence:
+  path-shipment-orders: /mnt/galgo/shipment-orders
+  file-shipment-orders: Shipment_Orders_PLM.xlsx
+
 
 services:
   export-pagesize: 5000
