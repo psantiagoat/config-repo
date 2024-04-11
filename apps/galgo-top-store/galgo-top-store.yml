@@ -47,3 +47,4 @@ webclient:
       seasons: /seasons
       superfamilies: /top-store/superfamilies
       get-arrivals:
+      save-estimated-entries:
