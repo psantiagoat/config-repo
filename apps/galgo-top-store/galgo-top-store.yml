@@ -49,3 +49,4 @@ webclient:
       superfamilies: /top-store/superfamilies
       get-arrivals:
       save-estimated-entries:
+      estimated-entry-config:
