@@ -46,3 +46,4 @@ webclient:
       save-arrivals: /top-references/arrivals
       seasons: /seasons
       superfamilies: /top-store/superfamilies
+      get-arrivals:
