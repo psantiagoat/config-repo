@@ -35,6 +35,7 @@ webclient:
     retry-attempts: 3
     retry-time: 30
     page-size: 5000
+    update-size: 1000
     endpoints:
       locations: /top-store/locations
       notification-config: /notifications/top-store
