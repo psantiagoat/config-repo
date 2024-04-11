@@ -35,11 +35,11 @@ webclient:
     page-size: 5000
     endpoints:
       locations: /top-store/locations
-      notifications: /notifications/top-store
-      notify-top-reference-pending-changes: /notifications/top-reference/changes/pending
-      notify-top-reference-updated-changes: /notifications/top-reference/changes/updated/{seconds}
-      notify-top-store-pending-changes: /notifications/top-store/changes/pending
-      notify-top-store-updated-changes: /notifications/top-store/changes/updated/{seconds}
+      notifications:
+        - url-pending: /notifications/top-reference/changes/pending
+          url-updated: /notifications/top-reference/changes/updated/{seconds}
+        - url-pending: /notifications/top-store/changes/pending
+          url-updated: /notifications/top-store/changes/updated/{seconds}
       ranking-store: /ranking/store/{season}
       ranking-superfamily: /ranking/superfamily/{season}
       sales-config: /ranking/sales-config
