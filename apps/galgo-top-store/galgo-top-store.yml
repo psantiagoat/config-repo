@@ -24,12 +24,12 @@ webclient:
     retry-time: 30
     update-size: 1000
     endpoints:
+      country-arrivals: /country-arrivals/search
+      estimated-country-arrivals: /country-arrivals/estimated/search
       location-sales: /store-sales/location/{season}
       location-stock: /store-sales/stock/location/{season}
       superfamily-sales: /store-sales/superfamily/{season}
       superfamily-stock: /store-sales/stock/superfamily/{season}
-      country-arrivals:
-      estimated-country-arrivals:
   galgo:
     base-path: ${services.distribucion.interna.galgo-back-api-v1}
     retry-attempts: 3
@@ -37,6 +37,10 @@ webclient:
     page-size: 5000
     update-size: 1000
     endpoints:
+      cycles: /top-references/cycles
+      estimated-entry-config: /top-references/entries/config
+      get-arrivals: /top-references/arrivals/search
+      intermediate-warehouse: /top-references/intermediate-warehouse
       locations: /top-store/locations
       notification-config: /notifications/top-store
       notifications:
@@ -46,13 +50,9 @@ webclient:
           url-updated: /notifications/top-store/changes/updated/{seconds}
       ranking-store: /ranking/store/{season}
       ranking-superfamily: /ranking/superfamily/{season}
+      references: /top-references/references/search
       sales-config: /ranking/sales-config
       save-arrivals: /top-references/arrivals
+      save-estimated-entries: /top-references/entries/estimated
       seasons: /seasons
       superfamilies: /top-store/superfamilies
-      get-arrivals:
-      save-estimated-entries:
-      estimated-entry-config:
-      cycles:
-      intermediate-warehouse:
-      references:
