@@ -51,3 +51,4 @@ webclient:
       save-estimated-entries:
       estimated-entry-config:
       cycles:
+      intermediate-warehouse:
