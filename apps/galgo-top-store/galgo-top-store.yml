@@ -35,6 +35,7 @@ webclient:
     page-size: 5000
     endpoints:
       locations: /top-store/locations
+      notification-config: /notifications/top-store
       notifications:
         - url-pending: /notifications/top-reference/changes/pending
           url-updated: /notifications/top-reference/changes/updated/{seconds}
