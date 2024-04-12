@@ -16,7 +16,7 @@ spring:
 
 
 webclient:
-  max-in-memory-size: 10000000
+  max-in-memory-size: 20000000
   distribucion:
     page-size: 50000
     update-size: 10000
