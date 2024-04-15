@@ -1,12 +1,14 @@
 command:
   name: configuracionComandos
   commands:
-    - name: RANKING
-      bean-name: rankingCommand
-    - name: NOTIFICATION
-      bean-name: notificationCommand
     - name: ARRIVALS
       bean-name: arrivalsCommand
+    - name: ESTIMATION
+      bean-name: estimationCommand
+    - name: NOTIFICATION
+      bean-name: notificationCommand
+    - name: RANKING
+      bean-name: rankingCommand
 
 persistence:
   path-shipment-orders: /mnt/galgo/shipment-orders
