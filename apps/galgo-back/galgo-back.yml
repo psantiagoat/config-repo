@@ -9,14 +9,12 @@ cache:
 spring:
   profiles:
     active: ${SHORT_ENV}
-  autoconfigure: #provisional
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
   datasource:
+    initialization-mode: never # provisional
     datasource-initializer-enabled: false
     hikari:
       minimum-idle: 5
