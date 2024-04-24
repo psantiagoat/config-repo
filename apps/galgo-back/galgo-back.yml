@@ -9,6 +9,9 @@ cache:
 spring:
   profiles:
     active: ${SHORT_ENV}
+  autoconfigure: #provisional
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   jpa:
     properties:
       hibernate:
