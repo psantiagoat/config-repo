@@ -109,6 +109,7 @@ app:
     galgo-front:
       base-path: http://desazure.byl.local/galgo-front-v1
       pages:
+        entries-audit: /entries/audit
         top-reference-audit: /reference/audit
         top-store-audit: /store/audit
 
