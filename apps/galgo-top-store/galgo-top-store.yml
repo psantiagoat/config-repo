@@ -46,6 +46,8 @@ webclient:
       locations: /top-store/locations
       notification-config: /notifications/top-store
       notifications:
+        - url-pending: /notifications/entries/changes/pending
+          url-updated: /notifications/entries/changes/updated/{seconds}
         - url-pending: /notifications/top-reference/changes/pending
           url-updated: /notifications/top-reference/changes/updated/{seconds}
         - url-pending: /notifications/top-store/changes/pending
