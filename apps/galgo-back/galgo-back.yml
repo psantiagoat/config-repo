@@ -122,6 +122,7 @@ webclient:
       references: /references/{season}
       replenishment-departments: /replenishment/departments
       replenishment-items: /replenishment/items
+      warehouse-stock: /references/warehouse-stock
   master:
     base-path: ${services.arqsw.interna.master-api-v1}
     endpoints:
