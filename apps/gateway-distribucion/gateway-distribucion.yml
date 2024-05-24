@@ -15,6 +15,10 @@ app:
           create-order: createOrder
           create-return: createReturn
           create-manual-return: createManualReturn
+  config:
+    stock:
+      location-code: ALSTG, BLOQ, JEV
+
 
 azure:
   producer:
