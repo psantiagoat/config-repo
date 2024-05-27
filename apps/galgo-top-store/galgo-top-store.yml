@@ -29,6 +29,8 @@ webclient:
     update-size: 1000
     endpoints:
       country-arrivals: /country-arrivals/search
+      country-received: /country-arrivals/received/size/search
+      cross-seasons-changes: /references/cross-seasons/changes
       estimated-country-arrivals: /country-arrivals/estimated/search
       location-sales: /store-sales/location/{season}
       location-stock: /store-sales/stock/location/{season}
