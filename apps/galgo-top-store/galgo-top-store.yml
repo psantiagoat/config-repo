@@ -3,6 +3,8 @@ command:
   commands:
     - name: ARRIVALS
       bean-name: arrivalsCommand
+    - name: CROSS_SEASONS_CHANGES
+      bean-name: crossSeasonsChangesCommand
     - name: ESTIMATION
       bean-name: estimationCommand
     - name: NOTIFICATION
