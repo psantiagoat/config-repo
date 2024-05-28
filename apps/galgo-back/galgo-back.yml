@@ -98,13 +98,24 @@ config:
 app:
   azure:
     service-bus:
-      distribucion:
-        endpoint: sb://byl-core-dev.servicebus.windows.net/
-        sharedAccessKeyName: oms-erp
-        sharedAccessKey: '{cipher}f21808ed3369c07931015f286eec69684ea630a65a58abd137da803c3cc2e0d4cb77239b9d9fdab41bf9c945480121dace2cca2cb78beae2bd5aad4f86b4dfe8'
-        entityPath: distribucion.oms-erp
-        labels:
-          on-demand-replenishment: onDemandReplenishment
+      endpoint: sb://byl-core-dev.servicebus.windows.net/
+      topics:
+        oms-erp:
+          sharedAccessKeyName: oms-erp
+          sharedAccessKey: '{cipher}f21808ed3369c07931015f286eec69684ea630a65a58abd137da803c3cc2e0d4cb77239b9d9fdab41bf9c945480121dace2cca2cb78beae2bd5aad4f86b4dfe8'
+          entityPath: distribucion.oms-erp
+          labels:
+            on-demand-replenishment: onDemandReplenishment
+        galgo-assortments:
+          sharedAccessKeyName: galgo-assortments
+          sharedAccessKey: '{cipher}302569caa61d69edb2c29eb1c153e5267888fbc3bfbe4da1ec63e329f91dab444b1bdec56b4328862c96523ea68505398cb35c210a499b6590e37ac3c276e0ed'
+          entityPath: distribucion.galgo-assortments
+          labels:
+            changes: changes
+  config:
+    changes-block-size:
+      top-reference: 10
+      top-store: 1
   notification:
     galgo-front:
       base-path: http://desazure.byl.local/galgo-front-v1
