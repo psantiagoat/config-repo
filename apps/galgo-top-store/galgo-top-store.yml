@@ -1,3 +1,8 @@
+app:
+  config:
+    arrivals:
+      valid-warehouses: ALSTG, JEV
+
 command:
   name: configuracionComandos
   commands:
@@ -44,6 +49,7 @@ webclient:
     update-size: 1000
     endpoints:
       cycles: /top-references/cycles
+      cross-seasons-changes-send: /top-references/cross-seasons/changes
       estimated-entry-config: /top-references/entries/config
       get-arrivals: /top-references/arrivals/search
       intermediate-warehouse: /top-references/intermediate-warehouse
