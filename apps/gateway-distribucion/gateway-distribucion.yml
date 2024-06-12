@@ -23,6 +23,7 @@ azure:
           product-images: images
         blobs:
           product-images: images
+          product-images-bi: images-bi
     config:
       accounts:
         distribucion:
