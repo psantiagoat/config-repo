@@ -4,18 +4,15 @@ api:
       image-url: https://bimbayloladev.azure-api.net/khkuremouwcx/products/image/{imageSize}
 
 app:
-  config:
-    stock:
-      location-code: ALSTG, BLOQ, JEV
   code-unit-config:
     actions:
       - name: ReplenishmentActions
-        dto-name: ReplenishmentActionsDto
+        dto-name: ReplenishmentActionsSecDto
         action: ReplenishmentActions
         params:
           - name: parTransactionID
             dto-name: parTransactionID
-          - name: parOperationCode
+          - name: parAction
             dto-name: parOperationCode
           - name: parItemFilter
             dto-name: parItemFilter
@@ -30,7 +27,9 @@ app:
     url: http://svmos101037-nas.byl.local:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSReplenishment
     user: srvcnavdistridev
     workstation: LOCALHOST
-
+  config:
+    stock:
+      location-code: ALSTG, BLOQ, JEV
 
 azure:
   storage:
@@ -74,15 +73,6 @@ cache:
   caches-ttl:
     image-name: 86400
 
-codeunit:
-  user: srvcnavdistridev
-  password: '{cipher}ad077eafc24df63a79d30721c72434455951187e3620fd88b49a5f7648f0f4eb0fc7af8b4b4a7575e1ee45e3d39a98dd'
-  url: http://svmos101037-nas.byl.local:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSReplenishment
-  workstation: LOCALHOST
-  domain: BYL.LOCAL
-  actions:
-    replenishment-actions: ReplenishmentActions
-
 database:
   insert-batch: 100
 
@@ -112,10 +102,10 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uomsdev
-    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
+    username: uomsdev
+    password: '{cipher}47b50a89a885ad24ef46595a55cd5c88c6b874aae4f06e003b8137486bfbeeec'
 
 webclient:
   max-in-memory-size: 10000000
