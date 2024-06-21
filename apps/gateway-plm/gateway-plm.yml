@@ -63,15 +63,11 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:mysql://192.168.52.66;databaseName=C8;trustServerCertificate=true
+    url: jdbc:sqlserver://192.168.52.66;databaseName=C8;trustServerCertificate=true
     username: shadowuser
     password: '{cipher}aefed2a74ecee0121f80903e235ab1e26076f09d261638513e69b4ad2ef9bea0'
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQLDialect
   profiles:
     active: ${SHORT_ENV}
 
