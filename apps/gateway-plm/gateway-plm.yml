@@ -1,4 +1,8 @@
 app:
+  config:
+    shipment-order:
+      galgo:
+        warehouses: ALSTG, JEV
   label-style-image: PRINCIPAL
 
 azure:
