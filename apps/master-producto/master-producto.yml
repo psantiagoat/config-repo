@@ -66,7 +66,7 @@ spring:
 webclient:
   max-in-memory-size: 10000000
   plm:
-    base-path: ${services.distribucion.interna.gateway-plm-api-v1}
+    base-path: ${services.producto.interna.gateway-plm-api-v1}
     retry-attempts: 3
     retry-time: 30
     endpoints:
