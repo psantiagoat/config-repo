@@ -1,7 +1,25 @@
-concrete-message: Configuration Específica entorno Des! (fichero apps/gateway-product/gateway-product.yml)
-
 app:
-  fqdn: localhost
+  code-unit-config:
+    actions:
+      - name: salesPrice
+        dto-name: GetSalesPriceDto
+        action: GetSalesPrice
+        params:
+          - name: parItemNo
+            dto-name: itemNo
+          - name: parVariantCode
+            dto-name: variantCode
+          - name: parSalesCode
+            dto-name: salesCode
+          - name: parPriceDate
+            dto-name: priceDate
+    domain: BYL.LOCAL
+    password: '{cipher}82da2fbd64b312078b6fe5c37b9c686f61ca2a7c5b8dd5a804bc3b49b1dced19'
+    prefix: wss
+    schema: WSMarketplace
+    url: http://svmos101037-nas.byl.local:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSMarketplace
+    user: srvcplmnavdes
+    workstation: LOCALHOST
 
 byl:
   audit:
@@ -9,9 +27,15 @@ byl:
     internal-enable: false
   ldap:
     active: false
+  code-unit:
+    enabled: true
+    retry:
+      delay: 1000
+      max-attempts: 3
+      max-delay: 5000
 
 cache:
-  enable-redis: false
+  enable-redis: true
 
 spring:
   profiles:
@@ -34,17 +58,11 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
     url: jdbc:sqlserver://svmos101036-sql.byl.local;databaseName=NAVWEB;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    ##url: jdbc:sqlserver://svmos107021.byl.local;databaseName=NAVPRE;sslProtocol=TLSv1.2;trustServerCertificate=true;
-    username: uproductintegration
-    password: '{cipher}ae4e01d1b3fc8bcd5618d8bf17fdff4949cfb853e77fbcd054b2839fcefab9f1ad7e21f3242b327083c68dcf4aa777f9'
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     poolName: HikariCP-Principal
-
-codeunit:
-  url: http://svmos107016.byl.local:7047/CENTRAL/WS/BIMBA%20Y%20LOLA/Codeunit/WSPLM
-  user: srvcnavparserdev
-  password: '{cipher}119d6957224f92362f15c45ba60b91681bf564d31db2453d6e6825cd60144f7fb45fc2ad5b12512f1b5008e863a4aa39'
+    username: uapimasterproduct
+    password: '{cipher}dfdb5079a2f5d88ff02d3be2264b1cb1708a56aa29b530e815c3cf2ce760db522892bfd5a014d8007bc475fe60c6eb24'
 
 logback:
   level:
-    elastic: INFO
+    elastic: DEBUG
