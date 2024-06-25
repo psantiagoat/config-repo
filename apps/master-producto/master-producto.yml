@@ -71,3 +71,4 @@ webclient:
     retry-time: 30
     endpoints:
       shipment-orders-galgo: /shipment-orders/galgo
+  timeout-seconds: 120
