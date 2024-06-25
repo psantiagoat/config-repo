@@ -244,6 +244,7 @@ services:
   producto:
     interna:
       gateway-product-api-v1: http://desazure.byl.local/gateway-product-api-v1
+      gateway-plm-api-v1: http://desazure.byl.local/gateway-plm-api-v1
   tiendas:
     interna:
       cards-api-v1: http://desazure.byl.local/cards-api-v1
