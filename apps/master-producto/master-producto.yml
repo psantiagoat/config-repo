@@ -63,6 +63,11 @@ spring:
     username: uapimasterproduct
     password: '{cipher}dfdb5079a2f5d88ff02d3be2264b1cb1708a56aa29b530e815c3cf2ce760db522892bfd5a014d8007bc475fe60c6eb24'
 
-logback:
-  level:
-    elastic: DEBUG
+webclient:
+  max-in-memory-size: 10000000
+  plm:
+    base-path: ${services.distribucion.interna.gateway-plm-api-v1}
+    retry-attempts: 3
+    retry-time: 30
+    endpoints:
+      shipment-orders-galgo: /shipment-orders/galgo
