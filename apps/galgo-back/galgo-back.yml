@@ -116,7 +116,7 @@ app:
   config:
     changes-block-size:
       top-reference: 10
-      top-store: 1
+      top-store: 10
   notification:
     galgo-front:
       base-path: http://desazure.byl.local/galgo-front-v1
