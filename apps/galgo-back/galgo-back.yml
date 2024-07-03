@@ -141,8 +141,8 @@ webclient:
       locations: /locations
 
 mail:
-  host: correoweb.bimbaylola.com
+  host: smtp-mail.outlook.com
   port: 587
-  username: srvcmailsml@bimbaylola.com
-  password: '{cipher}8961f6abd28d3ad1dd88c1561b7c247961989c18b3c212f29eefa62e693908d338ec393231cd0531240a42efcffa815f'
-  from: srvcmailsml@bimbaylola.com
+  username: develop.byl@outlook.com
+  password: Dev10101010
+  from: develop.byl@outlook.com
