@@ -115,6 +115,7 @@ app:
             locks: locks
   config:
     changes-block-size:
+      locks: 10
       top-reference: 10
       top-store: 10
   notification:
