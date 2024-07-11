@@ -55,6 +55,7 @@ plm-config:
 
 server:
   shutdown: graceful
+
 spring:
   datasource:
     datasource-initializer-enabled: false
@@ -79,30 +80,56 @@ webclient:
   plm:
     limit: 50
     services:
+      bom: /apparel_boms/{id}
+      bom-revision: /apparel_bom_revisions/{id}
       care-and-compositions: /care_and_compositions
       care-and-compositions-id: /care_and_compositions/{id}
-      colorways-id: /colorways/{id}
+      care-and-compositions-revision-id: /care_and_composition_revisions/{id}
+      care-symbol-id: /care_symbols/{id}
+      category: /category1s/{id}
+      colorway: /colorways/{id}
+      colorways: /colorways
       compositions-id: /compositions/{id}
+      contact: /contacts/{id}
+      country: /countries/{id}
       enum-lists: /enum_lists
+      enum-values: /enum_values
       enum-values-id: /enum_values/{id}
+      factory: /factories/{id}
       factories: /factories
-      factories-update: /factories/{id}
       contact-by-id: /contacts/{id}
       country-by-id: /countries/{id}
       imageById: /images/{id}
-      lookup-item-subtypes: /lookup_item_subtypes
-      lookup-items-subtype-id: /lookup_item_subtypes/{id}
+      lookup-item: /lookup_items/{id}
       lookup-items: /lookup_items
-      lookup-items-id: /lookup_items/{id}
+      lookup-items-subtype: /lookup_item_subtypes/{id}
+      lookup-items-subtypes: /lookup_item_subtypes
+      material: /materials/{id}
       material-composition-id: /material_compositions/{id}
-      print-design-colors-id: /print_design_colors/{id}
-      productSizeById: /product_sizes/{id}
-      seasons-id: /seasons/{id}
-      sizeRanges: /size_ranges
-      sizeRangeById: /size_ranges/{id}
+      material-types: /material_types
+      order: /orders/{id}
+      part-material: /part_materials/{id}
+      print-design-color: /print_design_colors/{id}
+      print-design-colors: /print_design_colors
+      purchase-order: /purchase_orders/{id}
+      purchase-orders: /purchase_orders
+      season: /seasons/{id}
+      seasons: /seasons
+      shipment: /shipments/{id}
+      shipments: /shipments
+      shipment-terms: /shipment_terms
+      shipping-port: /shipping_ports/{id}
+      size: /product_sizes/{id}
+      sizes: /product_sizes
+      size-range: /size_ranges/{id}
+      size-ranges: /size_ranges
+      sku: /skus/{id}
       skus: /skus
-      styles-id: /styles/{id}
+      style: /styles/{id}
+      styles: /styles
       subfamily-ids: /lookup_items
+      supplier: /suppliers/{id}
+      suppliers: /suppliers
+      supplier-revision: /supplier_item_revisions/{id}
       transfer-lookup-item: /lookup-items/transfer/{id}
-      vendors: /suppliers
-      vendors-update: /suppliers/{id}
+      user: /users/{id}
