@@ -60,6 +60,7 @@ webclient:
       seasons: /seasons
       superfamilies: /top-store/superfamilies
   producto:
+    page-size: 10000
     base-path: ${services.producto.interna.master-producto-api-v1}
     retry-attempts: 3
     retry-time: 30
