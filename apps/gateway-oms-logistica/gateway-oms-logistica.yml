@@ -14,6 +14,15 @@ webclient:
   max-in-memory-size: 10000000
   retry-attemps: 3
   retry-time: 10
+  expansion:
+    marketplaces:
+      base-path: ${services.expansion.interna.gateway-mkpl-api-v1}
+      services:
+        get-search-label: /labels/search
+    marketplaces-services:
+      base-path: ${services.expansion.interna.mkpl-services-api-v1}
+      services:
+        get-external-by-byl: /v1/orders/external-by-byl/{internalOrderCode}
   mtec:
     manifest:
       #base-path: http://desonprem.byl.local/tms-core-manifest-api-v1/api/rest
