@@ -1,0 +1,113 @@
+app:
+  config:
+    memory-cache:
+      locations-ttl: 3600
+      lock-config-ttl: 120
+    block-size:
+      save-locks: 500
+
+byl:
+  audit:
+    enabled: false
+    internal-enable: false
+
+cache:
+  enable-redis: false
+
+server:
+  servlet:
+    context-path: "/${spring.application.name}-consumer-v${app.version_url}"
+
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  cloud:
+    azure:
+      servicebus:
+        bindings:
+          consumeChanges-in-0:
+            group: changes.Galgo
+        connection-string: '{cipher}f51459d5a0521e345166d410de66b7d60c7d3894e77e8e25d0831a5e86ac8be91e16ba378d500da8bdeec0912def5107428912fbf1faf8051864b745dbf96f0aee168f05e1175ee47dd4f6885f22f4885b4332e781c947e654d972081b57937fa9083df3ee372f3315bcf772fd6cdea3427ae9cce40fca29d963ccbb8bd4e8e670ea349edbcbf7e702dd99084b3765c4ddeb7489931bcbd86f30fb02715ef5c2789db6a4d51d581da6f335826f4c122238ba1886f3188d054d29f2ad78edba817e1208a154112612db54b32090b5b845'
+        enabled: true
+    stream:
+      bindings:
+        consumeChanges-in-0:
+          destination: distribucion.galgo-assortments
+          group: changes.Galgo
+        consumeTopStore-in-0:
+          destination: distribucion.galgo-assortments
+          group: top-store.Central
+        consumeLocks-in-0:
+          destination: distribucion.galgo-assortments
+          group: locks.Central
+      default:
+        consumer:
+          maxAttempts: 4
+      function:
+        definition: consumeChanges; consumeTopStore; consumeLocks;
+      servicebus:
+        bindings:
+          consumeChanges-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 6m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 1
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeTopStore-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 1
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeLocks-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 1
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+  profiles:
+    active: ${SHORT_ENV}
+
+webclient:
+  max-in-memory-size: 10000000
+  timeout-seconds: 120
+  gateway-distribucion:
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
+    endpoints:
+      ref-sizes-item-no: /references/sizes
+      locks-erp-save: /assortments/ref-locks
+      top-store-erp-save: /assortments/top-store
+    retry-attempts: 1
+    retry-time: 5
+  galgo-back:
+    #base-path: ${services.distribucion.interna.galgo-back-api-v1}
+    base-path: http://localhost:8081/galgo-back-api-v1
+    endpoints:
+      assortments-locations: /locations/assortments
+      ref-locks-config: /ref-locks/config
+      ref-locks-location: /ref-locks/global
+      ref-locks-reference: /ref-locks/global/{reference}
+      ref-locks-save: /ref-locks/global
+      top-ref-detail: /top-references/search/master/detail
+      top-ref-entries: /top-references/entries/search/master
+    retry-attempts: 1
+    retry-time: 5

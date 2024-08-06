@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 byl:
   audit:
     enabled: false
