@@ -99,8 +99,8 @@ webclient:
     retry-attempts: 1
     retry-time: 5
   galgo-back:
-    #base-path: ${services.distribucion.interna.galgo-back-api-v1}
-    base-path: http://localhost:8081/galgo-back-api-v1
+    base-path: ${services.distribucion.interna.galgo-back-api-v1}
+    #base-path: http://localhost:8081/galgo-back-api-v1
     endpoints:
       assortments-locations: /locations/assortments
       ref-locks-config: /ref-locks/config
