@@ -8,6 +8,7 @@ byl:
     cache: true
 cache:
   enable-redis: true
+  shared: true
 spring:
   profiles:
     active: ${SHORT_ENV}
