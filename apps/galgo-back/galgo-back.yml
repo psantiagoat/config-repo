@@ -7,6 +7,8 @@ byl:
     internal-enable: false
   ldap:
     active: false
+  logging:
+    cache: true
 cache:
   enable-redis: true
 spring:
