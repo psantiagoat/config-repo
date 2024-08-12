@@ -120,6 +120,9 @@ app:
       locks: 10
       top-reference: 10
       top-store: 10
+    export:
+      images-directory: blablabla
+
   notification:
     galgo-front:
       base-path: http://desazure.byl.local/galgo-front-v1
