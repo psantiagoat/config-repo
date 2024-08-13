@@ -26,7 +26,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&clientCertificateKeyStoreUrl=file:C:/byl-security/mysql.jks&clientCertificateKeyStorePassword=passw0rd
+    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&rewriteBatchedStatements=true&clientCertificateKeyStoreUrl=file:C:/byl-security/mysql.jks&clientCertificateKeyStorePassword=passw0rd
     username: galgo
     password: XBnt57eLPohDGPX
     driverClassName: com.mysql.cj.jdbc.Driver
