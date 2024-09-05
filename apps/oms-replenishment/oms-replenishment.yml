@@ -122,7 +122,7 @@ webclient:
       available-stock: /replenishment/available
       save-proposal: /replenishment/proposal
       clear-proposal: /replenishment/proposal
-      erp-process: /replenishment/abc/erp-process/{processName}
+      erp-process: /replenishment/erp-process/{processName}
       scale-warehouses: /replenishment/scale-warehouses
   galgo:
     page-size: 500
