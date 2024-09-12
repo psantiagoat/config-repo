@@ -141,6 +141,7 @@ webclient:
       replenishment-departments: /replenishment/departments
       replenishment-items: /replenishment/items
       warehouse-stock: /references/warehouse-stock
+      images: /products/image/galgo/thumbnail/{encryptedSku}
   master:
     base-path: ${services.arqsw.interna.master-api-v1}
     endpoints:
