@@ -121,7 +121,7 @@ app:
       top-reference: 10
       top-store: 10
     export:
-      images-directory: O:\00-corporativo\PRESENTACIONES_consolidado\CONSOLIDADO_TOTAL
+      images-directory: O:\00-corporativo\PRESENTACIONES _consolidado\CONSOLIDADO_TOTAL
 
   notification:
     galgo-front:
