@@ -1,0 +1,259 @@
+<!-- https://github.com/internetitem/logback-elasticsearch-appender -->
+<!-- Auth en cabecera Authorization -->
+<configuration>
+
+  <property name="url-elastic"
+            value="https://elasticsearch-sas.es.westeurope.azure.elastic-cloud.com:9243/_bulk"/>
+
+  <property resource="application.yml"/>
+
+  <springProperty scope="context" name="name" source="spring.application.name"
+                  defaultValue="name_default"/>
+  <springProperty scope="context" name="appversion" source="app.version" defaultValue="0.0.0"/>
+  <springProperty scope="context" name="profile" source="spring.profiles.active"
+                  defaultValue="local"/>
+  <springProperty scope="context" name="java.version" source="java.version" defaultValue=""/>
+
+  <springProperty scope="context" name="elasticHost" source="elasticsearch.host" defaultValue=""/>
+  <springProperty scope="context" name="elasticAuthorizationType"
+                  source="elasticsearch.authorization.type"
+                  defaultValue=""/>
+  <springProperty scope="context" name="elasticAuthorizationPassword"
+                  source="elasticsearch.authorization.password"
+                  defaultValue=""/>
+  <springProperty scope="context" name="elasticTimeout" source="elasticsearch.timeout"
+                  defaultValue="30000"/>
+  <springProperty scope="context" name="elasticLogLevel" source="elasticsearch.log-level"
+                  defaultValue="INFO"/>
+  <springProperty scope="context" name="elasticApiKey" source="elasticsearch.api-key"
+                  defaultValue=""/>
+
+  <logger name="org" level="WARN"/>
+  <logger name="_org" level="WARN"/>
+  <logger name="reactor" level="WARN"/>
+  <logger name="io" level="WARN"/>
+  <logger name="com.zaxxer" level="INFO"/>
+  <logger name="com.azure.core.amqp" level="WARN"/>
+  <logger name="com.azure.messaging" level="WARN"/>
+  <logger name="com.azure.messaging.servicebus.LockRenewalOperation" level="INFO"/>
+  <logger name="com.microsoft.sqlserver.jdbc.internals" level="ERROR"/>
+  <logger name="javax.management.mbeanserver" level="ERROR"/>
+  <logger name="sun.rmi.server" level="ERROR"/>
+  <logger name="org.springframework.context.support.PostProcessorRegistrationDelegate" level="ERROR"/>
+  <logger name="com.azure.core.http.netty.implementation.NettyUtility" level="WARN"/>
+
+  <if condition='property("java.version").startsWith("21")'>
+    <then>
+      <appender name="ELASTIC" class="com.agido.logback.elasticsearch.ElasticsearchAppender">
+
+        <url>${url-elastic}</url>
+        <index>desarrollo</index>
+        <type></type>
+        <loggerName>es-logger</loggerName> <!-- optional -->
+        <errorLoggerName>es-error-logger</errorLoggerName> <!-- optional -->
+        <connectTimeout>${elasticTimeout}</connectTimeout> <!-- optional (in ms, default 30000) -->
+        <errorsToStderr>true</errorsToStderr> <!-- optional (default false) -->
+        <includeCallerData>false</includeCallerData> <!-- optional (default false) -->
+        <logsToStderr>false</logsToStderr> <!-- optional (default false) -->
+        <maxQueueSize>104857600</maxQueueSize> <!-- optional (default 104857600) -->
+        <maxRetries>3</maxRetries> <!-- optional (default 3) -->
+        <readTimeout>${elasticTimeout}</readTimeout> <!-- optional (in ms, default 30000) -->
+        <sleepTime>250</sleepTime> <!-- optional (in ms, default 250) -->
+        <rawJsonMessage>false</rawJsonMessage> <!-- optional (default false) -->
+        <includeMdc>true</includeMdc> <!-- optional (default false) -->
+        <maxMessageSize>-1</maxMessageSize> <!-- optional (default -1 -->
+        <objectSerialization>true</objectSerialization> <!-- optional (default false) -->
+        <keyPrefix></keyPrefix> <!-- optional (default None) -->
+        <operation></operation> <!-- optional (supported: index, create, update, delete - default create) -->
+
+        <properties>
+          <esProperty>
+            <name>event.dataset</name>
+            <value>${name}</value>
+          </esProperty>
+          <esProperty>
+            <name>taskforce</name>
+            <value>${TASK_FORCE}</value>
+          </esProperty>
+          <esProperty>
+            <name>app</name>
+            <value>${name}</value>
+            <allowEmpty>false</allowEmpty>
+          </esProperty>
+          <esProperty>
+            <name>app-version</name>
+            <value>${appversion}</value>
+            <allowEmpty>false</allowEmpty>
+          </esProperty>
+          <esProperty>
+            <name>host</name>
+            <value>${HOSTNAME}</value>
+            <allowEmpty>false</allowEmpty>
+          </esProperty>
+          <esProperty>
+            <name>level</name>
+            <value>%level</value>
+          </esProperty>
+          <esProperty>
+            <name>thread</name>
+            <value>%thread</value>
+          </esProperty>
+          <esProperty>
+            <name>stacktrace</name>
+            <value>%ex</value>
+          </esProperty>
+          <esProperty>
+            <name>logger</name>
+            <value>%logger</value>
+          </esProperty>
+          <esProperty>
+            <name>SpanId</name>
+            <value>%X{SpanId}</value>
+          </esProperty>
+          <esProperty>
+            <name>TraceId</name>
+            <value>%X{TraceId}</value>
+          </esProperty>
+        </properties>
+        <headers>
+          <header>
+            <name>Content-Type</name>
+            <value>application/json</value>
+          </header>
+          <header>
+            <name>Authorization</name>
+            <value>ApiKey ${elasticApiKey}</value>
+          </header>
+        </headers>
+      </appender>
+
+      <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+          <pattern>%d{HH:mm:ss.SSS} [%t][%X] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+      </appender>
+
+      <logger name="es-error-logger" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+      </logger>
+
+      <logger name="es-logger" level="INFO" additivity="false">
+        <appender-ref ref="ELASTIC"/>
+      </logger>
+    </then>
+    <else>
+      <appender name="ELASTIC" class="com.internetitem.logback.elasticsearch.ElasticsearchAppender">
+        <connectTimeout>${elasticTimeout}</connectTimeout> <!-- optional (in ms, default 30000) -->
+        <errorLoggerName>es-error-logger</errorLoggerName> <!-- optional -->
+        <errorsToStderr>true</errorsToStderr> <!-- optional (default false) -->
+        <includeCallerData>false</includeCallerData> <!-- optional (default false) -->
+        <includeMdc>true</includeMdc> <!-- optional (default false) -->
+        <index>desarrollo</index>
+        <loggerName>es-logger</loggerName> <!-- optional -->
+        <logsToStderr>false</logsToStderr> <!-- optional (default false) -->
+        <maxMessageSize>-1</maxMessageSize> <!-- optional (default -1 -->
+        <maxQueueSize>104857600</maxQueueSize> <!-- optional (default 104857600) -->
+        <maxRetries>3</maxRetries> <!-- optional (default 3) -->
+        <rawJsonMessage>false</rawJsonMessage> <!-- optional (default false) -->
+        <readTimeout>${elasticTimeout}</readTimeout> <!-- optional (in ms, default 30000) -->
+        <sleepTime>250</sleepTime> <!-- optional (in ms, default 250) -->
+        <type></type>
+        <url>${url-elastic}</url>
+        <properties>
+          <property>
+            <name>event.dataset</name>
+            <value>${name}</value>
+          </property>
+          <property>
+            <name>taskforce</name>
+            <value>${TASK_FORCE}</value>
+          </property>
+          <property>
+            <name>app</name>
+            <value>${name}</value>
+            <allowEmpty>false</allowEmpty>
+          </property>
+          <property>
+            <name>app-version</name>
+            <value>${appversion}</value>
+            <allowEmpty>false</allowEmpty>
+          </property>
+          <property>
+            <name>host</name>
+            <value>${HOSTNAME}</value>
+            <allowEmpty>false</allowEmpty>
+          </property>
+          <property>
+            <name>level</name>
+            <value>%level</value>
+          </property>
+          <property>
+            <name>thread</name>
+            <value>%thread</value>
+          </property>
+          <property>
+            <name>stacktrace</name>
+            <value>%ex</value>
+          </property>
+          <property>
+            <name>logger</name>
+            <value>%logger</value>
+          </property>
+          <property>
+            <name>SpanId</name>
+            <value>%X{SpanId}</value>
+          </property>
+          <property>
+            <name>TraceId</name>
+            <value>%X{TraceId}</value>
+          </property>
+        </properties>
+        <headers>
+          <header>
+            <name>Content-Type</name>
+            <value>application/json</value>
+          </header>
+          <header>
+            <name>Authorization</name>
+            <value>ApiKey ${elasticApiKey}</value>
+          </header>
+        </headers>
+      </appender>
+
+      <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+          <Pattern>
+            %d{HH:mm:ss.SSS} [%t][%X] %-5level %logger{36} - %msg%n
+          </Pattern>
+        </layout>
+      </appender>
+
+      <logger name="es-error-logger" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+      </logger>
+
+      <logger name="es-logger" level="INFO" additivity="false">
+        <appender-ref ref="ELASTIC"/>
+        <appender name="ES_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+          <encoder>
+            <pattern>%msg</pattern>
+          </encoder>
+        </appender>
+      </logger>
+
+    </else>
+  </if>
+
+
+  <include resource="logback_conf.xml"/>
+
+  <if
+      condition='!property("profile").contains("test") &amp;&amp; !property("profile").contains("local")'>
+    <then>
+      <root level="${elasticLogLevel}">
+        <appender-ref ref="ELASTIC"/>
+      </root>
+    </then>
+  </if>
+
+</configuration>
