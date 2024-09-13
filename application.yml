@@ -119,6 +119,7 @@ cache:
 
 # Elasticsearch props
 elasticsearch:
+  api-key: "{cipher}d062acfa560566d37b1ca368e0f656f2c4e9b772a4327c7e5a32a7b655d923af8995cb6e3b7a61a42c41706b591e2308070e4750385b86be2fa7840da1600cc94a124cb7c87fbd5548a3fa778bdafa80"
   host: 10.80.54.4
   host-on-premise: 10.20.101.47
   authorization:
