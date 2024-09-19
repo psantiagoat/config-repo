@@ -121,7 +121,7 @@ app:
       top-reference: 10
       top-store: 10
     export:
-      images-directory: O:\00-corporativo\PRESENTACIONES _consolidado\CONSOLIDADO_TOTAL
+      images-url: http://desazure.byl.local/gateway-distribucion-api-v1/products/image/galgo/thumbnail
 
   notification:
     galgo-front:
