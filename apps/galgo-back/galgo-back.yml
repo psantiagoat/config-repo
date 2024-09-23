@@ -124,7 +124,7 @@ app:
       images-url: ${services.distribucion.externa.gateway-distribucion-api-v1}/products/image/galgo/thumbnail
   notification:
     galgo-front:
-      base-path: ${services.distribucion.externa.galgo-back-api-v1}
+      base-path: ${services.distribucion.externa.galgo-front-v1}
       pages:
         entries-audit: /entries/audit
         top-reference-audit: /reference/audit
