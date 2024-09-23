@@ -121,11 +121,10 @@ app:
       top-reference: 10
       top-store: 10
     export:
-      images-url: http://desazure.byl.local/gateway-distribucion-api-v1/products/image/galgo/thumbnail
-
+      images-url: ${services.distribucion.externa.gateway-distribucion-api-v1}/products/image/galgo/thumbnail
   notification:
     galgo-front:
-      base-path: http://desazure.byl.local/galgo-front-v1
+      base-path: ${services.distribucion.externa.galgo-back-api-v1}
       pages:
         entries-audit: /entries/audit
         top-reference-audit: /reference/audit

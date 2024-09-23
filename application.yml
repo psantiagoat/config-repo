@@ -240,6 +240,9 @@ services:
       sccs: http://desazure.byl.local/sccs
       master-api-v1: http://desazure.byl.local/master-api-v1
   distribucion:
+    externa:
+      gateway-distribucion-api-v1: http://desazure.byl.local/gateway-distribucion-api-v1
+      galgo-back-api-v1: http://desazure.byl.local/galgo-back-api-v1
     interna:
       galgo-back-api-v1: http://desazure.byl.local/galgo-back-api-v1
       galgo-front-v1: http://desazure.byl.local/galgo-front-v1
