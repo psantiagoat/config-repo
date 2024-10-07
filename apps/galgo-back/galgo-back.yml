@@ -6,6 +6,8 @@ byl:
     active: false
   logging:
     cache: true
+  mail:
+    enabled: true
 cache:
   enable-redis: true
 spring:
@@ -145,10 +147,3 @@ webclient:
     base-path: ${services.arqsw.interna.master-api-v1}
     endpoints:
       locations: /locations
-
-mail:
-  host: smtp-mail.outlook.com
-  port: 587
-  username: develop.byl@outlook.com
-  password: Dev10101010
-  from: develop.byl@outlook.com
