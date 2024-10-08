@@ -2,6 +2,7 @@
 <!-- Auth en cabecera Authorization -->
 <configuration>
 
+  <property name="index-name" value="desarrollo"/>
   <property name="url-elastic"
             value="https://elasticsearch-sas.es.westeurope.azure.elastic-cloud.com:9243/_bulk"/>
 
@@ -27,6 +28,8 @@
                   defaultValue="INFO"/>
   <springProperty scope="context" name="elasticApiKey" source="elasticsearch.api-key"
                   defaultValue=""/>
+  <springProperty scope="context" name="elasticIndex" source="elasticsearch.index-name"
+                  defaultValue=""/>
 
   <logger name="org" level="WARN"/>
   <logger name="_org" level="WARN"/>
@@ -41,13 +44,14 @@
   <logger name="sun.rmi.server" level="ERROR"/>
   <logger name="org.springframework.context.support.PostProcessorRegistrationDelegate" level="ERROR"/>
   <logger name="com.azure.core.http.netty.implementation.NettyUtility" level="WARN"/>
+  <logger name="com.azure.spring.cloud.core.implementation.factory" level="WARN"/>
 
   <if condition='property("java.version").startsWith("21")'>
     <then>
       <appender name="ELASTIC" class="com.agido.logback.elasticsearch.ElasticsearchAppender">
 
         <url>${url-elastic}</url>
-        <index>desarrollo</index>
+        <index>${index-name}</index>
         <type></type>
         <loggerName>es-logger</loggerName> <!-- optional -->
         <errorLoggerName>es-error-logger</errorLoggerName> <!-- optional -->
@@ -67,10 +71,6 @@
         <operation></operation> <!-- optional (supported: index, create, update, delete - default create) -->
 
         <properties>
-          <esProperty>
-            <name>event.dataset</name>
-            <value>${name}</value>
-          </esProperty>
           <esProperty>
             <name>taskforce</name>
             <value>${TASK_FORCE}</value>
@@ -148,7 +148,7 @@
         <errorsToStderr>true</errorsToStderr> <!-- optional (default false) -->
         <includeCallerData>false</includeCallerData> <!-- optional (default false) -->
         <includeMdc>true</includeMdc> <!-- optional (default false) -->
-        <index>desarrollo</index>
+        <index>${index-name}</index>
         <loggerName>es-logger</loggerName> <!-- optional -->
         <logsToStderr>false</logsToStderr> <!-- optional (default false) -->
         <maxMessageSize>-1</maxMessageSize> <!-- optional (default -1 -->
@@ -160,10 +160,6 @@
         <type></type>
         <url>${url-elastic}</url>
         <properties>
-          <property>
-            <name>event.dataset</name>
-            <value>${name}</value>
-          </property>
           <property>
             <name>taskforce</name>
             <value>${TASK_FORCE}</value>
