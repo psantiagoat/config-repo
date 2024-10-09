@@ -15,6 +15,35 @@ byl:
 cache:
   enable-redis: true
 spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "OPTIONS"
+            allowedHeaders:
+              - "*"
+            exposedHeaders:
+              - "*"
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        - id: galgo-back
+          uri: localhost:8080/galgo-back-api-v1
+          predicates:
+            - Path=/galgo-back-api-v1/**
+          filters:
+            - name: JwtValidationFilter
+              args:
+                app-id: a2089459-7f1f-4291-a416-6cf367ee3598
+
   profiles:
     active: ${SHORT_ENV}
   jpa:
