@@ -8,6 +8,10 @@ byl:
     cache: true
   mail:
     enabled: true
+  security:
+    enabled: true
+    default-role: ROLE_Admin
+    default-user: internal
 cache:
   enable-redis: true
 spring:
