@@ -36,7 +36,7 @@ spring:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
         - id: galgo-back
-          uri: localhost:8080/galgo-back-api-v1
+          uri: https://localhost:8080/galgo-back-api-v1
           predicates:
             - Path=/galgo-back-api-v1/**
           filters:
