@@ -1,50 +1,87 @@
+app:
+  azure:
+    service-bus:
+      endpoint: sb://byl-core-dev.servicebus.windows.net/
+      topics:
+        oms-erp:
+          sharedAccessKeyName: oms-erp
+          sharedAccessKey: '{cipher}f21808ed3369c07931015f286eec69684ea630a65a58abd137da803c3cc2e0d4cb77239b9d9fdab41bf9c945480121dace2cca2cb78beae2bd5aad4f86b4dfe8'
+          entityPath: distribucion.oms-erp
+          labels:
+            on-demand-replenishment: onDemandReplenishment
+        galgo-assortments:
+          sharedAccessKeyName: galgo-assortments
+          sharedAccessKey: '{cipher}302569caa61d69edb2c29eb1c153e5267888fbc3bfbe4da1ec63e329f91dab444b1bdec56b4328862c96523ea68505398cb35c210a499b6590e37ac3c276e0ed'
+          entityPath: distribucion.galgo-assortments
+          labels:
+            changes: changes
+            top-store: top-store
+            locks: locks
+  config:
+    changes-block-size:
+      locks: 1000
+      top-reference: 50
+      top-store: 20
+    export:
+      images-url: ${services.distribucion.externa.gateway-distribucion-api-v1}/products/image/galgo/thumbnail
+  notification:
+    galgo-front:
+      base-path: ${services.distribucion.externa.galgo-front-v1}
+      pages:
+        entries-audit: /entries/audit
+        top-reference-audit: /reference/audit
+        top-store-audit: /store/audit
+
+azure:
+  storage:
+    enabled: false
+    accounts:
+      distribucion:
+        account-id: distribucion
+        tables:
+          batch-status: BatchStatus
+          replenishment-audit: ReplenishmentAudit
+          replenishment-config: ReplenishmentConfig
+    config:
+      accounts:
+        distribucion:
+          name: tskfdistribuciondev
+          key: '{cipher}f15852849941c1ac3595381f352973e6b059c2288a824c11b3c0655c58d944174b514059a3a4fd11a5c41d745710b522aec8c4b7429e7a6840063e0ba34bf9dbd8761910c1e9f37e05982181b5782b89235b7fbf652f82877a8010b972611b565e57795234362dc47b514f0fa3eaac0f'
+
 byl:
   audit:
     enabled: false
     internal-enable: false
   ldap:
     active: false
-  logging:
-    cache: true
   mail:
     enabled: true
   security:
-    enabled: false
+    enabled: true
     default-role: ROLE_Admin
     default-user: internal
 cache:
   enable-redis: true
-  profiles:
-    active: ${SHORT_ENV}
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-  datasource:
-    datasource-initializer-enabled: false
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 20
-      driverClassName: com.mysql.cj.jdbc.Driver
-      auto-commit: true
-      idle-timeout: 600000
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&rewriteBatchedStatements=true&clientCertificateKeyStoreUrl=file:C:/byl-security/mysql.jks&clientCertificateKeyStorePassword=passw0rd
-    username: galgo
-    password: XBnt57eLPohDGPX
-    driverClassName: com.mysql.cj.jdbc.Driver
-    poolName: HikariCP-Principal
-  servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+
+config:
+  dependencies:
+    batch:
+      on-demand-replenishment:
+        - batch: oms-replenishment
+          command: PLANNED
 
 persistence:
   path-shipment-orders: /mnt/galgo/shipment-orders
   file-shipment-orders: Shipment_Orders_PLM.xlsx
 
+security:
+  enable-csrf: false
+  jwk:
+    provider:
+      url: https://login.microsoftonline.com/common/discovery/keys
+    app:
+      aud: '{cipher}9cd897ede4cb38f2fc2acdee083fb11fb50fec528b23972e38053703064ebb01297337f99927f762b742257520783e76f136d321182f482043dddbb3eb1003fd'
+      appid: '{cipher}6088cd8bf816b547bc461e5345e48f13c7cc47cc01196f85d636ffb4a10aa702f705a77b5a703625cf9c138f87a22ab31dff00b31af8514b7b00d8259cbd0453'
 
 services:
   export-pagesize: 5000
@@ -69,71 +106,31 @@ services:
       availability-network: /v2/availability/network
       distribution-groups: /v1/configuration/distributionGroups
 
-azure:
-  storage:
-    enabled: false
-    accounts:
-      distribucion:
-        account-id: distribucion
-        tables:
-          batch-status: BatchStatus
-          replenishment-audit: ReplenishmentAudit
-          replenishment-config: ReplenishmentConfig
-    config:
-      accounts:
-        distribucion:
-          name: tskfdistribuciondev
-          key: '{cipher}f15852849941c1ac3595381f352973e6b059c2288a824c11b3c0655c58d944174b514059a3a4fd11a5c41d745710b522aec8c4b7429e7a6840063e0ba34bf9dbd8761910c1e9f37e05982181b5782b89235b7fbf652f82877a8010b972611b565e57795234362dc47b514f0fa3eaac0f'
-
-security:
-  enable-csrf: false
-  jwk:
-    provider:
-      url: https://login.microsoftonline.com/common/discovery/keys
-    app:
-      aud: '{cipher}9cd897ede4cb38f2fc2acdee083fb11fb50fec528b23972e38053703064ebb01297337f99927f762b742257520783e76f136d321182f482043dddbb3eb1003fd'
-      appid: '{cipher}6088cd8bf816b547bc461e5345e48f13c7cc47cc01196f85d636ffb4a10aa702f705a77b5a703625cf9c138f87a22ab31dff00b31af8514b7b00d8259cbd0453'
-
-config:
-  dependencies:
-    batch:
-      on-demand-replenishment:
-        - batch: oms-replenishment
-          command: PLANNED
-
-app:
-  azure:
-    service-bus:
-      endpoint: sb://byl-core-dev.servicebus.windows.net/
-      topics:
-        oms-erp:
-          sharedAccessKeyName: oms-erp
-          sharedAccessKey: '{cipher}f21808ed3369c07931015f286eec69684ea630a65a58abd137da803c3cc2e0d4cb77239b9d9fdab41bf9c945480121dace2cca2cb78beae2bd5aad4f86b4dfe8'
-          entityPath: distribucion.oms-erp
-          labels:
-            on-demand-replenishment: onDemandReplenishment
-        galgo-assortments:
-          sharedAccessKeyName: galgo-assortments
-          sharedAccessKey: '{cipher}302569caa61d69edb2c29eb1c153e5267888fbc3bfbe4da1ec63e329f91dab444b1bdec56b4328862c96523ea68505398cb35c210a499b6590e37ac3c276e0ed'
-          entityPath: distribucion.galgo-assortments
-          labels:
-            changes: changes
-            top-store: top-store
-            locks: locks
-  config:
-    changes-block-size:
-      locks: 10
-      top-reference: 10
-      top-store: 10
-    export:
-      images-url: ${services.distribucion.externa.gateway-distribucion-api-v1}/products/image/galgo/thumbnail
-  notification:
-    galgo-front:
-      base-path: ${services.distribucion.externa.galgo-front-v1}
-      pages:
-        entries-audit: /entries/audit
-        top-reference-audit: /reference/audit
-        top-store-audit: /store/audit
+spring:
+  datasource:
+    datasource-initializer-enabled: false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      driverClassName: com.mysql.cj.jdbc.Driver
+      auto-commit: true
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&rewriteBatchedStatements=true&clientCertificateKeyStoreUrl=file:/tmp/mysql-keystore.jks&clientCertificateKeyStorePassword=passw0rd
+    username: galgo
+    password: '{cipher}02ad8f06602d7853ee283f810ddc82a4b7777bf8a52f3ce0f63c12d431c69200'
+    driverClassName: com.mysql.cj.jdbc.Driver
+    poolName: HikariCP-Principal
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
 
 webclient:
   max-in-memory-size: 10000000
@@ -145,7 +142,6 @@ webclient:
       replenishment-departments: /replenishment/departments
       replenishment-items: /replenishment/items
       warehouse-stock: /references/warehouse-stock
-      images: /products/image/galgo/thumbnail/{encryptedSku}
   master:
     base-path: ${services.arqsw.interna.master-api-v1}
     endpoints:
