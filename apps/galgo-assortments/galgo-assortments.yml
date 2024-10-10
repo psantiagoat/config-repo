@@ -6,6 +6,14 @@ app:
     block-size:
       save-locks: 500
 
+azure:
+  sb:
+    topics:
+      galgo-assortments:
+        keyName: galgo-assortments
+        key: '{cipher}0344ef0e75908f0cc17170d9ff70cdcff20e8cdc20edd40b8d3ab4c6fd6b58522543ddfe9cbad8a38167f89db54634a80478889b8e7efb18f5594971f30ac1bf'
+        topic: distribucion.galgo-assortments
+
 byl:
   audit:
     enabled: false
@@ -28,7 +36,7 @@ spring:
         bindings:
           consumeChanges-in-0:
             group: changes.Galgo
-        connection-string: '{cipher}f51459d5a0521e345166d410de66b7d60c7d3894e77e8e25d0831a5e86ac8be91e16ba378d500da8bdeec0912def5107428912fbf1faf8051864b745dbf96f0aee168f05e1175ee47dd4f6885f22f4885b4332e781c947e654d972081b57937fa9083df3ee372f3315bcf772fd6cdea3427ae9cce40fca29d963ccbb8bd4e8e670ea349edbcbf7e702dd99084b3765c4ddeb7489931bcbd86f30fb02715ef5c2789db6a4d51d581da6f335826f4c122238ba1886f3188d054d29f2ad78edba817e1208a154112612db54b32090b5b845'
+        connection-string: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.galgo-assortments.keyName};SharedAccessKey=${azure.sb.topics.galgo-assortments.key};EntityPath=${azure.sb.topics.galgo-assortments.topic}
         enabled: true
     stream:
       bindings:
