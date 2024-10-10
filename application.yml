@@ -212,7 +212,7 @@ spring:
     ansi:
       enabled: DETECT
   profiles:
-    active: des
+    active: ${SHORT_ENV}
   # Seguridad
   security:
     enable-csrf: false
