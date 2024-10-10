@@ -56,7 +56,7 @@ byl:
   mail:
     enabled: true
   security:
-    enabled: false
+    enabled: true
     default-role: ROLE_Admin
     default-user: internal
 cache:
