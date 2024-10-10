@@ -74,7 +74,9 @@ app:
   version: ${project.version:0.0.0}
   full-max-page-size: 50000
 
-
+azure:
+  sb:
+    endpoint: sb://byl-core-dev.servicebus.windows.net/
 
 byl:
   addTraceInApiException: true
