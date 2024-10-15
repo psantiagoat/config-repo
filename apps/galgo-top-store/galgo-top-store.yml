@@ -72,6 +72,7 @@ webclient:
       sales-config: /ranking/sales-config
       save-arrivals: /top-references/arrivals
       save-estimated-entries: /top-references/entries/estimated
+      save-auto-entries: /top-references/entries/auto
       seasons: /seasons
       superfamilies: /top-store/superfamilies
   producto:

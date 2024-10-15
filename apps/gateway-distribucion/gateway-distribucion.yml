@@ -30,6 +30,9 @@ app:
   config:
     stock:
       location-code: ALSTG, BLOQ, JEV
+    received:
+      warehouses: ALSTG, JEV, ALJEVDA
+
 
 azure:
   storage:
