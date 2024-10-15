@@ -114,9 +114,9 @@ webclient:
   login-microsoft: https://login.microsoftonline.com/bimbaylola.com/oauth2/v2.0/token
   powerbi:
     auth:
-      client-id: '{cipher}c6a018dcabfb609bbdb4648e89018f70034e7613dc0a61df971c85238cbf07f6d9be86a12385328788f3ebb26fb9cc110f75e22ca5483c7dfe7f45ebd47684ad'
-      client-secret: '{cipher}ea806d435694b56e1ba6b0424600892af72c6efe52cc05af2601fc042582a1e3050a1552338f79ce5b8f6327aff1ca9b54bc5d9667970b85dcd97975d70f2731'
-      username: '{cipher}fbf04c32e0be25961b409f226f70db279fbb67d2a3daaf6797b8ee5a3234fffea47ba63ec6647b043820c4fbd799fc02'
+      client-id: 0a2f221b-534f-4a1c-a803-2ff201b80961
+      client-secret: '{cipher}864940d116dcbe6fc860f0d370f96d0beb0c0f6eefcc0ce63a47ea1ee1698d1e12b9d933ac4dcc5a4835c500b6fa16b6dde00b3fbdd8b5cbb332df19ff1076a2'
+      username: srvcbiugalgo@bimbaylola.com
       password: '{cipher}15b7ab79313c4d52e58f51191f2758280a5bca7799342ad1876d7a4293c740c4'
       grant-type: password
       scope: https://analysis.windows.net/powerbi/api/.default
