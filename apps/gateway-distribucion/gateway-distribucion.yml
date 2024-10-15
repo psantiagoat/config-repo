@@ -28,11 +28,10 @@ app:
     user: srvcnavdistridev
     workstation: LOCALHOST
   config:
+    received:
+      warehouses: ALJEVDA, ALSTG, JEV
     stock:
       location-code: ALSTG, BLOQ, JEV
-    received:
-      warehouses: ALSTG, JEV, ALJEVDA
-
 
 azure:
   storage:
