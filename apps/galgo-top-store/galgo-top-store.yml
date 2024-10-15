@@ -1,11 +1,10 @@
-server:
-  port: 8081
-
 command:
   name: configuracionComandos
   commands:
     - name: ARRIVALS
       bean-name: arrivalsCommand
+    - name: AUTO_APPROVED_CHANGES
+      bean-name: autoApprovedChangesCommand
     - name: CROSS_SEASONS_CHANGES
       bean-name: crossSeasonsChangesCommand
     - name: NOTIFICATION
@@ -58,6 +57,18 @@ webclient:
       ranking-store: /ranking/store/{season}
       ranking-superfamily: /ranking/superfamily/{season}
       references: /top-references/references/search
+      ref-locks-global: /ref-locks/global
+      ref-locks-references: /ref-locks
+      top-com-groups: /top-commercial/groups
+      top-ref-auto-approve: /top-references/changes/auto-approve
+      top-ref-changes: /top-references/changes/search
+      top-ref-detail: /top-references/search/{dataStatus}/detail
+      top-ref-entries-detail: /top-references/entries/search/{dataStatus}
+      top-ref-entries-changes: /top-references/entries/changes/search
+      top-ref-entries-auto-approve: /top-references/entries/changes/auto-approve
+      top-store-auto-approve: /top-store/changes/{season}/auto-approve
+      top-store-changes: /top-store/changes/search/{season}
+      top-store-detail: /top-store/{season}/{dataStatus}
       sales-config: /ranking/sales-config
       save-arrivals: /top-references/arrivals
       save-estimated-entries: /top-references/entries/estimated
