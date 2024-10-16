@@ -11,6 +11,8 @@ command:
       bean-name: notificationCommand
     - name: RANKING
       bean-name: rankingCommand
+    - name: SAVE_AUTO_ENTRIES
+      bean-name: saveAutoEntriesCommand
 
 spring:
   profiles:
