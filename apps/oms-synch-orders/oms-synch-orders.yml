@@ -9,20 +9,29 @@ command:
 process:
   config:
     persistence:
-      max-days: 5
+      max-days: 7
 
 azure:
+  sb:
+    topics:
+      service-to-central:
+        keyName: service-to-central
+        key: '{cipher}4f745fcb6ecd6dd92d105f1faf0cd5c930a1733a3bdce0bd31fa78a5dbaae59c160565b26bb28696c50645a15358402c3e0a2039e2c1c0d0f6805777d315b46a'
+        topic: distribucion.service-to-central
+        labels:
+          create-order: createOrder
+          confirm-shipment: confirmShipment
   storage:
     accounts:
-      global-persistence:
-        account-id: global-persistence
+      distribucion:
+        account-id: distribucion
         tables:
-          order-queue-audit: DevOmsSynchOrders
+          order-queue-audit: OmsSynchOrders
     config:
       accounts:
-        global-persistence:
-          name: globalpersistence
-          key: '{cipher}633140e53ebeb3f501200f518c6904ba30e33d829f971c9ad9e12f732bdfad3ed00831f2a9abdc7feeec3805b33787f3cf2aa80b04e0ed0c94beb7123ab458491e2e071355328fb1035095f435d082858b6f872127982c9788fbc0e38d1c8a797130ea2b15ff13a907269d9f8bc95970'
+        distribucion:
+          name: tskfdistribuciondev
+          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
 
 spring:
   profiles:
