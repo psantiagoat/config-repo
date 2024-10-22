@@ -36,19 +36,21 @@ spring:
             group: createReturn.Central
           consumeCreateManualReturnOrder-in-0:
             group: createManualReturn.Central
-          consumeCreateOrderNav-in-0:
-            group: createOrder.Nav
-          consumeCreateOrderCentralFo-in-0:
-            group: createOrder.centralfo
-          consumeConfirmShipment-in-0:
-            group: confirmShipment.Nav
-        connection-strings:
-          ecommerce: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.distribucion-ecommerce.keyName};SharedAccessKey=${azure.sb.topics.distribucion-ecommerce.key};EntityPath=${azure.sb.topics.distribucion-ecommerce.topic}
-          service-to-central: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
+        connection-string: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.distribucion-ecommerce.keyName};SharedAccessKey=${azure.sb.topics.distribucion-ecommerce.key};EntityPath=${azure.sb.topics.distribucion-ecommerce.topic}
         enabled: true
     function:
       definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder; consumeServiceToCentral; consumeConfirmShipment;
     stream:
+      binders:
+        service-to-central:
+          type: servicebus
+          defaultCandidate: false
+          environment:
+            spring:
+              cloud:
+                azure:
+                  servicebus:
+                    connection-string: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
       bindings:
         consumeCreateOrder-in-0:
           destination: ${azure.sb.topics.ecommerce.topic}
@@ -62,12 +64,15 @@ spring:
         consumeCreateOrderNav-in-0:
           destination: ${azure.sb.topics.service-to-central.topic}
           group: createOrder.Nav
+          binder: service-to-central
         consumeCreateOrderCentralFo-in-0:
           destination: ${azure.sb.topics.service-to-central.topic}
           group: createOrder.centralfo
+          binder: service-to-central
         consumeConfirmShipment-in-0:
           destination: ${azure.sb.topics.service-to-central.topic}
           group: confirmShipment.Nav
+          binder: service-to-central
       default:
         consumer:
           maxAttempts: 4
