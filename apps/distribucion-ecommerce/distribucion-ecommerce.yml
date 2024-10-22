@@ -1,7 +1,7 @@
 azure:
   sb:
     topics:
-      ecommerce:
+      distribucion-ecommerce:
         keyName: distribucion-ecommerce
         key: '{cipher}d7cfcc71ccdd5b926de9d6e7ef62aa2fe6980632901d316bc64bf29601d9d4036951cf7c980003f7683d91327d21f8ce98a240554549c7abc83933e721c1d7d9'
         topic: distribucion.ecommerce
@@ -43,7 +43,7 @@ spring:
           consumeConfirmShipment-in-0:
             group: confirmShipment.Nav
         connection-strings:
-          ecommerce: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.ecommerce.keyName};SharedAccessKey=${azure.sb.topics.ecommerce.key};EntityPath=${azure.sb.topics.ecommerce.topic}
+          ecommerce: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.distribucion-ecommerce.keyName};SharedAccessKey=${azure.sb.topics.distribucion-ecommerce.key};EntityPath=${azure.sb.topics.distribucion-ecommerce.topic}
           service-to-central: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
         enabled: true
     function:
