@@ -1,8 +1,19 @@
+azure:
+  sb:
+    topics:
+      ecommerce:
+        keyName: distribucion-ecommerce
+        key: '{cipher}d7cfcc71ccdd5b926de9d6e7ef62aa2fe6980632901d316bc64bf29601d9d4036951cf7c980003f7683d91327d21f8ce98a240554549c7abc83933e721c1d7d9'
+        topic: distribucion.ecommerce
+      service-to-central:
+        keyName: service-to-central
+        key: '{cipher}4a140473c34cc1e9958b2cf80379a7cf7efb7ae27fef6deffbaffb823b4d4d49d3b5d830aa57c2ece48e949abdfe9dd4a26ea0a94e5fbca60b7c667503726da8'
+        topic: distribucion.service-to-central
+
 byl:
   audit:
     enabled: false
     internal-enable: false
-
 
 cache:
   enable-redis: false
@@ -25,24 +36,41 @@ spring:
             group: createReturn.Central
           consumeCreateManualReturnOrder-in-0:
             group: createManualReturn.Central
-        connection-string: '{cipher}b42364ff12b5b7ad8ed746a5b34e02a3d0a2dadc0d88c013a30bf9db4a5b154dae086589c1163ec61e08de83a46b0beee0cd6cfa45a6734ee4628b7fef72f5f7f381b4d9b9559a3141d852673f45c61fffc0ba41472b538c1b90addede0bb34c42c70e65547085539fc3e50b06a357bb61bdf1fce06feb9d8504fc3cf8cf71e490ad4ed5c6e588f2430eac281070de990394b82a115ca5dc8d8533847e73ec584a5205454aeec90213d78cd1fc6472e9bc3a307fac0fd8bfa8060f3351f9647bf60476880978eb5f7c5fcbe2e788cbaf'
+          consumeCreateOrderNav-in-0:
+            group: createOrder.Nav
+          consumeCreateOrderCentralFo-in-0:
+            group: createOrder.centralfo
+          consumeConfirmShipment-in-0:
+            group: confirmShipment.Nav
+        connection-strings:
+          ecommerce: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.ecommerce.keyName};SharedAccessKey=${azure.sb.topics.ecommerce.key};EntityPath=${azure.sb.topics.ecommerce.topic}
+          service-to-central: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
         enabled: true
+    function:
+      definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder
     stream:
       bindings:
         consumeCreateOrder-in-0:
-          destination: distribucion.ecommerce
+          destination: ${azure.sb.topics.ecommerce.topic}
           group: createOrder.Central
         consumeCreateReturnOrder-in-0:
-          destination: distribucion.ecommerce
+          destination: ${azure.sb.topics.ecommerce.topic}
           group: createReturn.Central
         consumeCreateManualReturnOrder-in-0:
-          destination: distribucion.ecommerce
+          destination: ${azure.sb.topics.ecommerce.topic}
           group: createManualReturn.Central
+        consumeCreateOrderNav-in-0:
+          destination: ${azure.sb.topics.service-to-central.topic}
+          group: createOrder.Nav
+        consumeCreateOrderCentralFo-in-0:
+          destination: ${azure.sb.topics.service-to-central.topic}
+          group: createOrder.centralfo
+        consumeConfirmShipment-in-0:
+          destination: ${azure.sb.topics.service-to-central.topic}
+          group: confirmShipment.Nav
       default:
         consumer:
           maxAttempts: 4
-      function:
-        definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder
       servicebus:
         bindings:
           consumeCreateOrder-in-0:
@@ -70,6 +98,42 @@ spring:
               requeue-rejected: true
               session-enabled: null
           consumeCreateManualReturnOrder-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeCreateOrderNav-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeCreateOrderCentralFo-in-0:
+            consumer:
+              auto-bind-dlq: true
+              auto-complete: false
+              checkpoint-mode: MANUAL
+              max-auto-lock-renew-duration: 2m
+              max-concurrent-calls: 1
+              max-concurrent-sessions: null
+              prefetch-count: 10
+              receive-mode: PEEK_LOCK
+              requeue-rejected: true
+              session-enabled: null
+          consumeConfirmShipment-in-0:
             consumer:
               auto-bind-dlq: true
               auto-complete: false
