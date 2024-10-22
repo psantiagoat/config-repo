@@ -47,7 +47,7 @@ spring:
           service-to-central: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
         enabled: true
     function:
-      definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder
+      definition: consumeCreateOrder; consumeCreateReturnOrder; consumeCreateManualReturnOrder; consumeServiceToCentral; consumeConfirmShipment;
     stream:
       bindings:
         consumeCreateOrder-in-0:
