@@ -65,10 +65,6 @@ spring:
           destination: ${azure.sb.topics.service-to-central.topic}
           group: createOrder.Nav
           binder: service-to-central
-        consumeCreateOrderCentralFo-in-0:
-          destination: ${azure.sb.topics.service-to-central.topic}
-          group: createOrder.centralfo
-          binder: service-to-central
         consumeConfirmShipment-in-0:
           destination: ${azure.sb.topics.service-to-central.topic}
           group: confirmShipment.Nav
@@ -115,18 +111,6 @@ spring:
               requeue-rejected: true
               session-enabled: null
           consumeCreateOrderNav-in-0:
-            consumer:
-              auto-bind-dlq: true
-              auto-complete: false
-              checkpoint-mode: MANUAL
-              max-auto-lock-renew-duration: 2m
-              max-concurrent-calls: 1
-              max-concurrent-sessions: null
-              prefetch-count: 10
-              receive-mode: PEEK_LOCK
-              requeue-rejected: true
-              session-enabled: null
-          consumeCreateOrderCentralFo-in-0:
             consumer:
               auto-bind-dlq: true
               auto-complete: false
