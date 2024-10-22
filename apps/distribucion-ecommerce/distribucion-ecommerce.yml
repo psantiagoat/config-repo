@@ -4,7 +4,7 @@ azure:
       distribucion-ecommerce:
         keyName: distribucion-ecommerce
         key: '{cipher}d7cfcc71ccdd5b926de9d6e7ef62aa2fe6980632901d316bc64bf29601d9d4036951cf7c980003f7683d91327d21f8ce98a240554549c7abc83933e721c1d7d9'
-        topic: distribucion-ecommerce
+        topic: distribucion.ecommerce
       service-to-central:
         keyName: service-to-central
         key: '{cipher}4a140473c34cc1e9958b2cf80379a7cf7efb7ae27fef6deffbaffb823b4d4d49d3b5d830aa57c2ece48e949abdfe9dd4a26ea0a94e5fbca60b7c667503726da8'
