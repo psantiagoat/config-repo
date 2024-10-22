@@ -53,13 +53,13 @@ spring:
                     connection-string: Endpoint=${azure.sb.endpoint};SharedAccessKeyName=${azure.sb.topics.service-to-central.keyName};SharedAccessKey=${azure.sb.topics.service-to-central.key};EntityPath=${azure.sb.topics.service-to-central.topic}
       bindings:
         consumeCreateOrder-in-0:
-          destination: ${azure.sb.topics.ecommerce.topic}
+          destination: ${azure.sb.topics.distribucion-ecommerce.topic}
           group: createOrder.Central
         consumeCreateReturnOrder-in-0:
-          destination: ${azure.sb.topics.ecommerce.topic}
+          destination: ${azure.sb.topics.distribucion-ecommerce.topic}
           group: createReturn.Central
         consumeCreateManualReturnOrder-in-0:
-          destination: ${azure.sb.topics.ecommerce.topic}
+          destination: ${azure.sb.topics.distribucion-ecommerce.topic}
           group: createManualReturn.Central
         consumeCreateOrderNav-in-0:
           destination: ${azure.sb.topics.service-to-central.topic}
