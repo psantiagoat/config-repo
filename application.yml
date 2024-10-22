@@ -250,6 +250,7 @@ services:
       galgo-front-v1: http://desazure.byl.local/galgo-front-v1
       gateway-distribucion-api-v1: http://desazure.byl.local/gateway-distribucion-api-v1
       gateway-oms-logistica-api-v1: http://desazure.byl.local/gateway-oms-logistica-api-v1
+      gateway-oms-api-v1: http://desazure.byl.local/gateway-oms-api-v1
   expansion:
     interna:
       gateway-mkpl-api-v1: http://preazure.byl.local/gateway-marketplaces-api-v1
