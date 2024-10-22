@@ -91,6 +91,8 @@ webclient:
     endpoints:
       create-return-order: /order/return/create
       create-manual-return-order: /order/manual-return/create
+      create-order: /order/create
+      confirm-shipment: /order/confirm-shipment
     retry-attempts: 3
     retry-time: 10
   gateway-oms:
