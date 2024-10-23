@@ -11,6 +11,10 @@ app:
           create-return: createReturn
           create-manual-return: createManualReturn
 
+azure:
+  producer:
+    enabled: true
+
 byl:
   audit:
     enabled: false
