@@ -12,6 +12,8 @@ process:
       max-days: 7
 
 azure:
+  producer:
+    enabled: true
   sb:
     topics:
       service-to-central:
