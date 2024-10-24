@@ -1,19 +1,16 @@
-app:
-  azure:
-    service-bus:
-      ecommerce:
-        endpoint: sb://byl-core-dev.servicebus.windows.net/
-        sharedAccessKeyName: distribucion-ecommerce
-        sharedAccessKey: '{cipher}e1f75738d46606238e1b2d9ee6046edf067ce88ca40c086508b902e02884230f358d5b9f902a3a3d45c163452714808858932337d1a18e824176ee279cb1ff0d'
-        entityPath: distribucion.ecommerce
+azure:
+  producer:
+    enabled: true
+  sb:
+    topics:
+      distribucion-ecommerce:
+        keyName: distribucion-ecommerce
+        key: '{cipher}e1f75738d46606238e1b2d9ee6046edf067ce88ca40c086508b902e02884230f358d5b9f902a3a3d45c163452714808858932337d1a18e824176ee279cb1ff0d'
+        topic: distribucion.ecommerce
         labels:
           create-order: createOrder
           create-return: createReturn
           create-manual-return: createManualReturn
-
-azure:
-  producer:
-    enabled: true
 
 byl:
   audit:
