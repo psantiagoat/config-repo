@@ -25,6 +25,7 @@ webclient:
     endpoints:
       create-order: /executeFlow/ByLOrderCreationInSyncService
       get-page: /invoke/getPage
+      multi-api: /invoke/multiApi
   timeout-seconds: 10
   watson-commerce:
     auth:
