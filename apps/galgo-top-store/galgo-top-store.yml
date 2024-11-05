@@ -41,8 +41,8 @@ webclient:
       superfamily-sales: /store-sales/superfamily/{season}
       superfamily-stock: /store-sales/stock/superfamily/{season}
   galgo:
-    #base-path: ${services.distribucion.interna.galgo-back-api-v1}
-    base-path: http://localhost:8080/galgo-back-api-v1/
+    base-path: ${services.distribucion.interna.galgo-back-api-v1}
+    #base-path: http://localhost:8080/galgo-back-api-v1/
     retry-attempts: 3
     retry-time: 30
     page-size: 5000
