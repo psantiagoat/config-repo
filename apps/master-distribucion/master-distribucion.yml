@@ -36,5 +36,7 @@ webclient:
     endpoints:
       availability-network: /availabilities/network
       availability-node: /availabilities/node
+      delete-reservation: /reservations
+      create-reservation: /reservations/{id}
     retry-attempts: 3
     retry-time: 5
