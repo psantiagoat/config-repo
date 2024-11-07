@@ -34,7 +34,7 @@ webclient:
   oms-api:
     base-path: ${services.distribucion.interna.gateway-oms-api-v1}
     endpoints:
-      availability-network: /jobs/{id}
-      availability-node: /jobs/trigger/availability
+      availability-network: /availabilities/network
+      availability-node: /availabilities/node
     retry-attempts: 3
     retry-time: 5
