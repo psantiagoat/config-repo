@@ -140,6 +140,8 @@ webclient:
     endpoints:
       superfamilies: /superfamilies
       references: /references/{season}
+      references-sizes: /references/sizes
+      references-stock-sizes: /references/stock/sizes
       replenishment-departments: /replenishment/departments
       replenishment-items: /replenishment/items
       warehouse-stock: /references/warehouse-stock
