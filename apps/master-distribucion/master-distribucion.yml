@@ -40,3 +40,9 @@ webclient:
       delete-reservation: /reservations/{id}
     retry-attempts: 3
     retry-time: 5
+  galgo-back:
+    base-path: ${services.distribucion.interna.galgo-back-api-v1}
+    endpoints:
+      locations: /locations
+      top-store-confirmed: /top-store/confirmed
+      bets: /bets
