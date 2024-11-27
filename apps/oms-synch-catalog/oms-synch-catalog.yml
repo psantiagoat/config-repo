@@ -36,3 +36,26 @@ spring:
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+webclient:
+  max-in-memory-size: 10000000
+  distribucion:
+    retry-attemps: 7
+    retry-time: 60
+    base-path: ${services.distribucion.interna.gateway-distribucion-api-v1}
+    services:
+      catalog-by-season: /items/catalog-by-season
+      items: /items/item-variants
+  oms:
+    retry-attemps: 5
+    retry-time: 10
+    tenant: '{cipher}83d89f69899cc742fef51bb36e1561856f2195af82f5c16493b8c999464ffd6c'
+    oauth:
+      client-id: VX70AqA4MGuFfB530DmfCNr9QokhdfFM
+      client-secret: '{cipher}58025dc0788227423810cfc69e3a749ae604548378eaab6efcf4c1b57f8340d97cbdb9b53f4fc384cd9f90176c5ce94dce8f608a39ede094ddf64b813bbbf118'
+    base-path:
+      catalog: https://api.watsoncommerce.ibm.com/catalog/${webclient.oms.tenant}/v1
+      configuration: https://api.watsoncommerce.ibm.com/configuration/${webclient.oms.tenant}/v1
+    services:
+      items: /items
+      oauth: /oauth2/token
