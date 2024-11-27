@@ -55,7 +55,6 @@ webclient:
       client-secret: '{cipher}58025dc0788227423810cfc69e3a749ae604548378eaab6efcf4c1b57f8340d97cbdb9b53f4fc384cd9f90176c5ce94dce8f608a39ede094ddf64b813bbbf118'
     base-path:
       catalog: https://api.watsoncommerce.ibm.com/catalog/${webclient.oms.tenant}/v1
-      configuration: https://api.watsoncommerce.ibm.com/configuration/${webclient.oms.tenant}/v1
     services:
       items: /items
       oauth: /oauth2/token
