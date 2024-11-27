@@ -23,13 +23,6 @@ project:
     delivery-timeout: 20000
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     queue: BYL_DOM_IN_CATALOG_Q
-  # API distribucion
-  distribucion:
-    api:
-      host: ${services.distribucion.interna.gateway-distribucion-api-v1}
-      endpoints:
-        items: /items/item-variants
-        catalog-by-season: /items/catalog-by-season
   num-items-per-message: 1
 
 spring:
