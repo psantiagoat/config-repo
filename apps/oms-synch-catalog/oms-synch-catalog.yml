@@ -24,6 +24,8 @@ project:
     cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
     queue: BYL_DOM_IN_CATALOG_Q
   num-items-per-message: 1
+  items-page-size: 100
+
 
 spring:
   autoconfigure:
