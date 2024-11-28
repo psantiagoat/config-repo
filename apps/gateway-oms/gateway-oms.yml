@@ -41,3 +41,7 @@ webclient:
         job-trigger: /v2/configuration/events/dgAvailabilitySnapshot.v2/publish_all
         oauth: /v1/oauth2/token
         reservations: /v2/reservations
+    catalog:
+      base-path: https://api.watsoncommerce.ibm.com/catalog/${webclient.watson-commerce.tenant}
+      endpoints:
+        items: /v1/items
