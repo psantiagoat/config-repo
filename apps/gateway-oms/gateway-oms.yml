@@ -19,7 +19,7 @@ webclient:
   retry-time: 10
   supply-chain:
     auth:
-      user: '{cipher}6f9468b91dd76592bce565e687c15fabfb114956a58b51a8b9228057fb65faad'
+      user: admin
       pass: '{cipher}22c57426d64d10bb7514f4e7e68eea333d2a517bb49eb79c97883092cbcfc3a2'
     base-path: https://bylla-preprod-1.oms.supply-chain.ibm.com/smcfs/restapi
     endpoints:
@@ -29,7 +29,7 @@ webclient:
   timeout-seconds: 10
   watson-commerce:
     auth:
-      client-id: '{cipher}6c8fddcaeb2c7033d3bd2290e7f5899e99921c582a360aff7e7ff7c1866e14f27ba6a41e3d4b26dc25bd310de76db6bb27bb54acb055633f5e8a2d8b8e13dca0'
+      client-id: XxXZCeH0dGepgI4Dc501i1JEwxUzf8Xm
       client-secret: '{cipher}74f4fc26d99a9e18cd8180c553298576d0454299f648e2b717d7d20f487f0a8149dbf45488344a0674f984774915b44fc4ef4fe5399f8cb76ba855ecb61edeb0'
     tenant: '{cipher}05f85b8159e41fa476c525cd852c11330bc2c7d55d86b8331c0a356ef772f8a9'
     inventory:
