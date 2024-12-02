@@ -1,3 +1,34 @@
+byl:
+  batch:
+    control:
+      enabled: true
+      azure-connection-id: distribucion
+      dependencies:
+        SYNCH_INVENTORY_FULL:
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY
+            action: WAIT
+          - batch: oms-synch-order-status
+            command: SYNCH_ORDER_STATUS
+            action: WAIT
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY_PARTIAL_FULL
+            action: WAIT
+        SYNCH_INVENTORY:
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY_FULL
+            action: CANCEL
+        SYNCH_INVENTORY_PARTIAL_FULL:
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY
+            action: WAIT
+          - batch: oms-synch-order-status
+            command: SYNCH_ORDER_STATUS
+            action: WAIT
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY_FULL
+            action: CANCEL
+
 command:
   name: configuracionComandos
   commands:
@@ -10,10 +41,6 @@ command:
     - name: UNLOCK_EXECUTION
       bean-name: unlockExecutionCommand
 
-spring:
-  profiles:
-    active: ${SHORT_ENV}
-
 process:
   config:
     distribucion-page-size: 50000
@@ -21,31 +48,6 @@ process:
     log-inventory-data: true
     single-season: true
     wait-time: 60
-    dependencies:
-      SYNCH_INVENTORY_FULL:
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY
-          action: WAIT
-        - batch: oms-synch-order-status
-          command: SYNCH_ORDER_STATUS
-          action: WAIT
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY_PARTIAL_FULL
-          action: WAIT
-      SYNCH_INVENTORY:
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY_FULL
-          action: CANCEL
-      SYNCH_INVENTORY_PARTIAL_FULL:
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY
-          action: WAIT
-        - batch: oms-synch-order-status
-          command: SYNCH_ORDER_STATUS
-          action: WAIT
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY_FULL
-          action: CANCEL
 
 webclient:
   max-in-memory-size: 10000000
@@ -80,12 +82,8 @@ azure:
     enabled: false
     accounts:
       distribucion:
-        account-id: distribucion
+        name: tskfdistribuciondev
+        key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
         tables:
           sync-references: SyncReferences
           batch-status: BatchStatus
-    config:
-      accounts:
-        distribucion:
-          name: tskfdistribuciondev
-          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
