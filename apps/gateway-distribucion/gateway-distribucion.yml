@@ -123,9 +123,11 @@ webclient:
     base-path: https://api.powerbi.com/v1.0/myorg
     endpoints:
       execute-query: /datasets/{dataset}/executeQueries
+      insert-rows: /datasets/{dataset}/tables/{table}/rows
     datasets:
       sales: 5be4a082-7828-4ef6-915b-c22a35825f46
       # operations: a3e70bc7-7a3a-4cb2-980f-14287f86904a
       # TODO tabular de pro temporalmente
       operations: d10c07e7-76e3-476f-b4e6-6c1a8316b116
       shipping-reports: dc017960-a091-4ba5-81d8-cb6a8941953e
+      order-reports: 2898a316-ad08-4ce2-a7cb-ee008c3a78b1
