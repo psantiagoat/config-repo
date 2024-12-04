@@ -1,44 +1,3 @@
-command:
-  name: configuracionComandos
-  commands:
-    - name: SYNCH_ORDER_STATUS
-      bean-name: synchOrderStatusCommand
-    - name: UNLOCK_EXECUTION
-      bean-name: unlockExecutionCommand
-
-process:
-  config:
-    distribucion-page-size: 500
-    dependencies:
-      SYNCH_ORDER_STATUS:
-        - batch: oms-synch-inventory
-          command: SYNCH_INVENTORY_FULL
-          action: CANCEL
-
-spring:
-  profiles:
-    active: ${SHORT_ENV}
-
-webclient:
-  max-in-memory-size: 10000000
-  distribucion:
-    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
-    services:
-      synch-order-status: /order/synch/status
-      max-references: /inventory/maxReferences
-
-
-project:
-  mq:
-    host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
-    port: 15443
-    queue-manager: OM_QMGR
-    channel: SYSTEM.TLS.SVRCONN
-    receive-timeout: 20000
-    cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-    queue:
-      confirm-shipment-in: BYL_CONFIRM_SHIPMENT_IN
-
 azure:
   storage:
     enabled: false
@@ -52,4 +11,49 @@ azure:
       accounts:
         distribucion:
           name: tskfdistribuciondev
-          key: 20XF+PYutl64nWLO3Rgh3tgN6NQhIlHOUrXccA/E5/8GWWBAWfpWVA00hgLBvxaVTeUJ55o8vqQb+AStMYqLxA==
+          key: '{cipher}55d62789a2981eedb4eb0959bb97cf5844ee24e9b21f076ab2ba7609a6af940b0c6d0696fdc5a14f51ec21e9ba6766757bf3e1cca4b8d5c97e7370f103f6b49b88e90cf54238ba4a4ad48a4bc5d96c1643dc2995d5db92071677d2d84f83e07213b0c27eccc2080ee7354f974d1867ba'
+
+byl:
+  batch:
+    control:
+      enabled: true
+      azure-connection-id: distribucion
+      dependencies:
+        SYNCH_ORDER_STATUS:
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY_FULL
+            action: CANCEL
+          - batch: oms-synch-inventory
+            command: SYNCH_INVENTORY_PARTIAL_FULL
+            action: CANCEL
+
+command:
+  name: configuracionComandos
+  commands:
+    - name: SYNCH_ORDER_STATUS
+      bean-name: synchOrderStatusCommand
+    - name: UNLOCK_EXECUTION
+      bean-name: unlockExecutionCommand
+
+process:
+  config:
+    distribucion-page-size: 500
+
+project:
+  mq:
+    host: 'bylla-dev-1-mq.oms.supply-chain.ibm.com'
+    port: 15443
+    queue-manager: OM_QMGR
+    channel: SYSTEM.TLS.SVRCONN
+    receive-timeout: 20000
+    cypher: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    queue:
+      confirm-shipment-in: BYL_CONFIRM_SHIPMENT_IN
+
+webclient:
+  max-in-memory-size: 10000000
+  distribucion:
+    base-path: http://desazure.byl.local/gateway-distribucion-api-v1
+    services:
+      synch-order-status: /orders/synch/status
+      max-references: /inventory/maxReferences
