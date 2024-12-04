@@ -59,6 +59,11 @@ process:
     single-season: true
     wait-time: 60
 
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
 webclient:
   max-in-memory-size: 10000000
   distribucion:
