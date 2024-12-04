@@ -1,6 +1,6 @@
 azure:
   storage:
-    enabled: false
+    enabled: true
     accounts:
       distribucion:
         name: tskfdistribuciondev
