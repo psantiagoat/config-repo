@@ -20,7 +20,7 @@ webclient:
   supply-chain:
     auth:
       user: 'BYLOMSARQ'
-      pass: '{cipher}a8ae4b090b250f2b826f84f6f06e76a2a99f0341cd787f34a91fb6308eba4694538bcfc953af33ca0d41d68b8083b63b'
+      pass: StjQ%wPA8wh8H$FY
     base-path: https://bylla-prod-1.oms.supply-chain.ibm.com/smcfs/restapi
     endpoints:
       create-order: /executeFlow/ByLOrderCreationInSyncService
@@ -30,8 +30,8 @@ webclient:
   watson-commerce:
     auth:
       client-id: rBFOD96rZuaOyOjobXI316LWGZD0V6Xg
-      client-secret: '{cipher}4bdbb0671613bd3c762c210d3c6879164635e5802b062a07d6f1836302cb019e15cd35e294ba81023c84e53b319cd2981b750886ed4a066eab352fdf63afdabb'
-    tenant: '{cipher}ccd07028fabd6669dfc566e1b74b554d1ff40c64b5c400fb656468c5ecde2a90'
+      client-secret: LzYvlkAkBNetIm6j8Ck4Cw2IDCuEzugT
+    tenant: eu-cf575537
     inventory:
       base-path: https://api.watsoncommerce.ibm.com/inventory/${webclient.watson-commerce.tenant}
       endpoints:
