@@ -75,7 +75,7 @@ webclient:
       top-ref-entries-changes: /top-references/entries/changes/search
       top-ref-entries-auto-approve: /top-references/entries/changes/auto-approve
       top-store-auto-approve: /top-store/changes/{season}/auto-approve
-      top-store-changes: /top-store/changes/search/{season}
+      top-store-changes: /top-store/changes/search
       top-store-detail: /top-store/{season}/{dataStatus}
       sales-config: /ranking/sales-config
       save-arrivals: /top-references/arrivals
