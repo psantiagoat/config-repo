@@ -124,10 +124,10 @@ spring:
     password: '{cipher}02ad8f06602d7853ee283f810ddc82a4b7777bf8a52f3ce0f63c12d431c69200'
     driverClassName: com.mysql.cj.jdbc.Driver
     poolName: HikariCP-Principal
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+      #jpa:
+      #properties:
+      #hibernate:
+    #dialect: org.hibernate.dialect.MySQLDialect
   servlet:
     multipart:
       max-file-size: 10MB
