@@ -119,14 +119,14 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-des?useSSL=true&rewriteBatchedStatements=true&clientCertificateKeyStoreUrl=file:/tmp/mysql-keystore.jks&clientCertificateKeyStorePassword=passw0rd
-    username: galgo
+    url: jdbc:mysql://azdistributiondesmysql.mysql.database.azure.com:3306/galgo-pre?useSSL=true&rewriteBatchedStatements=true&clientCertificateKeyStoreUrl=file:/tmp/mysql-keystore.jks&clientCertificateKeyStorePassword=passw0rd
+    username: galgo-pre
     password: '{cipher}02ad8f06602d7853ee283f810ddc82a4b7777bf8a52f3ce0f63c12d431c69200'
     driverClassName: com.mysql.cj.jdbc.Driver
     poolName: HikariCP-Principal
       #jpa:
       #properties:
-      #hibernate:
+    #hibernate:
     #dialect: org.hibernate.dialect.MySQLDialect
   servlet:
     multipart:
